@@ -1,0 +1,36 @@
+{
+  "name": "alyssa-butler-portfolio",
+  "description": "Alyssa Butler Portfolio",
+  "version": "1.0.0",
+  "author": "Alyssa Butler",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^1.3.1",
+    "@material-ui/icons": "^2.0.0-beta.1",
+    "babel": "^6.23.0",
+    "gatsby": "^2.0.0-beta.19",
+    "gatsby-plugin-feed": "^1.3.25",
+    "gatsby-plugin-google-analytics": "^1.0.31",
+    "gatsby-plugin-manifest": "^1.0.27",
+    "gatsby-plugin-offline": "^1.0.18",
+    "jss": "^9.0.0-pre.4",
+    "prop-types": "^15.5.7-alpha.1",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-jss": "^7.0.0-pre.2"
+  },
+  "homepage": "https://github.com/cabutler10",
+  "keywords": [
+    "alyssabutler"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cabutler10"
+  },
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "gatsby build"
+  }
+}
