@@ -4,7 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 import withRoot from "../withRoot";
 import Typography from "@material-ui/core/Typography";
 import CodeIcon from "@material-ui/icons/Code";
-import TimelineIcon from "@material-ui/icons/Timeline";
+import ShowchartIcon from "@material-ui/icons/ShowChart";
 import UploadIcon from "@material-ui/icons/CloudUpload";
 
 const styles = theme => ({
@@ -63,7 +63,7 @@ class Interests extends Component {
         </Typography>
         <div className={classes.flex}>
           <div className={classes.box}>
-            <TimelineIcon className={classes.icons} />
+            <ShowchartIcon className={classes.icons} />
             <Typography
               variant="title"
               color="primary"
