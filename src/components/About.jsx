@@ -127,6 +127,7 @@ class About extends Component {
               className={classes.button}
               href="https://www.linkedin.com/in/alyssa-butler-b77054ab/"
               target="_blank"
+              rel="noopener"
             >
               <img src={linkedinIcon} className={classes.icon} alt="" />
             </Button>
@@ -137,6 +138,7 @@ class About extends Component {
               className={classes.button}
               href="https://github.com/cabutler10"
               target="_blank"
+              rel="noopener"
             >
               <img src={gitIcon} className={classes.icon} alt="" />
             </Button>
@@ -147,6 +149,7 @@ class About extends Component {
               className={classes.button}
               href="https://www.instagram.com/cabutler10/"
               target="_blank"
+              rel="noopener"
             >
               <img src={instagramIcon} className={classes.icon} alt="" />
             </Button>
