@@ -12,6 +12,8 @@
     "gatsby-plugin-feed": "^1.3.25",
     "gatsby-plugin-google-analytics": "^1.0.31",
     "gatsby-plugin-manifest": "^1.0.27",
+    "gatsby-plugin-netlify": "^2.0.0-beta.3",
+    "gatsby-plugin-netlify-cache": "^0.1.0",
     "gatsby-plugin-offline": "^1.0.18",
     "jss": "^9.0.0-pre.4",
     "prop-types": "^15.5.7-alpha.1",
