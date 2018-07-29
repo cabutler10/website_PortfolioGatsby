@@ -1,11 +1,15 @@
 /* eslint-disable react/no-danger */
 
-import React from 'react';
-import { renderToString } from 'react-dom/server';
-import { JssProvider } from 'react-jss';
-import getPageContext from './src/getPageContext';
+const React = require("react");
+const { renderToString } = require("react-dom/server");
+const { JssProvider } = require("react-jss");
+const { getPageContext } = require("./src/getPageContext");
 
-exports.replaceRenderer = ({ bodyComponent, replaceBodyHTMLString, setHeadComponents }) => {
+exports.replaceRenderer = ({
+  bodyComponent,
+  replaceBodyHTMLString,
+  setHeadComponents
+}) => {
   // Get the context of the page to collected side effects.
   const pageContext = getPageContext();
 
@@ -15,9 +19,9 @@ exports.replaceRenderer = ({ bodyComponent, replaceBodyHTMLString, setHeadCompon
       generateClassName={pageContext.generateClassName}
     >
       {React.cloneElement(bodyComponent, {
-        pageContext,
+        pageContext
       })}
-    </JssProvider>,
+    </JssProvider>
   );
 
   replaceBodyHTMLString(bodyHTML);
@@ -26,7 +30,9 @@ exports.replaceRenderer = ({ bodyComponent, replaceBodyHTMLString, setHeadCompon
       type="text/css"
       id="server-side-jss"
       key="server-side-jss"
-      dangerouslySetInnerHTML={{ __html: pageContext.sheetsRegistry.toString() }}
-    />,
+      dangerouslySetInnerHTML={{
+        __html: pageContext.sheetsRegistry.toString()
+      }}
+    />
   ]);
 };
