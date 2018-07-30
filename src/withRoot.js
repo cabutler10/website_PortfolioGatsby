@@ -17,8 +17,6 @@ function withRoot(Component) {
     }
 
     componentDidMount() {
-      // Remove the server-side injected CSS.
-      // https://material-ui.com/guides/server-rendering/#the-client-side
       const jssStyles = document.querySelector("#server-side-jss");
       if (jssStyles && jssStyles.parentNode) {
         jssStyles.parentNode.removeChild(jssStyles);
