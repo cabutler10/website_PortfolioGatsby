@@ -4,7 +4,7 @@ import { MuiThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import getPageContext from "./getPageContext";
 
-import "./theme/app.css";
+import "./theme/App.css";
 
 function withRoot(Component) {
   class WithRoot extends React.Component {
