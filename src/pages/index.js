@@ -6,11 +6,6 @@ import About from "../components/About";
 import Resume from "../components/Resume";
 import Footer from "../components/Footer";
 import withRoot from "../withRoot";
-import { withStyles } from "@material-ui/core/styles";
-
-const styles = theme => ({
-  root: {}
-});
 
 class Index extends Component {
   state = {
@@ -45,4 +40,4 @@ class Index extends Component {
   }
 }
 
-export default withRoot(withStyles(styles)(Index));
+export default withRoot(Index);
