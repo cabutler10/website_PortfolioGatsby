@@ -14,14 +14,14 @@ function withRoot(Component) {
       this.pageContext = this.props.pageContext || getPageContext();
     }
 
-    // componentDidMount() {
-    //   // Remove the server-side injected CSS.
-    //   const jssStyles = document.querySelector("#server-side-jss");
-    //   if (jssStyles && jssStyles.parentNode) {
-    //     jssStyles.parentNode.removeChild(jssStyles);
-    //   }
-    // }
-    pageContext = null;
+    componentDidMount() {
+      // Remove the server-side injected CSS.
+      // https://material-ui.com/guides/server-rendering/#the-client-side
+      const jssStyles = document.querySelector("#server-side-jss");
+      if (jssStyles && jssStyles.parentNode) {
+        jssStyles.parentNode.removeChild(jssStyles);
+      }
+    }
 
     render() {
       // MuiThemeProvider makes the theme available down the React tree thanks to React context.
