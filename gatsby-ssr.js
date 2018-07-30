@@ -1,9 +1,10 @@
 /* eslint-disable react/no-danger */
-
 const React = require("react");
 const { renderToString } = require("react-dom/server");
 const { JssProvider } = require("react-jss");
 const { getPageContext } = require("./src/getPageContext");
+
+//This file was taken from offical MUI docs for integration with gatsby
 
 exports.replaceRenderer = ({
   bodyComponent,
