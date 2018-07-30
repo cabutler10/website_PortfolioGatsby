@@ -1,10 +1,3 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- * Guide: https://material-ui.com/guides/server-rendering
- * NOTE
- * - use require, imports do not work properly
- *   (see https://github.com/gatsbyjs/gatsby/issues/2116#issuecomment-402591618)
-
 /* eslint-disable react/no-danger */
 const React = require("react");
 const { renderToString } = require("react-dom/server");
