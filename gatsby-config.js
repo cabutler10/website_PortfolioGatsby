@@ -29,8 +29,15 @@ module.exports = {
         icon: "src/images/icon.png" // This path is relative to the root of the site.
       }
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/src/pages`
+      }
+    },
     `gatsby-plugin-offline`,
     `gatsby-plugin-netlify`,
-    `gatsby-plugin-netlify-cache`,
+    `gatsby-plugin-netlify-cache`
   ]
 };
