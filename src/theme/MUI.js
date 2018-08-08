@@ -1,4 +1,5 @@
 import { createMuiTheme } from "@material-ui/core/styles";
+import "typeface-open-sans";
 import "./App.css";
 
 const pink = "#FFE9E3";

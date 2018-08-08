@@ -5,6 +5,7 @@ import Interests from "../components/Interests";
 import About from "../components/About";
 import Resume from "../components/Resume";
 import Footer from "../components/Footer";
+import Layout from "../layouts/layout";
 
 class Index extends Component {
   state = {
