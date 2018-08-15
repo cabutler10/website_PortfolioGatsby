@@ -4,7 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 import withRoot from "../withRoot";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import backsplash from "../images/background.jpg";
+import backsplash from "../images/backgroundTemp.jpg";
 import SvgIcon from "@material-ui/core/SvgIcon";
 
 const styles = theme => ({
@@ -114,8 +114,9 @@ class Splash extends Component {
             color="textSecondary"
             className={classes.bold}
           >
-            <span className={classes.big}>A</span>LYSSA{" "}
-            <span className={classes.big}>B</span>UTLER
+            <span className={classes.big}>A</span>
+            LYSSA <span className={classes.big}>B</span>
+            UTLER
           </Typography>
           <Typography
             variant="subheading"

@@ -9,14 +9,21 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/src/pages`
+      }
+    },
+    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: config.siteGATrackingID
       }
     },
-    // {
-    //   resolve: `gatsby-plugin-feed`
-    // },
+    {
+      resolve: `gatsby-plugin-feed`
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -31,6 +38,6 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-netlify`,
-    `gatsby-plugin-netlify-cache`,
+    `gatsby-plugin-netlify-cache`
   ]
 };

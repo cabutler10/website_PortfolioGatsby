@@ -5,7 +5,7 @@ import Interests from "../components/Interests";
 import About from "../components/About";
 import Resume from "../components/Resume";
 import Footer from "../components/Footer";
-import withRoot from "../withRoot";
+import Layout from "../layouts/layout";
 
 class Index extends Component {
   state = {
@@ -20,7 +20,7 @@ class Index extends Component {
     const { page } = this.state;
 
     return (
-      <div>
+      <Layout>
         <Header handlePageChange={this.handlePageChange} />
         {page === "home" && (
           <Fragment>
@@ -35,9 +35,9 @@ class Index extends Component {
           </Fragment>
         )}
         <Footer />
-      </div>
+      </Layout>
     );
   }
 }
 
-export default withRoot(Index);
+export default Index;

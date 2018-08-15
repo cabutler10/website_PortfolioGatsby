@@ -3,7 +3,7 @@ module.exports = {
   author: "Alyssa Butler",
   siteTitleShort: "ABportfolio", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
   siteTitleAlt: "Alyssa Butler Portfolio", // Alternative site title for SEO.
-  siteLogo: "/logos/logo-1024.png", // Logo used for SEO and manifest.
+  siteLogo: "/images/icon.png", // Logo used for SEO and manifest.
   siteUrl: "https://butlerstudies.com", // Domain of your website without pathPrefix.
   pathPrefix: "/abportfolio", // Prefixes all links. For cases when deployed to example.github.io/gatsby-material-starter/.
   siteDescription: "A personal website of my work.", // Website description used for RSS feeds/meta description tag.
