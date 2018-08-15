@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: config.siteTitle,
     author: config.author,
-    description: config.description,
+    description: config.siteDescription,
     siteUrl: config.siteUrl
   },
   plugins: [
@@ -30,9 +30,9 @@ module.exports = {
         trackingId: config.siteGATrackingID
       }
     },
-    {
-      resolve: `gatsby-plugin-feed`
-    },
+    // {
+    //   resolve: `gatsby-plugin-feed`
+    // },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
