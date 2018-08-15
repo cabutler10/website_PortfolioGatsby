@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+
 import { withStyles } from "@material-ui/core/styles";
 import withRoot from "../withRoot";
 import Typography from "@material-ui/core/Typography";
 import Hidden from "@material-ui/core/Hidden";
 import Button from "@material-ui/core/Button";
-import headshot from "../images//profile.jpg";
 import SvgIcon from "@material-ui/core/SvgIcon";
+
+import Img from "gatsby-image";
+import headshot from "../images//profile.jpg";
 
 const styles = theme => ({
   root: {
@@ -107,7 +110,7 @@ function InstagramIcon(props) {
 
 class About extends Component {
   render() {
-    let { classes } = this.props;
+    let { img, classes } = this.props;
     return (
       <div className={classes.root}>
         <Hidden mdUp>
@@ -119,7 +122,8 @@ class About extends Component {
             About
           </Typography>
         </Hidden>
-        <img src={headshot} className={classes.img} alt="" />
+        {/* <img src={headshot} className={classes.img} alt="" /> */}
+        <Img sizes={img.sizes} className={classes.img} alt="" />
 
         <div className={classes.col}>
           <Hidden smDown>

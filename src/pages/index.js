@@ -17,16 +17,20 @@ class Index extends Component {
   };
 
   render() {
+    const { data } = this.props;
     const { page } = this.state;
 
     return (
       <Layout>
-        <Header handlePageChange={this.handlePageChange} />
+        <Header
+          handlePageChange={this.handlePageChange}
+          img={data.backgroundImage}
+        />
         {page === "home" && (
           <Fragment>
             <Splash />
             <Interests />
-            <About />
+            <About img={data.profileImage} />
           </Fragment>
         )}
         {page === "resume" && (
@@ -41,3 +45,20 @@ class Index extends Component {
 }
 
 export default Index;
+
+export const pageQuery = graphql`
+  query ProfileImageQuery {
+    profileImage: imageSharp(id: { regex: "/profile/" }) {
+      sizes(maxWidth: 1240) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+  }
+  query BackgroundImageQuery {
+    backgroundImage: imageSharp(id: { regex: "/background/" }) {
+      sizes(maxWidth: 1240) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+  }
+`;
