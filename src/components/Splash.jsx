@@ -1,18 +1,19 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import Img from "gatsby-image";
+
 import { withStyles } from "@material-ui/core/styles";
 import withRoot from "../withRoot";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import backsplash from "../images/backgroundTemp.jpg";
 import SvgIcon from "@material-ui/core/SvgIcon";
 
 const styles = theme => ({
   root: {
     height: 300,
-    backgroundImage: `url(${backsplash})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
+    // backgroundImage: `url(${backsplash})`,
+    // backgroundSize: "cover",
+    // backgroundPosition: "center",
     display: "flex",
     alignItems: "center",
     [theme.breakpoints.up("md")]: {
@@ -72,6 +73,9 @@ const styles = theme => ({
     width: 24,
     height: 24,
     fill: theme.status.greyDk
+  },
+  img: {
+    width: "100%"
   }
 });
 
@@ -98,75 +102,9 @@ function InstagramIcon(props) {
 }
 class Splash extends Component {
   render() {
-    let { classes } = this.props;
-    return (
-      <div className={classes.root}>
-        <div className={classes.border}>
-          <Typography
-            variant="subheading"
-            color="textSecondary"
-            className={classes.text}
-          >
-            Hello, I am
-          </Typography>
-          <Typography
-            variant="display2"
-            color="textSecondary"
-            className={classes.bold}
-          >
-            <span className={classes.big}>A</span>
-            LYSSA <span className={classes.big}>B</span>
-            UTLER
-          </Typography>
-          <Typography
-            variant="subheading"
-            color="textSecondary"
-            className={classes.text}
-          >
-            DATA SCIENTIST & FRONTEND DEVELOPER
-          </Typography>
-          <Button
-            color="primary"
-            variant="raised"
-            aria-label="linkedin"
-            className={classes.button}
-            href="https://www.linkedin.com/in/alyssa-butler-b77054ab/"
-            target="_blank"
-            rel="noopener"
-            disableFocusRipple
-            disableRipple
-          >
-            <LinkedinIcon className={classes.icon} />
-          </Button>
-          <Button
-            color="primary"
-            variant="raised"
-            aria-label="github"
-            className={classes.button}
-            href="https://github.com/cabutler10"
-            target="_blank"
-            rel="noopener"
-            disableFocusRipple
-            disableRipple
-          >
-            <GitIcon className={classes.icon} />
-          </Button>
-          <Button
-            color="primary"
-            variant="raised"
-            aria-label="instagram"
-            className={classes.button}
-            href="https://www.instagram.com/cabutler10/"
-            target="_blank"
-            rel="noopener"
-            disableFocusRipple
-            disableRipple
-          >
-            <InstagramIcon className={classes.icon} />
-          </Button>
-        </div>
-      </div>
-    );
+    let { img, classes } = this.props;
+
+    return <Img fluid={img.node.fluid} className={classes.img} alt="" />;
   }
 }
 
@@ -175,3 +113,73 @@ Splash.propTypes = {
 };
 
 export default withRoot(withStyles(styles)(Splash));
+
+{
+  /* <div className={classes.root}>
+<Img fluid={img.node.fluid} className={classes.img} alt="" />
+<div className={classes.border}>
+  <Typography
+    variant="subheading"
+    color="textSecondary"
+    className={classes.text}
+  >
+    Hello, I am
+  </Typography>
+  <Typography
+    variant="display2"
+    color="textSecondary"
+    className={classes.bold}
+  >
+    <span className={classes.big}>A</span>
+    LYSSA <span className={classes.big}>B</span>
+    UTLER
+  </Typography>
+  <Typography
+    variant="subheading"
+    color="textSecondary"
+    className={classes.text}
+  >
+    DATA SCIENTIST & FRONTEND DEVELOPER
+  </Typography>
+  <Button
+    color="primary"
+    variant="raised"
+    aria-label="linkedin"
+    className={classes.button}
+    href="https://www.linkedin.com/in/alyssa-butler-b77054ab/"
+    target="_blank"
+    rel="noopener"
+    disableFocusRipple
+    disableRipple
+  >
+    <LinkedinIcon className={classes.icon} />
+  </Button>
+  <Button
+    color="primary"
+    variant="raised"
+    aria-label="github"
+    className={classes.button}
+    href="https://github.com/cabutler10"
+    target="_blank"
+    rel="noopener"
+    disableFocusRipple
+    disableRipple
+  >
+    <GitIcon className={classes.icon} />
+  </Button>
+  <Button
+    color="primary"
+    variant="raised"
+    aria-label="instagram"
+    className={classes.button}
+    href="https://www.instagram.com/cabutler10/"
+    target="_blank"
+    rel="noopener"
+    disableFocusRipple
+    disableRipple
+  >
+    <InstagramIcon className={classes.icon} />
+  </Button>
+</div> 
+</div> */
+}

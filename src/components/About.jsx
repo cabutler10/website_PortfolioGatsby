@@ -9,7 +9,6 @@ import Button from "@material-ui/core/Button";
 import SvgIcon from "@material-ui/core/SvgIcon";
 
 import Img from "gatsby-image";
-import headshot from "../images//profile.jpg";
 
 const styles = theme => ({
   root: {
@@ -122,8 +121,7 @@ class About extends Component {
             About
           </Typography>
         </Hidden>
-        {/* <img src={headshot} className={classes.img} alt="" /> */}
-        <Img sizes={img.sizes} className={classes.img} alt="" />
+        <Img fluid={img.node.fluid} className={classes.img} alt="" />
 
         <div className={classes.col}>
           <Hidden smDown>
