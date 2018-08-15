@@ -9,14 +9,21 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/src/pages`
+      }
+    },
+    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: config.siteGATrackingID
       }
     },
-    // {
-    //   resolve: `gatsby-plugin-feed`
-    // },
+    {
+      resolve: `gatsby-plugin-feed`
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -27,13 +34,6 @@ module.exports = {
         theme_color: "#FFE9E3",
         display: "minimal-ui",
         icon: "src/images/icon.png" // This path is relative to the root of the site.
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `src`,
-        path: `${__dirname}/src/pages`
       }
     },
     `gatsby-plugin-offline`,
