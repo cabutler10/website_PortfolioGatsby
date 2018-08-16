@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 
+import classnames from "classnames"
 import { withStyles } from "@material-ui/core/styles";
 import withRoot from "../withRoot";
 import AppBar from "@material-ui/core/AppBar";
@@ -25,25 +26,44 @@ const styles = theme => ({
   },
   appbar: {
     boxShadow: "none",
-    backgroundColor: theme.status.greyLt
+  },
+  appbarPages:{
+    backgroundColor: theme.status.greyLt,
+  },
+  appbarIndex:{
+    backgroundColor: "transparent"
   }
 });
 
 class Header extends Component {
   state = {
-    isOpen: false
+    isOpen: false,
+    windowGlobal: undefined
   };
+
+  componentDidMount() {
+    const windowGlobal = typeof window !== "undefined" && window;
+    this.setState({
+      windowGlobal
+    });
+  }
+
   handleDrawer = () => {
     this.setState({
       isOpen: !this.state.isOpen
     });
   };
+
   render() {
     const { classes } = this.props;
     const links = ["/", "/Resume/"]; //"porfolio","photo","contact"
     const linkLabels = ["home", "resume"];
+    const { windowGlobal } = this.state;
+    const location = windowGlobal
+      ? windowGlobal.location
+      : { pathname: "/", hash: "" };
     return (
-      <AppBar position="static" className={classes.appbar}>
+      <AppBar position="static" className={classnames(classes.appbar,location.pathname === "/" ? classes.appbarIndex : classes.appbarPages)}>
         <Toolbar
           classes={{
             root: classes.toolbarRoot,

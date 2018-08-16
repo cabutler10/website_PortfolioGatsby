@@ -121,7 +121,7 @@ class About extends Component {
           </Typography>
           <span className={classes.buttonContainer}>
             <Button
-              color="primary"
+              color="secondary"
               variant="raised"
               aria-label="linkedin"
               className={classes.button}
@@ -134,7 +134,7 @@ class About extends Component {
               <LinkedinIcon className={classes.icon} color="secondary" />
             </Button>
             <Button
-              color="primary"
+              color="secondary"
               variant="raised"
               aria-label="github"
               className={classes.button}
@@ -147,7 +147,7 @@ class About extends Component {
               <GithubIcon className={classes.icon} color="secondary" />
             </Button>
             <Button
-              color="primary"
+              color="secondary"
               variant="raised"
               aria-label="instagram"
               className={classes.button}
