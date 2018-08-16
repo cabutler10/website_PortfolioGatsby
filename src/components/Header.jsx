@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Link } from "gatsby";
+
 import { withStyles } from "@material-ui/core/styles";
 import withRoot from "../withRoot";
 import AppBar from "@material-ui/core/AppBar";
@@ -10,6 +12,7 @@ import Hidden from "@material-ui/core/Hidden";
 import IconButton from "@material-ui/core/IconButton";
 import Drawer from "@material-ui/core/Drawer";
 import MenuIcon from "@material-ui/icons/Menu";
+
 import MobileHeaderList from "./MobileHeader";
 
 const styles = theme => ({
@@ -36,8 +39,9 @@ class Header extends Component {
     });
   };
   render() {
-    const { handlePageChange, classes } = this.props;
-    const links = ["home", "resume"]; //"porfolio","photo","contact"
+    const { classes } = this.props;
+    const links = ["/", "/Resume/"]; //"porfolio","photo","contact"
+    const linkLabels = ["home", "resume"];
     return (
       <AppBar position="static" className={classes.appbar}>
         <Toolbar
@@ -68,25 +72,16 @@ class Header extends Component {
                 onClick={this.handleDrawer}
                 onKeyDown={this.handleDrawer}
               >
-                <MobileHeaderList
-                  links={links}
-                  handlePageChange={handlePageChange}
-                />
+                <MobileHeaderList links={links} linkLabels={linkLabels} />
               </div>
             </Drawer>
           </Hidden>
           <Hidden smDown>
             <span>
               {links.map((link, idx) => (
-                <Button
-                  key={`link_${link}`}
-                  className={classes.button}
-                  onClick={() => {
-                    handlePageChange(link);
-                  }}
-                >
-                  {link}
-                </Button>
+                <Link to={link} key={`link_${link}`}>
+                  <Button className={classes.button}>{linkLabels[idx]}</Button>
+                </Link>
               ))}
             </span>
           </Hidden>
@@ -97,8 +92,7 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  classes: PropTypes.object.isRequired,
-  handlePageChange: PropTypes.func.isRequired
+  classes: PropTypes.object.isRequired
 };
 
 export default withRoot(withStyles(styles)(Header));

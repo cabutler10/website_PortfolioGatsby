@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "gatsby";
+
 import { withStyles } from "@material-ui/core/styles";
 import withRoot from "../withRoot";
 import List from "@material-ui/core/List";
@@ -25,28 +27,22 @@ const styles = theme => ({
 });
 
 const MobileHeaderList = props => {
-  const { links, handlePageChange, classes } = props;
+  const { links, linkLabels, classes } = props;
 
   return (
     <div className={classes.list}>
       <List component="nav">
-        {links.map(link => (
-          <ListItem
-            button
-            divider
-            dense
-            key={`mobileLink_${link}`}
-            onClick={() => {
-              handlePageChange(link);
-            }}
-          >
-            <ListItemText
-              disableTypography
-              className={classes.text}
-              primary={link}
-            />
-            <ArrowIcon className={classes.icon} />
-          </ListItem>
+        {links.map((link, idx) => (
+          <Link to={`/${link}/`} key={`mobileLink_${link}`}>
+            <ListItem button divider dense>
+              <ListItemText
+                disableTypography
+                className={classes.text}
+                primary={linkLabels[idx]}
+              />
+              <ArrowIcon className={classes.icon} />
+            </ListItem>
+          </Link>
         ))}
       </List>
     </div>

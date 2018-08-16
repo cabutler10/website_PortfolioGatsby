@@ -11,9 +11,6 @@ import SvgIcon from "@material-ui/core/SvgIcon";
 const styles = theme => ({
   root: {
     height: 300,
-    // backgroundImage: `url(${backsplash})`,
-    // backgroundSize: "cover",
-    // backgroundPosition: "center",
     display: "flex",
     alignItems: "center",
     [theme.breakpoints.up("md")]: {
