@@ -3,7 +3,6 @@ import { graphql } from "gatsby";
 
 import Splash from "../components/Splash";
 import Interests from "../components/Interests";
-import About from "../components/About";
 import Layout from "../layouts/layout";
 
 import "../utils/index";
@@ -22,7 +21,6 @@ class Index extends Component {
       <Layout>
         <Splash img={backgroundImg} />
         <Interests />
-        <About img={profileImg} />
       </Layout>
     );
   }

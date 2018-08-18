@@ -11,14 +11,15 @@ const brownDk = "#6b6060";
 const brownLt = "#c1b8b8";
 const offWhite = "#F7F5F5";
 const white = "#f9f9f9";
+const trueWhite = "#ffffff";
 const greyDk = "#333333";
 const grey = "#999999";
 const greyLt = "#f9f9f9";
 const red = "#991010";
-const blue2 = "#e3f9ff";
-const blue = "#B0E1FC";
-const blueLt = "#f9fdff";
-const blueDk = "#cce0e5";
+const blue = "#f1fcff";
+const blue2 = "#B0E1FC";
+const blueLt = "#fcfeff";
+const blueDk = "#e3f9ff";
 const green = "#e3ffe9";
 const purple = "#e9e3ff";
 const navy = "#142940";
@@ -43,6 +44,7 @@ const theme = createMuiTheme({
   },
   status: {
     white: white,
+    trueWhite: trueWhite,
     grey: grey,
     greyDk: greyDk,
     greyLt: greyLt,
@@ -50,6 +52,8 @@ const theme = createMuiTheme({
     red: red,
     pink: pink,
     blue: blue,
+    blueDk: blueDk,
+    blueLt: blueLt,
     blue2: blue2,
     blueDk: blueDk,
     navy: navy,
@@ -70,7 +74,7 @@ const theme = createMuiTheme({
         color: grey
       },
       colorTextSecondary: {
-        color: pink
+        color: white
       }
     }
   }

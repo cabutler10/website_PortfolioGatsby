@@ -33,8 +33,8 @@ const styles = theme => ({
     paddingLeft: 0,
     alignItems: "stretch",
     [theme.breakpoints.up("md")]: {
-      paddingLeft: "inherit",
-      paddingRight: "inherit",
+      paddingLeft: 40,
+      paddingRight: 40,
       alignItems: "center"
     }
   },

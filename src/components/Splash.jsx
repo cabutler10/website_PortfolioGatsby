@@ -44,7 +44,7 @@ const styles = theme => ({
     bottom: 15,
     [theme.breakpoints.up("md")]: {
       background: "none",
-      left: 60,
+      left: 75,
       bottom: 60
     }
   },
@@ -95,7 +95,7 @@ const styles = theme => ({
   icon: {
     width: 24,
     height: 24,
-    fill: theme.status.blue
+    fill: theme.status.black
   },
   divider: {
     marginTop: 15

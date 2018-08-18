@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+
+import classnames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import withRoot from "../withRoot";
 import Typography from "@material-ui/core/Typography";
@@ -9,44 +11,61 @@ import UploadIcon from "@material-ui/icons/CloudUpload";
 
 const styles = theme => ({
   root: {
-    backgroundColor: theme.status.white,
-    textAlign: "center",
     padding: 15,
     [theme.breakpoints.up("md")]: {
-      padding: 60
+      paddingTop: 45,
+      paddingBottom: 45,
+      paddingLeft: "10%",
+      paddingRight: "10%"
     }
   },
-  text: {
-    textTransform: "uppercase",
-    letterSpacing: 3,
-    paddingBottom: 15
+  container: {
+    display: "flex",
+    paddingTop: 60
   },
-  textHeading: {
-    textTransform: "uppercase",
-    letterSpacing: 3,
-    paddingBottom: 0,
-    paddingTop: 30,
-    [theme.breakpoints.up("md")]: {
-      paddingBottom: 15,
-      paddingTop: 0
-    }
+  iconContainer: {
+    flexBasis: "30%"
   },
-  flex: {
+  textContainer: {
+    paddingLeft: 15,
+    paddingRight: 15,
+    flexGrow: 1
+  },
+  boxContainer: {
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "space-around",
-    padding: 0,
-    [theme.breakpoints.up("md")]: {
-      padding: 30
-    }
+    alignItems: "center",
+    textAlign: "center"
   },
   box: {
-    textAlign: "center",
-    padding: 15,
-    fontSize: 64,
-    width: 300
+    width: "50%",
+    background: theme.status.trueWhite,
+    "&:before": {
+      content: "''",
+      float: "left",
+      paddingTop: "100%"
+    }
   },
-  icons: { fontSize: 72, color: theme.status.greyDk }
+  blue1: {
+    background: theme.status.blue
+  },
+  blue2: {
+    background: theme.status.blueDk
+  },
+  blue3: {
+    background: theme.status.blueLt
+  },
+  icon: {
+    width: 42,
+    height: 42,
+    marginTop: "25%"
+  },
+  heading: {
+    paddingTop: 15,
+    paddingBottom: 15,
+    letterSpacing: 3,
+    width: "100%"
+  }
 });
 
 class Interests extends Component {
@@ -55,56 +74,64 @@ class Interests extends Component {
     return (
       <div className={classes.root}>
         <Typography
-          variant="title"
+          variant="subheading"
           color="primary"
-          className={classes.textHeading}
+          className={classes.heading}
         >
-          my interests
+          Statistics, Web Development, Teaching.
         </Typography>
-        <div className={classes.flex}>
-          <div className={classes.box}>
-            <ShowchartIcon className={classes.icons} />
-            <Typography
-              variant="title"
-              color="primary"
-              className={classes.text}
-            >
-              statistics
-            </Typography>
+        <div className={classes.container}>
+          <div className={classes.iconContainer}>
+            <div className={classes.boxContainer}>
+              <div className={classnames(classes.box, classes.blue1)}>
+                <ShowchartIcon className={classes.icon} />
+              </div>
+            </div>
+          </div>
+          <div className={classes.textContainer}>
             <Typography variant="body1" color="primary">
-              My background is in Applied Math for Biological Studies. I am
-              confident in R and Python. Specifically, I am interested in using
-              mathematics to support the decision making process.
+              I am a Data Scientist with a strong interest in Web Development. I
+              am fascinated with the idea of being able to make data driven
+              decision making something everyone can use and understand by
+              building online/mobile tools, charts, and tutorials.
             </Typography>
           </div>
-          <div className={classes.box}>
-            <CodeIcon className={classes.icons} />
-            <Typography
-              variant="title"
-              color="primary"
-              className={classes.text}
-            >
-              web development
-            </Typography>
+        </div>
+        <div className={classes.container}>
+          <div className={classes.textContainer}>
             <Typography variant="body1" color="primary">
-              I have been working in Front End Web Development for the past 3
-              years and love how well it compliments data analysis. I use React
-              but have used Angular in the past.
+              I am a strong believer that data analysis shouldn't be hard to do
+              or to understand. My blog aims to share what I have learned about
+              data analysis, web development, and online charting. With the
+              technology available today, it has never been easier to turn data
+              into something useful and accessible for everyone.
             </Typography>
           </div>
-          <div className={classes.box}>
-            <UploadIcon className={classes.icons} />
-            <Typography
-              variant="title"
-              color="primary"
-              className={classes.text}
-            >
-              teaching
-            </Typography>
+          <div className={classes.iconContainer}>
+            <div className={classes.boxContainer}>
+              <div className={classnames(classes.box, classes.blue2)}>
+                <CodeIcon className={classes.icon} />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className={classes.container}>
+          <div className={classes.iconContainer}>
+            <div className={classes.boxContainer}>
+              <div className={classnames(classes.box, classes.blue3)}>
+                <UploadIcon className={classes.icon} />
+              </div>
+            </div>
+          </div>
+          <div className={classes.textContainer}>
             <Typography variant="body1" color="primary">
-              I have experience teaching ages middle school through college in a
-              classroom setting. Please check out my portfolio section for more
-              information about the work I have done.
+              My background is in applied mathematics for biological research. I
+              fell into front end web development a few years ago and I quickly
+              realized how important embracing this technology could be. What
+              good is data analysis if it sits buried in lengthly articles that
+              don't get read? What I love about web development is that is
+              provides an opportunty for data analysis to be something everyone
+              can use.
             </Typography>
           </div>
         </div>
