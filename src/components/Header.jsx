@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 
-import classnames from "classnames"
+import classnames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import withRoot from "../withRoot";
 import AppBar from "@material-ui/core/AppBar";
@@ -19,18 +19,23 @@ import MobileHeaderList from "./MobileHeader";
 const styles = theme => ({
   button: {
     color: theme.status.grey,
-    marginRight: 15
+    marginRight: 15,
+    width: 90,
+    zIndex: 1100
   },
-  toolbarRoot: {
+  toolbarPages: {
     justifyContent: "space-between"
   },
+  toolbarRoot: {
+    minHeight: 48
+  },
   appbar: {
-    boxShadow: "none",
+    boxShadow: "none"
   },
-  appbarPages:{
-    backgroundColor: theme.status.greyLt,
+  appbarPages: {
+    backgroundColor: theme.status.greyLt
   },
-  appbarIndex:{
+  appbarIndex: {
     backgroundColor: "transparent"
   }
 });
@@ -56,23 +61,32 @@ class Header extends Component {
 
   render() {
     const { classes } = this.props;
-    const links = ["/", "/Resume/"]; //"porfolio","photo","contact"
-    const linkLabels = ["home", "resume"];
+    const links = ["/Resume/", "/Blog/"]; //"porfolio","photo","contact"
+    const linkLabels = ["resume", "blog"];
     const { windowGlobal } = this.state;
     const location = windowGlobal
       ? windowGlobal.location
       : { pathname: "/", hash: "" };
     return (
-      <AppBar position="static" className={classnames(classes.appbar,location.pathname === "/" ? classes.appbarIndex : classes.appbarPages)}>
+      <AppBar
+        position="static"
+        className={classnames(
+          classes.appbar,
+          location.pathname === "/" ? classes.appbarIndex : classes.appbarPages
+        )}
+      >
         <Toolbar
           classes={{
-            root: classes.toolbarRoot,
+            root: classnames(
+              classes.toolbarRoot,
+              location.pathname === "/" ? null : classes.toolbarPages
+            ),
             gutters: classes.toolbarGutters
           }}
         >
-          <Typography variant="title" color="primary">
-            A.B
-          </Typography>
+          <Link to="/">
+            <Button className={classes.button}>A.B</Button>
+          </Link>
           <Hidden mdUp>
             <IconButton
               aria-label="menu"

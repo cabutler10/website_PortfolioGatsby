@@ -6,34 +6,36 @@ import { withStyles } from "@material-ui/core/styles";
 import withRoot from "../withRoot";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import {InstagramIcon, GithubIcon,LinkedinIcon } from "../images/icons/icons"
+import Divider from "@material-ui/core/Divider";
+import { InstagramIcon, GithubIcon, LinkedinIcon } from "../images/icons/icons";
 
 const styles = theme => ({
   root: {
     height: 300,
-    display: "flex",
-    alignItems: "center",
+    position: "relative",
+    marginTop: -48,
+    zIndex: 1,
     [theme.breakpoints.up("md")]: {
       height: 600
     }
   },
-  border: {
-    marginLeft: 15,
-    marginRight: 15,
-    paddingTop: 10,
-    paddingRight: 15,
-    paddingBottom: 10,
+  img: {
+    height: 300,
+    [theme.breakpoints.up("md")]: {
+      height: 600
+    }
+  },
+  container: {
+    position: "absolute",
+    left: 0,
+    bottom: 0,
+    zIndex: 2,
     paddingLeft: 15,
-    border: "4px solid",
-    background: "rgba(51,51,51,.5)",
-    borderColor: theme.status.pink,
+    paddingBottom: 15,
     [theme.breakpoints.up("md")]: {
       background: "none",
-      marginLeft: 100,
-      paddingTop: 30,
-      paddingRight: 50,
-      paddingBottom: 30,
-      paddingLeft: 50
+      paddingLeft: 60,
+      paddingBottom: 60
     }
   },
   bold: {
@@ -43,36 +45,36 @@ const styles = theme => ({
     paddingTop: 15,
     paddingBottom: 15,
     [theme.breakpoints.up("md")]: {
-      fontSize: 51
+      fontSize: 36
     }
   },
   big: {
-    fontSize: 36,
+    fontSize: 30,
     [theme.breakpoints.up("md")]: {
-      fontSize: 64
+      fontSize: 48
     }
   },
   text: {
     textTransform: "uppercase",
-    fontSize: 18,
+    fontSize: 16,
     letterSpacing: 3,
     [theme.breakpoints.up("md")]: {
-      fontSize: 24
+      fontSize: 20
     }
   },
   button: {
     padding: 8,
     minWidth: 36,
     marginRight: 30,
-    marginTop: 30
+    marginTop: 15
   },
   icon: {
     width: 24,
     height: 24,
-    fill: theme.status.greyDk
+    fill: theme.status.blue
   },
-  img: {
-    width: "100%"
+  divider: {
+    marginTop: 15
   }
 });
 
@@ -80,7 +82,70 @@ class Splash extends Component {
   render() {
     let { img, classes } = this.props;
 
-    return <Img fluid={img.node.fluid} className={classes.img} alt="" />;
+    return (
+      <div className={classes.root}>
+        <Img fluid={img.node.fluid} alt="" className={classes.img} />
+        <div className={classes.container}>
+          <Typography
+            variant="subheading"
+            color="primary"
+            className={classes.text}
+          >
+            Hello, I am
+          </Typography>
+          <Typography
+            variant="display2"
+            color="primary"
+            className={classes.bold}
+          >
+            <span className={classes.big}>A</span>
+            LYSSA <span className={classes.big}>B</span>
+            UTLER
+          </Typography>
+          <Typography
+            variant="subheading"
+            color="primary"
+            className={classes.text}
+          >
+            DATA SCIENTIST & FRONTEND DEVELOPER
+          </Typography>
+          <Divider className={classes.divider} />
+          <Button
+            aria-label="linkedin"
+            className={classes.button}
+            href="https://www.linkedin.com/in/alyssa-butler-b77054ab/"
+            target="_blank"
+            rel="noopener"
+            disableFocusRipple
+            disableRipple
+          >
+            <LinkedinIcon className={classes.icon} />
+          </Button>
+          <Button
+            aria-label="github"
+            className={classes.button}
+            href="https://github.com/cabutler10"
+            target="_blank"
+            rel="noopener"
+            disableFocusRipple
+            disableRipple
+          >
+            <GithubIcon className={classes.icon} />
+          </Button>
+          <Button
+            aria-label="instagram"
+            className={classes.button}
+            href="https://www.instagram.com/cabutler10/"
+            target="_blank"
+            rel="noopener"
+            disableFocusRipple
+            disableRipple
+          >
+            <InstagramIcon className={classes.icon} />
+          </Button>
+        </div>
+      </div>
+    );
   }
 }
 
