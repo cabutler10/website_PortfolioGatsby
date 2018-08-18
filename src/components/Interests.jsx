@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import CodeIcon from "@material-ui/icons/Code";
 import ShowchartIcon from "@material-ui/icons/ShowChart";
 import UploadIcon from "@material-ui/icons/CloudUpload";
+import StatsIcon from "../images/stats.png";
 
 const styles = theme => ({
   root: {
@@ -21,20 +22,26 @@ const styles = theme => ({
   },
   container: {
     display: "flex",
+    justifyContent: "space-between",
     paddingTop: 60
   },
   iconContainer: {
-    flexBasis: "30%"
+    flexBasis: "40%",
+    textAlign: "center"
   },
   textContainer: {
-    paddingLeft: 15,
-    paddingRight: 15,
-    flexGrow: 1
+    flexBasis: "60%"
+  },
+  paddingLeft: {
+    paddingLeft: 30
+  },
+  paddingRight: {
+    paddingRight: 30
   },
   boxContainer: {
     display: "flex",
-    flexWrap: "wrap",
     alignItems: "center",
+    justifyContent: "center",
     textAlign: "center"
   },
   box: {
@@ -76,30 +83,35 @@ class Interests extends Component {
         <Typography
           variant="subheading"
           color="primary"
+          align="center"
           className={classes.heading}
         >
           Statistics, Web Development, Teaching.
         </Typography>
         <div className={classes.container}>
           <div className={classes.iconContainer}>
-            <div className={classes.boxContainer}>
-              <div className={classnames(classes.box, classes.blue1)}>
-                <ShowchartIcon className={classes.icon} />
-              </div>
-            </div>
+            <img src={StatsIcon} alt="" />
           </div>
           <div className={classes.textContainer}>
-            <Typography variant="body1" color="primary">
+            <Typography
+              variant="body1"
+              color="primary"
+              className={classes.paddingLeft}
+            >
               I am a Data Scientist with a strong interest in Web Development. I
               am fascinated with the idea of being able to make data driven
               decision making something everyone can use and understand by
-              building online/mobile tools, charts, and tutorials.
+              building online and mobile tools, charts, and tutorials.
             </Typography>
           </div>
         </div>
         <div className={classes.container}>
           <div className={classes.textContainer}>
-            <Typography variant="body1" color="primary">
+            <Typography
+              variant="body1"
+              color="primary"
+              className={classes.paddingRight}
+            >
               I am a strong believer that data analysis shouldn't be hard to do
               or to understand. My blog aims to share what I have learned about
               data analysis, web development, and online charting. With the
@@ -124,7 +136,11 @@ class Interests extends Component {
             </div>
           </div>
           <div className={classes.textContainer}>
-            <Typography variant="body1" color="primary">
+            <Typography
+              variant="body1"
+              color="primary"
+              className={classes.paddingLeft}
+            >
               My background is in applied mathematics for biological research. I
               fell into front end web development a few years ago and I quickly
               realized how important embracing this technology could be. What
@@ -145,3 +161,13 @@ Interests.propTypes = {
 };
 
 export default withRoot(withStyles(styles)(Interests));
+
+{
+  /* <div className={classes.iconContainer}>
+  <div className={classes.boxContainer}>
+    <div className={classnames(classes.box, classes.blue2)}>
+      <CodeIcon className={classes.icon} />
+    </div>
+  </div>
+</div>; */
+}

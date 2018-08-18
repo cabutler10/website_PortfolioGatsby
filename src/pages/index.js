@@ -10,9 +10,6 @@ import "../utils/index";
 class Index extends Component {
   render() {
     const { data } = this.props;
-    const profileImg = data.allImageSharp.edges.find(x =>
-      x.node.fluid.src.includes("profile")
-    );
     const backgroundImg = data.allImageSharp.edges.find(x =>
       x.node.fluid.src.includes("background")
     );

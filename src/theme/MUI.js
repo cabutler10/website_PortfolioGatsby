@@ -3,64 +3,48 @@ import "./App.css";
 require("typeface-open-sans");
 require("typeface-homemade-apple");
 
-const pink = "#FFE9E3";
-const pinkLt = "#fff8f6";
-const pinkDk = "#e5d1cc";
-const brown = "#998A8A";
-const brownDk = "#6b6060";
-const brownLt = "#c1b8b8";
-const offWhite = "#F7F5F5";
-const white = "#f9f9f9";
-const trueWhite = "#ffffff";
-const greyDk = "#333333";
-const grey = "#999999";
-const greyLt = "#f9f9f9";
-const red = "#991010";
-const blue = "#f1fcff";
-const blue2 = "#B0E1FC";
-const blueLt = "#fcfeff";
-const blueDk = "#e3f9ff";
-const green = "#e3ffe9";
-const purple = "#e9e3ff";
-const navy = "#142940";
-const navyLt = "#2b3e53";
-const navyDk = "#102033";
-const black = "#1f2122";
+const status = {
+  white: "#f9f9f9",
+  offWhite: "#F7F5F5",
+  trueWhite: "#ffffff",
+  greyDk: "#333333",
+  grey: "#999999",
+  greyLt: "#f9f9f9",
+  red: "#991010",
+  blue2: "#B0E1FC",
+  blue: "#f1fcff",
+  blueLt: "#fcfeff",
+  blueDk: "#e3f9ff",
+  green: "#e3ffe9",
+  purple: "#e9e3ff",
+  navy: "#142940",
+  navyLt: "#2b3e53",
+  navyDk: "#102033",
+  black: "#1f2122",
+  pink: "#FFE9E3",
+  pinkLt: "#fff8f6",
+  pinkDk: "#e5d1cc",
+  brown: "#998A8A",
+  brownDk: "#6b6060",
+  brownLt: "#c1b8b8"
+};
 
 const theme = createMuiTheme({
   palette: {
     type: "light",
     primary: {
-      light: navyLt,
-      main: navy,
-      dark: navyDk
+      light: status.navyLt,
+      main: status.navy,
+      dark: status.navyDk
     },
     secondary: {
-      light: blueLt,
-      main: blue,
-      dark: blueDk
+      light: status.blueLt,
+      main: status.blue,
+      dark: status.blueDk
     },
-    error: { main: red }
+    error: { main: status.red }
   },
-  status: {
-    white: white,
-    trueWhite: trueWhite,
-    grey: grey,
-    greyDk: greyDk,
-    greyLt: greyLt,
-    brown: brown,
-    red: red,
-    pink: pink,
-    blue: blue,
-    blueDk: blueDk,
-    blueLt: blueLt,
-    blue2: blue2,
-    blueDk: blueDk,
-    navy: navy,
-    green: green,
-    purple: purple,
-    black: black
-  },
+  status,
   typography: {
     fontFamily: "'Open Sans', sans-serif",
     fontSize: 16
@@ -68,13 +52,13 @@ const theme = createMuiTheme({
   overrides: {
     MuiTypography: {
       colorPrimary: {
-        color: greyDk
+        color: status.greyDk
       },
       colorSecondary: {
-        color: grey
+        color: status.grey
       },
       colorTextSecondary: {
-        color: white
+        color: status.white
       }
     }
   }
