@@ -38,7 +38,7 @@ const styles = theme => ({
   }
 });
 
-class Header extends Component {
+class Resume extends Component {
   render() {
     let { classes } = this.props;
     return (
@@ -162,8 +162,8 @@ class Header extends Component {
   }
 }
 
-Header.propTypes = {
+Resume.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withRoot(withStyles(styles)(Header));
+export default withRoot(withStyles(styles)(Resume));

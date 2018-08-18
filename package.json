@@ -24,6 +24,7 @@
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-jss": "^7.0.0-pre.2",
+    "typeface-homemade-apple": "0.0.54",
     "typeface-open-sans": "0.0.54"
   },
   "homepage": "https://github.com/cabutler10",

@@ -7,27 +7,36 @@ import { withStyles } from "@material-ui/core/styles";
 import withRoot from "../withRoot";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Hidden from "@material-ui/core/Hidden";
-import IconButton from "@material-ui/core/IconButton";
 import Drawer from "@material-ui/core/Drawer";
 import MenuIcon from "@material-ui/icons/Menu";
 
-import MobileHeaderList from "./MobileHeader";
+import MobileHeaderList from "./MobileHeaderList";
 
 const styles = theme => ({
   button: {
     color: theme.status.grey,
     marginRight: 15,
-    width: 90,
-    zIndex: 1100
+    width: 60,
+    zIndex: 1100,
+    [theme.breakpoints.up("md")]: {
+      width: 90
+    }
   },
   toolbarPages: {
     justifyContent: "space-between"
   },
   toolbarRoot: {
-    minHeight: 48
+    minHeight: 48,
+    paddingRight: 0,
+    paddingLeft: 0,
+    alignItems: "stretch",
+    [theme.breakpoints.up("md")]: {
+      paddingLeft: "inherit",
+      paddingRight: "inherit",
+      alignItems: "center"
+    }
   },
   appbar: {
     boxShadow: "none"
@@ -37,6 +46,18 @@ const styles = theme => ({
   },
   appbarIndex: {
     backgroundColor: "transparent"
+  },
+  mobileButton: {
+    flexBasis: "50%",
+    borderRadius: 0
+  },
+  mobileIconButton: {
+    flexBasis: "50%",
+    backgroundColor: theme.status.black,
+    borderRadius: 0
+  },
+  icon: {
+    fill: theme.status.white
   }
 });
 
@@ -61,8 +82,8 @@ class Header extends Component {
 
   render() {
     const { classes } = this.props;
-    const links = ["/Resume/", "/Blog/"]; //"porfolio","photo","contact"
-    const linkLabels = ["resume", "blog"];
+    const links = ["/", "/Resume/", "/Blog/"]; //"porfolio","photo","contact"
+    const linkLabels = ["A.B", "resume", "blog"];
     const { windowGlobal } = this.state;
     const location = windowGlobal
       ? windowGlobal.location
@@ -84,17 +105,17 @@ class Header extends Component {
             gutters: classes.toolbarGutters
           }}
         >
-          <Link to="/">
-            <Button className={classes.button}>A.B</Button>
-          </Link>
-          <Hidden mdUp>
-            <IconButton
+          <Hidden smUp>
+            <Button className={classes.mobileButton}>
+              <Link to="/">A.B</Link>
+            </Button>
+            <Button
               aria-label="menu"
-              className={classes.menuToggle}
+              className={classes.mobileIconButton}
               onClick={this.handleDrawer}
             >
-              <MenuIcon />
-            </IconButton>
+              <MenuIcon className={classes.icon} />
+            </Button>
             <Drawer
               anchor="right"
               open={this.state.isOpen}
@@ -110,7 +131,7 @@ class Header extends Component {
               </div>
             </Drawer>
           </Hidden>
-          <Hidden smDown>
+          <Hidden xsDown>
             <span>
               {links.map((link, idx) => (
                 <Link to={link} key={`link_${link}`}>
