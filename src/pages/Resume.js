@@ -1,40 +1,46 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { graphql } from "gatsby";
 
+import classnames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import withRoot from "../withRoot";
 import Typography from "@material-ui/core/Typography";
 
 import ResumeEntry from "../components/ResumeEntry";
+import ResumeEntrySmall from "../components/ResumeEntrySmall";
 import Layout from "../layouts/layout";
 
 const styles = theme => ({
   root: {
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "space-between",
     padding: 15,
     [theme.breakpoints.up("md")]: {
-      padding: 60
+      paddingTop: 30,
+      paddingBottom: 90,
+      paddingLeft: "10%",
+      paddingRight: "10%"
     }
   },
-  container: {
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
-    [theme.breakpoints.up("md")]: {
-      width: "75%"
-    }
+  col1: {
+    flexBasis: "30%"
+  },
+  col2: {
+    flexBasis: "65%"
   },
   title: {
     letterSpacing: 5,
     paddingBottom: 15,
     paddingTop: 15,
-    textTransform: "uppercase",
-    textAlign: "center",
-    [theme.breakpoints.up("md")]: {
-      paddingBottom: 30,
-      paddingTop: 30
-    }
+    textTransform: "uppercase"
+  },
+  paddingTop: {
+    paddingTop: 45
+  },
+  skills: {
+    display: "flex",
+    justifyContent: "space-between"
   }
 });
 
@@ -47,9 +53,72 @@ class Resume extends Component {
     return (
       <Layout img={authorImg}>
         <div className={classes.root}>
-          <div className={classes.container}>
+          <div className={classes.col1}>
             <Typography
-              variant="headline"
+              variant="subheading"
+              color="primary"
+              className={classes.title}
+            >
+              education
+            </Typography>
+            <ResumeEntrySmall
+              title="Master’s Degree"
+              date="Graduated 2012"
+              company="Auburn University (Auburn, AL, USA)"
+              listItems={[
+                `Estimation of Survival of the Atlantic Horseshoe Crab, Limulus polyphemus, by Analysis of Mark-Recapture Data with Tag Loss`
+              ]}
+            />
+            <ResumeEntrySmall
+              title="Bachelor of Science"
+              date="Graduated 2008"
+              company="University of Washington (Seattle, WA, USA)"
+              listItems={[
+                "Major in Biology and a Minor in Applied Mathematics"
+              ]}
+            />
+            <Typography
+              variant="subheading"
+              color="primary"
+              className={classnames(classes.title, classes.paddingTop)}
+            >
+              languages
+            </Typography>
+            <ResumeEntry title="English" date="Proficient, Native" noPadding />
+            <ResumeEntry title="German" date="Intermediate: B1.2" noPadding />
+            <ResumeEntry title="French" date="Beginner: A2.1" noPadding />
+            <Typography
+              variant="subheading"
+              color="primary"
+              className={classnames(classes.title, classes.paddingTop)}
+            >
+              skills
+            </Typography>
+            <div className={classes.skills}>
+              <ResumeEntry
+                company="Data Analysis"
+                listItems={["R", "Python"]}
+              />
+              <ResumeEntry
+                company="Development"
+                listItems={[
+                  "Javascript",
+                  "React",
+                  "Gatsby",
+                  "JSS",
+                  "Material UI",
+                  "Bootstrap"
+                ]}
+              />
+              <ResumeEntry
+                company="Charting"
+                listItems={["Highcharts", "ggplot2", "Shiny"]}
+              />
+            </div>
+          </div>
+          <div className={classes.col2}>
+            <Typography
+              variant="subheading"
               color="primary"
               className={classes.title}
             >
@@ -116,48 +185,16 @@ class Resume extends Component {
               ]}
             />
             <ResumeEntry
-              title="Supervisor, Western Association of Schools and Colleges Accreditation Analyst"
+              title="Supervisor, Accreditation Analyst"
               date="January 2009 - December 2010"
               company="Pali Institute (Running Springs, CA, USA)"
               listItems={[
+                "Western Association of Schools and Colleges Accreditation Analyst",
                 "Managed the instructional staff, training and daily program activities",
                 "Successfully carried out school’s renewal of accreditation with final reports and tour of program goals to measure and validate student achievement",
                 "Assessed school’s action plan success using California academic standards and WASC criteria"
               ]}
             />
-            <Typography
-              variant="headline"
-              color="primary"
-              className={classes.title}
-            >
-              education
-            </Typography>
-            <ResumeEntry
-              title="Master’s Degree"
-              date="Graduated 2012"
-              company="Auburn University (Auburn, AL, USA)"
-              listItems={[
-                `Estimation of Survival of the Atlantic Horseshoe Crab, Limulus polyphemus, by Analysis of Mark-Recapture Data with Tag Loss`
-              ]}
-            />
-            <ResumeEntry
-              title="Bachelor of Science"
-              date="Graduated 2008"
-              company="University of Washington (Seattle, WA, USA)"
-              listItems={[
-                "Major in Biology and a Minor in Applied Mathematics"
-              ]}
-            />
-            <Typography
-              variant="headline"
-              color="primary"
-              className={classes.title}
-            >
-              languages
-            </Typography>
-            <ResumeEntry title="English" company="Proficient, Native" />
-            <ResumeEntry title="German" company="Intermediate: B1.2" />
-            <ResumeEntry title="French" company="Beginner: A2.1" />
           </div>
         </div>
       </Layout>

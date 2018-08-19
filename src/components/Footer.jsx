@@ -18,6 +18,7 @@ const styles = theme => ({
   },
   container: {
     display: "flex",
+    flexWrap: "wrap",
     justifyContent: "space-between",
     paddingLeft: "10%",
     paddingRight: "10%",
@@ -31,10 +32,20 @@ const styles = theme => ({
     paddingBottom: 15
   },
   flexItem: {
-    flexBasis: "40%"
+    flexBasis: "100%",
+    paddingTop: 15,
+    [theme.breakpoints.up("sm")]: {
+      flexBasis: "40%",
+      paddingTop: 0
+    }
   },
   flexItemSmall: {
-    flexBasis: "10%"
+    flexBasis: "100%",
+    paddingTop: 15,
+    [theme.breakpoints.up("sm")]: {
+      flexBasis: "10%",
+      paddingTop: 0
+    }
   },
   img: {},
   text: {

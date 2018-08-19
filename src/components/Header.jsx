@@ -24,9 +24,6 @@ const styles = theme => ({
       width: 90
     }
   },
-  toolbarPages: {
-    justifyContent: "space-between"
-  },
   toolbarRoot: {
     minHeight: 48,
     paddingRight: 0,
@@ -37,6 +34,9 @@ const styles = theme => ({
       paddingRight: 40,
       alignItems: "center"
     }
+  },
+  toolbarPages: {
+    justifyContent: "space-between"
   },
   appbar: {
     boxShadow: "none"
@@ -82,8 +82,8 @@ class Header extends Component {
 
   render() {
     const { classes } = this.props;
-    const links = ["/", "/Resume/", "/Blog/"]; //"porfolio","photo","contact"
-    const linkLabels = ["A.B", "resume", "blog"];
+    const links = ["/Resume/", "/Blog/"]; //"porfolio","photo","contact"
+    const linkLabels = ["resume", "blog"];
     const { windowGlobal } = this.state;
     const location = windowGlobal
       ? windowGlobal.location
@@ -132,6 +132,9 @@ class Header extends Component {
             </Drawer>
           </Hidden>
           <Hidden xsDown>
+            <Link to="/">
+              <Button className={classes.button}>A.B</Button>
+            </Link>
             <span>
               {links.map((link, idx) => (
                 <Link to={link} key={`link_${link}`}>

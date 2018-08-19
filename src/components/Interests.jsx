@@ -6,7 +6,6 @@ import { withStyles } from "@material-ui/core/styles";
 import withRoot from "../withRoot";
 import Typography from "@material-ui/core/Typography";
 import CodeIcon from "@material-ui/icons/Code";
-import ShowchartIcon from "@material-ui/icons/ShowChart";
 import UploadIcon from "@material-ui/icons/CloudUpload";
 import StatsIcon from "../images/stats.png";
 
@@ -162,12 +161,10 @@ Interests.propTypes = {
 
 export default withRoot(withStyles(styles)(Interests));
 
-{
-  /* <div className={classes.iconContainer}>
+/* <div className={classes.iconContainer}>
   <div className={classes.boxContainer}>
     <div className={classnames(classes.box, classes.blue2)}>
       <CodeIcon className={classes.icon} />
     </div>
   </div>
 </div>; */
-}

@@ -1,66 +1,51 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
+
 import { withStyles } from "@material-ui/core/styles";
 import withRoot from "../withRoot";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import BulletIcon from "@material-ui/icons/Stop";
 
 const styles = theme => ({
   secondary: { fontSize: 14, color: theme.status.greyDk },
-  secondary2: { fontSize: 12, color: theme.status.greyDk, padding: 0 },
+  secondary2: { fontSize: 12, color: theme.status.greyDk },
   primary: {
     fontWeight: 600,
     color: theme.status.greyDk
   },
   right: {
     float: "right",
-    fontWeight: 500,
-    fontSize: 12
-  },
-  bullet: { width: 12, height: 12 },
-  noPadding: {
-    padding: 0
+    fontSize: 12,
+    fontWeight: 500
   }
 });
 
-class ResumeEntry extends Component {
+class ResumeEntrySmall extends Component {
   render() {
-    let { title, company, date, listItems, noPadding, classes } = this.props;
+    let { title, company, date, listItems, classes } = this.props;
     return (
       <List>
-        <ListItem
-          disableGutters
-          className={noPadding ? classes.noPadding : null}
-        >
+        <ListItem disableGutters>
           <ListItemText
             classes={{
               secondary: classes.secondary,
               primary: classes.primary
             }}
             primary={
-              title ? (
-                <Fragment>
-                  {title}
-                  {date && <span className={classes.right}>{date}</span>}
-                </Fragment>
-              ) : null
+              <Fragment>
+                {title}
+                {date && <span className={classes.right}>{date}</span>}
+              </Fragment>
             }
             secondary={company}
           />
         </ListItem>
-
         {listItems &&
           listItems.map(elem => (
-            <ListItem key={elem} className={classes.noPadding}>
-              <ListItemIcon>
-                <BulletIcon className={classes.bullet} />
-              </ListItemIcon>
+            <ListItem key={elem} disableGutters>
               <ListItemText
                 classes={{
-                  root: classes.noPadding,
                   secondary: classes.secondary2
                 }}
                 secondary={elem}
@@ -72,8 +57,8 @@ class ResumeEntry extends Component {
   }
 }
 
-ResumeEntry.propTypes = {
+ResumeEntrySmall.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withRoot(withStyles(styles)(ResumeEntry));
+export default withRoot(withStyles(styles)(ResumeEntrySmall));

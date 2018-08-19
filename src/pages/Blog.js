@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { graphql } from "gatsby";
 
 import { withStyles } from "@material-ui/core/styles";
 import withRoot from "../withRoot";
