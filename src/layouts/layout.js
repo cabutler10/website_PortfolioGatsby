@@ -1,16 +1,15 @@
 import React, { Component } from "react";
-
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 class Layout extends Component {
   render() {
-    const { children } = this.props;
+    const { img, children } = this.props;
     return (
       <div>
         <Header />
         {children}
-        <Footer />
+        <Footer img={img} />
       </div>
     );
   }

@@ -20,9 +20,12 @@ const styles = theme => ({
 
 class Blog extends Component {
   render() {
-    let { classes } = this.props;
+    let { data, classes } = this.props;
+    const authorImg = data.allImageSharp.edges.find(x =>
+      x.node.fluid.src.includes("author")
+    );
     return (
-      <Layout>
+      <Layout img={authorImg}>
         <div className={classes.root}>
           <Typography>Blog</Typography>
         </div>
@@ -36,3 +39,18 @@ Blog.propTypes = {
 };
 
 export default withRoot(withStyles(styles)(Blog));
+
+export const pageQuery = graphql`
+  query {
+    allImageSharp {
+      edges {
+        node {
+          id
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+`;
