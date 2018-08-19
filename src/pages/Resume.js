@@ -15,12 +15,19 @@ const styles = theme => ({
   root: {
     display: "flex",
     justifyContent: "space-between",
+    flexWrap: "wrap",
     padding: 15,
-    [theme.breakpoints.up("md")]: {
+    flexDirection: "column-reverse",
+    [theme.breakpoints.up("sm")]: {
       paddingTop: 30,
       paddingBottom: 90,
       paddingLeft: "10%",
       paddingRight: "10%"
+    },
+    [theme.breakpoints.up("md")]: {
+      paddingTop: 30,
+      paddingBottom: 90,
+      flexDirection: "row"
     }
   },
   col1: {

@@ -7,6 +7,7 @@ import withRoot from "../withRoot";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import Button from "@material-ui/core/Button";
+import Hidden from "@material-ui/core/Hidden";
 import TextField from "@material-ui/core/TextField";
 
 import { InstagramIcon, GithubIcon, LinkedinIcon } from "../images/icons/icons";
@@ -22,8 +23,12 @@ const styles = theme => ({
     justifyContent: "space-between",
     paddingLeft: "10%",
     paddingRight: "10%",
-    paddingTop: 45,
-    paddingBottom: 45
+    paddingTop: 15,
+    paddingBottom: 15,
+    [theme.breakpoints.up("md")]: {
+      paddingTop: 45,
+      paddingBottom: 45
+    }
   },
   copyright: {
     fontSize: 12,
@@ -34,23 +39,23 @@ const styles = theme => ({
   flexItem: {
     flexBasis: "100%",
     paddingTop: 15,
-    [theme.breakpoints.up("sm")]: {
-      flexBasis: "40%",
+    [theme.breakpoints.up("md")]: {
+      flexBasis: "35%",
       paddingTop: 0
     }
   },
-  flexItemSmall: {
-    flexBasis: "100%",
-    paddingTop: 15,
-    [theme.breakpoints.up("sm")]: {
-      flexBasis: "10%",
-      paddingTop: 0
+  flexItemRight: {
+    flexBasis: "45%",
+    [theme.breakpoints.up("md")]: {
+      flexBasis: "20%"
     }
   },
-  img: {},
   text: {
     fontSize: 12,
-    lineHeight: 2
+    lineHeight: 1.5,
+    [theme.breakpoints.up("sm")]: {
+      lineHeight: 2
+    }
   },
   divider: {
     backgroundColor: theme.status.black
@@ -59,7 +64,13 @@ const styles = theme => ({
     letterSpacing: 3,
     fontSize: 12,
     textTransform: "uppercase",
-    paddingBottom: 15
+    paddingBottom: 15,
+    paddingTop: 15,
+    textAlign: "center",
+    [theme.breakpoints.up("md")]: {
+      textAlign: "left",
+      paddingTop: 0
+    }
   },
   textField: {
     margin: 0,
@@ -75,7 +86,10 @@ const styles = theme => ({
     borderRadius: 0,
     minWidth: 0,
     padding: 8,
-    marginRight: 15
+    marginRight: 0,
+    [theme.breakpoints.up("sm")]: {
+      marginRight: 15
+    }
   },
   icon: {
     width: 18,
@@ -84,13 +98,17 @@ const styles = theme => ({
   },
   iconContainer: {
     display: "flex",
-    paddingTop: 15
+    justifyContent: "space-between",
+    paddingTop: 15,
+    [theme.breakpoints.up("sm")]: {
+      justifyContent: "flex-end"
+    }
   },
   aboutContainer: {
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    height: "100%"
+    height: "83%"
   },
   buttonSend: {
     borderRadius: 0,
@@ -98,6 +116,10 @@ const styles = theme => ({
     marginTop: 15
   },
   inputContainer: {
+    display: "flex",
+    justifyContent: "space-between"
+  },
+  flex: {
     display: "flex",
     justifyContent: "space-between"
   }
@@ -176,18 +198,15 @@ class Footer extends Component {
               Send
             </Button>
           </div>
-          <div className={classes.flexItem}>
-            <div className={classes.aboutContainer}>
+          <Hidden smDown>
+            <div className={classes.flexItem}>
               <Typography variant="subheading" className={classes.subheading}>
                 about me
               </Typography>
               <Typography variant="body1" className={classes.text}>
                 I am a Seattle native that is currently living in Munich,
                 Germany. My personal interests include traveling, hiking,
-                floating down rivers and pretending to be a photographer. I am a
-                Seattle native that is currently living in Munich, Germany. My
-                personal interests include traveling, hiking, floating down
-                rivers and pretending to be a photographer.
+                floating down rivers and pretending to be a photographer.
               </Typography>
               <div className={classes.iconContainer}>
                 <Button
@@ -228,14 +247,109 @@ class Footer extends Component {
                 </Button>
               </div>
             </div>
-          </div>
-          {img && (
-            <div className={classes.flexItemSmall}>
-              <div className={classes.aboutContainer}>
-                <Img fluid={img.node.fluid} alt="" className={classes.img} />
+            <div className={classes.flexItemRight}>
+              <Img fluid={img.node.fluid} alt="" className={classes.img} />
+            </div>
+          </Hidden>
+          <Hidden mdUp>
+            <div className={classes.flexItem}>
+              <Typography variant="subheading" className={classes.subheading}>
+                about me
+              </Typography>
+              <div className={classes.flex}>
+                <div className={classes.flexItemRight}>
+                  <Img fluid={img.node.fluid} alt="" className={classes.img} />
+                  <Hidden smUp>
+                    <div className={classes.iconContainer}>
+                      <Button
+                        variant="outlined"
+                        aria-label="linkedin"
+                        className={classes.button}
+                        href="https://www.linkedin.com/in/alyssa-butler-b77054ab/"
+                        target="_blank"
+                        rel="noopener"
+                        disableFocusRipple
+                        disableRipple
+                      >
+                        <LinkedinIcon className={classes.icon} />
+                      </Button>
+                      <Button
+                        variant="outlined"
+                        aria-label="github"
+                        className={classes.button}
+                        href="https://github.com/cabutler10"
+                        target="_blank"
+                        rel="noopener"
+                        disableFocusRipple
+                        disableRipple
+                      >
+                        <GithubIcon className={classes.icon} />
+                      </Button>
+                      <Button
+                        variant="outlined"
+                        aria-label="instagram"
+                        className={classes.button}
+                        href="https://www.instagram.com/cabutler10/"
+                        target="_blank"
+                        rel="noopener"
+                        disableFocusRipple
+                        disableRipple
+                      >
+                        <InstagramIcon className={classes.icon} />
+                      </Button>
+                    </div>
+                  </Hidden>
+                </div>
+                <div className={classes.flexItemRight}>
+                  <Typography variant="body1" className={classes.text}>
+                    I am a Seattle native that is currently living in Munich,
+                    Germany. My personal interests include traveling, hiking,
+                    floating down rivers and pretending to be a photographer.
+                  </Typography>
+                  <Hidden xsDown>
+                    <div className={classes.iconContainer}>
+                      <Button
+                        variant="outlined"
+                        aria-label="linkedin"
+                        className={classes.button}
+                        href="https://www.linkedin.com/in/alyssa-butler-b77054ab/"
+                        target="_blank"
+                        rel="noopener"
+                        disableFocusRipple
+                        disableRipple
+                      >
+                        <LinkedinIcon className={classes.icon} />
+                      </Button>
+                      <Button
+                        variant="outlined"
+                        aria-label="github"
+                        className={classes.button}
+                        href="https://github.com/cabutler10"
+                        target="_blank"
+                        rel="noopener"
+                        disableFocusRipple
+                        disableRipple
+                      >
+                        <GithubIcon className={classes.icon} />
+                      </Button>
+                      <Button
+                        variant="outlined"
+                        aria-label="instagram"
+                        className={classes.button}
+                        href="https://www.instagram.com/cabutler10/"
+                        target="_blank"
+                        rel="noopener"
+                        disableFocusRipple
+                        disableRipple
+                      >
+                        <InstagramIcon className={classes.icon} />
+                      </Button>
+                    </div>
+                  </Hidden>
+                </div>
               </div>
             </div>
-          )}
+          </Hidden>
         </div>
         <Divider className={classes.divider} />
         <Typography
