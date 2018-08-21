@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["/0-c2b5120a4cab27ff4dd3.js","ebbad3cf0e44d99196e3a2f94091e271"],["/app-8afb686133e633625496.js","0bb35a2dd3eca2e21303d4c3aa466c5a"],["/component---node-modules-gatsby-plugin-offline-app-shell-js-3db350f4df50084ff6e4.js","c5dcca6fed57c9f9a4fae13687b4b45f"],["/component---src-pages-index-js-dbd554883d6303f88ead.js","579c4fac5cc903658e538a5afe96cdb0"],["/index.html","d13f2b87772b88c7109bbb16b8a8df1e"],["/manifest.json","b773e901ef06ac93343dc05e67540787"],["/manifest.webmanifest","ba271777075f8282dbb6aa76cc9ead0b"],["/offline-plugin-app-shell-fallback/index.html","d9c3d77867364411f87e10f65e038029"],["/static/d/874/path---index-6a9-ZzazCX3DQXRR3SxHZA7HGdxRMZA.json","416acbaf38d25ccd5a0db39863b0eea5"],["/webpack-runtime-ad9a2132cab48aa025c7.js","d766c134543e461652074254ae7bcaef"]];
+var precacheConfig = [["/0-6a13e9d1843204329af7.js","e457906583efb7eec3c1361eda759a6c"],["/0.b574bf63d555d5ec3c97.css","e3d545bc5fbe58a8f5e6fda88a50e805"],["/app-16d648e5271c81d145be.js","1d0ac0291f76229a85cca64a6ed083f8"],["/component---node-modules-gatsby-plugin-offline-app-shell-js-262210a39b3d73397128.js","e49c583f88c43a5a9b9a79dce60c69ec"],["/component---src-pages-index-js-8ca06f68d60812643156.js","4e16d15ee4bf1e2ec5f1c733adffd795"],["/component---src-pages-index-js.1fd291df043c4c1e6a8c.css","1d6e906925edde7b7b64980851a35bfe"],["/index.html","f18320b7a67f7fde913a5421ea3f0eba"],["/manifest.json","b773e901ef06ac93343dc05e67540787"],["/manifest.webmanifest","ba271777075f8282dbb6aa76cc9ead0b"],["/offline-plugin-app-shell-fallback/index.html","7152f63ee3b8391d23c0f1962db6393b"],["/static/d/520/path---offline-plugin-app-shell-fallback-a-30-c5a-NZuapzHg3X9TaN1iIixfv1W23E.json","c2508676a2f33ea9f1f0bf472997f9a0"],["/static/d/874/path---index-6a9-ZzazCX3DQXRR3SxHZA7HGdxRMZA.json","416acbaf38d25ccd5a0db39863b0eea5"],["/webpack-runtime-66bb16eaa43468e6b51b.js","79edc9f3bc6bc2e814a2be45c0f15eb1"]];
 var cacheName = 'sw-precache-v3-gatsby-plugin-offline-' + (self.registration ? self.registration.scope : '');
 
 
@@ -98,7 +98,7 @@ var isPathWhitelisted = function (whitelist, absoluteUrlString) {
     }
 
     // Otherwise compare each path regex to the path of the URL passed in.
-    var path = (new URL(absoluteUrlString)).pathname;
+    var url = new URL(absoluteUrlString), path = url.pathname + url.search;
     return whitelist.some(function(whitelistedPathRegex) {
       return path.match(whitelistedPathRegex);
     });
@@ -233,7 +233,7 @@ self.addEventListener('fetch', function(event) {
     if (!shouldRespond &&
         navigateFallback &&
         (event.request.mode === 'navigate') &&
-        isPathWhitelisted(["^.*([^.]{5}|.html)$"], event.request.url)) {
+        isPathWhitelisted(["^.*([^.]{5}|.html)(?<!(\\?|&)no-cache=1)$"], event.request.url)) {
       url = new URL(navigateFallback, self.location).toString();
       shouldRespond = urlsToCacheKeys.has(url);
     }
@@ -285,7 +285,7 @@ self.addEventListener('fetch', function(event) {
 
 // Runtime cache configuration, using the sw-toolbox library.
 
-toolbox.router.get(/\.(?:png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2)$/, toolbox.fastest, {});
+toolbox.router.get(/\.(?:png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/, toolbox.fastest, {});
 
 
 
