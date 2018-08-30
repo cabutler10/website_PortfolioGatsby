@@ -7,14 +7,14 @@
 /static/*
   Cache-Control: public, max-age=31536000, immutable
 /offline-plugin-app-shell-fallback/
-  Link: </webpack-runtime-66bb16eaa43468e6b51b.js>; rel=preload; as=script
-  Link: </component---node-modules-gatsby-plugin-offline-app-shell-js-262210a39b3d73397128.js>; rel=preload; as=script
+  Link: </webpack-runtime-ab57161a87b0c6116758.js>; rel=preload; as=script
+  Link: </component---node-modules-gatsby-plugin-offline-app-shell-js-6fbd8107f555dec007f7.js>; rel=preload; as=script
 /Blog/
-  Link: </webpack-runtime-66bb16eaa43468e6b51b.js>; rel=preload; as=script
-  Link: </0.b574bf63d555d5ec3c97.css>; rel=preload; as=script
+  Link: </webpack-runtime-ab57161a87b0c6116758.js>; rel=preload; as=script
+  Link: </0.4d47140e9870db2c0905.css>; rel=preload; as=script
 /
-  Link: </webpack-runtime-66bb16eaa43468e6b51b.js>; rel=preload; as=script
-  Link: </0.b574bf63d555d5ec3c97.css>; rel=preload; as=script
+  Link: </webpack-runtime-ab57161a87b0c6116758.js>; rel=preload; as=script
+  Link: </0.4d47140e9870db2c0905.css>; rel=preload; as=script
 /Resume/
-  Link: </webpack-runtime-66bb16eaa43468e6b51b.js>; rel=preload; as=script
-  Link: </0.b574bf63d555d5ec3c97.css>; rel=preload; as=script
+  Link: </webpack-runtime-ab57161a87b0c6116758.js>; rel=preload; as=script
+  Link: </0.4d47140e9870db2c0905.css>; rel=preload; as=script
