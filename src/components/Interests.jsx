@@ -1,13 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import Img from "gatsby-image";
 
-import classnames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import withRoot from "../withRoot";
 import Typography from "@material-ui/core/Typography";
-import CodeIcon from "@material-ui/icons/Code";
-import UploadIcon from "@material-ui/icons/CloudUpload";
-import StatsIcon from "../images/stats.png";
 
 const styles = theme => ({
   root: {
@@ -25,46 +22,22 @@ const styles = theme => ({
     paddingTop: 60
   },
   iconContainer: {
-    flexBasis: "40%",
-    textAlign: "center"
+    flexBasis: "30%"
   },
   textContainer: {
     flexBasis: "60%"
   },
   paddingLeft: {
-    paddingLeft: 30
+    borderTop: "1px solid",
+    borderColor: theme.status.greyDk,
+    paddingTop: 45,
+    lineHeight: 2
   },
   paddingRight: {
-    paddingRight: 30
-  },
-  boxContainer: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    textAlign: "center"
-  },
-  box: {
-    width: "50%",
-    background: theme.status.trueWhite,
-    "&:before": {
-      content: "''",
-      float: "left",
-      paddingTop: "100%"
-    }
-  },
-  blue1: {
-    background: theme.status.blue
-  },
-  blue2: {
-    background: theme.status.blueDk
-  },
-  blue3: {
-    background: theme.status.blueLt
-  },
-  icon: {
-    width: 42,
-    height: 42,
-    marginTop: "25%"
+    borderTop: "1px solid",
+    borderColor: theme.status.greyDk,
+    paddingTop: 45,
+    lineHeight: 2
   },
   heading: {
     paddingTop: 15,
@@ -76,7 +49,8 @@ const styles = theme => ({
 
 class Interests extends Component {
   render() {
-    let { classes } = this.props;
+    let { img, classes } = this.props;
+
     return (
       <div className={classes.root}>
         <Typography
@@ -89,7 +63,7 @@ class Interests extends Component {
         </Typography>
         <div className={classes.container}>
           <div className={classes.iconContainer}>
-            <img src={StatsIcon} alt="" />
+            <Img fluid={img[0].node.fluid} alt="" className={classes.img} />
           </div>
           <div className={classes.textContainer}>
             <Typography
@@ -119,20 +93,12 @@ class Interests extends Component {
             </Typography>
           </div>
           <div className={classes.iconContainer}>
-            <div className={classes.boxContainer}>
-              <div className={classnames(classes.box, classes.blue2)}>
-                <CodeIcon className={classes.icon} />
-              </div>
-            </div>
+            <Img fluid={img[1].node.fluid} alt="" className={classes.img} />
           </div>
         </div>
         <div className={classes.container}>
           <div className={classes.iconContainer}>
-            <div className={classes.boxContainer}>
-              <div className={classnames(classes.box, classes.blue3)}>
-                <UploadIcon className={classes.icon} />
-              </div>
-            </div>
+            <Img fluid={img[2].node.fluid} alt="" className={classes.img} />
           </div>
           <div className={classes.textContainer}>
             <Typography

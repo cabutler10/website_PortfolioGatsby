@@ -35,9 +35,6 @@ const styles = theme => ({
       alignItems: "center"
     }
   },
-  toolbarPages: {
-    justifyContent: "space-between"
-  },
   appbar: {
     boxShadow: "none"
   },

@@ -8,7 +8,7 @@ const status = {
   offWhite: "#F7F5F5",
   trueWhite: "#ffffff",
   greyDk: "#333333",
-  grey: "#999999",
+  grey: "#e0e0e0",
   greyLt: "#f9f9f9",
   red: "#991010",
   blue2: "#B0E1FC",

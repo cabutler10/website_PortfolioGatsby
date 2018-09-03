@@ -5,7 +5,6 @@ import Img from "gatsby-image";
 import { withStyles } from "@material-ui/core/styles";
 import withRoot from "../withRoot";
 import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
 import Button from "@material-ui/core/Button";
 import Hidden from "@material-ui/core/Hidden";
 import TextField from "@material-ui/core/TextField";
@@ -14,7 +13,7 @@ import { InstagramIcon, GithubIcon, LinkedinIcon } from "../images/icons/icons";
 
 const styles = theme => ({
   root: {
-    backgroundColor: theme.status.blue,
+    backgroundColor: theme.status.grey,
     width: "100%"
   },
   container: {
@@ -58,7 +57,8 @@ const styles = theme => ({
     }
   },
   divider: {
-    backgroundColor: theme.status.black
+    borderTop: "1px solid",
+    borderColor: theme.status.greyDk
   },
   subheading: {
     letterSpacing: 3,
@@ -351,7 +351,7 @@ class Footer extends Component {
             </div>
           </Hidden>
         </div>
-        <Divider className={classes.divider} />
+        <div className={classes.divider} />
         <Typography
           variant="body1"
           align="center"
