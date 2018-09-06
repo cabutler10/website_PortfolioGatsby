@@ -47,7 +47,7 @@ const theme = createMuiTheme({
   status,
   typography: {
     fontFamily: "'Open Sans', sans-serif",
-    fontSize: 16
+    fontSize: 14
   },
   overrides: {
     MuiTypography: {
