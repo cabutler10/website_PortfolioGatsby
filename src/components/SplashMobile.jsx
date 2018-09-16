@@ -2,7 +2,6 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 
 import { withStyles } from "@material-ui/core/styles";
-import withRoot from "../withRoot";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { InstagramIcon, GithubIcon, LinkedinIcon } from "../images/icons/icons";
@@ -124,4 +123,4 @@ SplashMobile.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withRoot(withStyles(styles)(SplashMobile));
+export default withStyles(styles)(SplashMobile);

@@ -30,9 +30,7 @@ module.exports = {
         trackingId: config.siteGATrackingID
       }
     },
-    // {
-    //   resolve: `gatsby-plugin-feed`
-    // },
+    // `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

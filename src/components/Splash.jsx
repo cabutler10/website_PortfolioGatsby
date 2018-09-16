@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import Img from "gatsby-image";
 
 import { withStyles } from "@material-ui/core/styles";
-import withRoot from "../withRoot";
 import Typography from "@material-ui/core/Typography";
 import Hidden from "@material-ui/core/Hidden";
 import Button from "@material-ui/core/Button";
@@ -171,4 +170,4 @@ Splash.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withRoot(withStyles(styles)(Splash));
+export default withStyles(styles)(Splash);

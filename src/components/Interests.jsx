@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import Img from "gatsby-image";
 
 import { withStyles } from "@material-ui/core/styles";
-import withRoot from "../withRoot";
 import Typography from "@material-ui/core/Typography";
 
 const styles = theme => ({
@@ -125,7 +124,7 @@ Interests.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withRoot(withStyles(styles)(Interests));
+export default withStyles(styles)(Interests);
 
 /* <div className={classes.iconContainer}>
   <div className={classes.boxContainer}>

@@ -30,6 +30,3 @@ export default function getPageContext() {
 
   return global.__INIT_MATERIAL_UI__;
 }
-
-// export non-default as well, see https://github.com/gatsbyjs/gatsby/issues/2116#issuecomment-402591618
-export { getPageContext };

@@ -4,9 +4,9 @@ import { Link } from "gatsby";
 
 import classnames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
-import withRoot from "../withRoot";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import Hidden from "@material-ui/core/Hidden";
 import Drawer from "@material-ui/core/Drawer";
@@ -150,4 +150,4 @@ Header.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withRoot(withStyles(styles)(Header));
+export default withStyles(styles)(Header);
