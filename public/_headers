@@ -7,14 +7,14 @@
 /static/*
   Cache-Control: public, max-age=31536000, immutable
 /offline-plugin-app-shell-fallback/
-  Link: </webpack-runtime-521b345ee9d56e3c090d.js>; rel=preload; as=script
+  Link: </webpack-runtime-1794eba8cab21b4a0173.js>; rel=preload; as=script
   Link: </component---node-modules-gatsby-plugin-offline-app-shell-js-14844a16072449368287.js>; rel=preload; as=script
 /Blog/
-  Link: </webpack-runtime-521b345ee9d56e3c090d.js>; rel=preload; as=script
-  Link: </0.59eb6c5e736bcd0123ae.css>; rel=preload; as=script
+  Link: </webpack-runtime-1794eba8cab21b4a0173.js>; rel=preload; as=script
+  Link: </0.061719355f881adcb725.css>; rel=preload; as=script
 /
-  Link: </webpack-runtime-521b345ee9d56e3c090d.js>; rel=preload; as=script
-  Link: </0.59eb6c5e736bcd0123ae.css>; rel=preload; as=script
+  Link: </webpack-runtime-1794eba8cab21b4a0173.js>; rel=preload; as=script
+  Link: </0.061719355f881adcb725.css>; rel=preload; as=script
 /Resume/
-  Link: </webpack-runtime-521b345ee9d56e3c090d.js>; rel=preload; as=script
-  Link: </0.59eb6c5e736bcd0123ae.css>; rel=preload; as=script
+  Link: </webpack-runtime-1794eba8cab21b4a0173.js>; rel=preload; as=script
+  Link: </0.061719355f881adcb725.css>; rel=preload; as=script

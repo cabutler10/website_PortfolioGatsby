@@ -17,7 +17,9 @@ const styles = theme => ({
     paddingTop: 15,
     paddingBottom: 15,
     paddingLeft: 30,
-    paddingRight: 30,
+    paddingRight: 30
+  },
+  link: {
     color: theme.status.greyDk
   },
   icon: {
@@ -32,7 +34,11 @@ const MobileHeaderList = props => {
     <div className={classes.list}>
       <List component="nav">
         {links.map((link, idx) => (
-          <Link to={`/${link}/`} key={`mobileLink_${link}`}>
+          <Link
+            to={`/${link}/`}
+            key={`mobileLink_${link}`}
+            className={classes.link}
+          >
             <ListItem button divider dense>
               <ListItemText
                 disableTypography

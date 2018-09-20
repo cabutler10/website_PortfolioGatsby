@@ -6,7 +6,6 @@ import classnames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import Hidden from "@material-ui/core/Hidden";
 import Drawer from "@material-ui/core/Drawer";
@@ -16,7 +15,7 @@ import MobileHeaderList from "./MobileHeaderList";
 
 const styles = theme => ({
   button: {
-    color: theme.status.grey,
+    color: theme.status.greyDk,
     marginRight: 15,
     width: 60,
     zIndex: 1100,
@@ -79,8 +78,8 @@ class Header extends Component {
 
   render() {
     const { classes } = this.props;
-    const links = ["/Resume/", "/Blog/"]; //"porfolio","photo","contact"
-    const linkLabels = ["resume", "blog"];
+    const links = ["/Resume/"]; ///Blog/", porfolio","photo","contact"
+    const linkLabels = ["resume"];
     const { windowGlobal } = this.state;
     const location = windowGlobal
       ? windowGlobal.location
