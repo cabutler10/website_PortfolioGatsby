@@ -72,7 +72,7 @@ class Resume extends Component {
               date="Graduated 2012"
               company="Auburn University (Auburn, AL, USA)"
               listItems={[
-                `Estimation of Survival of the Atlantic Horseshoe Crab, Limulus polyphemus, by Analysis of Mark-Recapture Data with Tag Loss`
+                `Estimation of Survival of the Atlantic Horseshoe Crab, <span style={{fontStyle: "italic"}}>Limulus polyphemus</span>, by Analysis of Mark-Recapture Data with Tag Loss`
               ]}
             />
             <ResumeEntrySmall

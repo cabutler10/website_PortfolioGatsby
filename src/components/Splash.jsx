@@ -43,7 +43,8 @@ const styles = theme => ({
     bottom: 15,
     [theme.breakpoints.up("md")]: {
       background: "none",
-      left: 75,
+      left: "none",
+      right: 200,
       bottom: 60
     }
   },
@@ -54,7 +55,6 @@ const styles = theme => ({
     paddingBottom: 15,
     paddingTop: 15,
     color: theme.status.greyDk,
-
     [theme.breakpoints.up("md")]: {
       fontSize: 36
     }
@@ -62,7 +62,6 @@ const styles = theme => ({
   big: {
     fontSize: 30,
     color: theme.status.greyDk,
-
     [theme.breakpoints.up("md")]: {
       fontSize: 48
     }
@@ -121,7 +120,6 @@ class Splash extends Component {
               LYSSA <span className={classes.big}>B</span>
               UTLER
             </Typography>
-
             <Typography variant="subheading" className={classes.text}>
               DATA SCIENTIST & FRONTEND DEVELOPER
             </Typography>

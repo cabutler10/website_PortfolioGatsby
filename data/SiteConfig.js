@@ -8,7 +8,7 @@ module.exports = {
   pathPrefix: "/abportfolio", // Prefixes all links. For cases when deployed to example.github.io/gatsby-material-starter/.
   siteDescription: "A personal website of my work.", // Website description used for RSS feeds/meta description tag.
   siteRss: "/rss.xml", // Path to the RSS file.
-  siteGATrackingID: "UA-119856505-1", // Tracking code ID for google analytics.
+  // siteGATrackingID: "UA-119856505-1", // Tracking code ID for google analytics.
   postDefaultCategoryID: "Tech", // Default category for posts.
   dateFromFormat: "YYYY-MM-DD", // Date format used in the frontmatter.
   dateFormat: "DD/MM/YYYY", // Date format for display.
