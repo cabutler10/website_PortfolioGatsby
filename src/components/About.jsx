@@ -91,7 +91,7 @@ class About extends Component {
       <div className={classes.root}>
         <Hidden mdUp>
           <Typography
-            variant="title"
+            variant="h6"
             color="primary"
             className={classes.textHeading}
           >
@@ -102,11 +102,7 @@ class About extends Component {
 
         <div className={classes.col}>
           <Hidden smDown>
-            <Typography
-              variant="title"
-              color="primary"
-              className={classes.title}
-            >
+            <Typography variant="h6" color="primary" className={classes.title}>
               About Me
             </Typography>
           </Hidden>

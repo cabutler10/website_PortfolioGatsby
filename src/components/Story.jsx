@@ -40,12 +40,7 @@ class Story extends Component {
 
     return (
       <div className={classes.root}>
-        <Typography
-          variant="subheading"
-          color="primary"
-          align="center"
-          className={classes.heading}
-        >
+        <Typography color="primary" align="center" className={classes.heading}>
           My Story
         </Typography>
         <div className={classes.container}>

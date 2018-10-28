@@ -26,16 +26,20 @@ const status = {
   pinkDk: "#e5d1cc",
   brown: "#998A8A",
   brownDk: "#6b6060",
-  brownLt: "#c1b8b8"
+  brownLt: "#c1b8b8",
+  yellow: "#f7b64e",
+  yellowDk: "#ee960b",
+  yellowLt: "#fad497",
+  yellowBlue: "#4e8ff7" //complementary color to yellow?
 };
 
 const theme = createMuiTheme({
   palette: {
     type: "light",
     primary: {
-      light: status.navyLt,
-      main: status.navy,
-      dark: status.navyDk
+      light: status.yellowLt,
+      main: status.yellow,
+      dark: status.yellowDk
     },
     secondary: {
       light: status.blueLt,
@@ -46,6 +50,7 @@ const theme = createMuiTheme({
   },
   status,
   typography: {
+    useNextVariants: true,
     fontFamily: "'Open Sans', sans-serif",
     fontSize: 14
   },

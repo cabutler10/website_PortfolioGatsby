@@ -18,31 +18,39 @@ const styles = theme => ({
   container: {
     display: "flex",
     justifyContent: "space-between",
-    paddingTop: 60
+    paddingTop: 45
   },
-  iconContainer: {
-    flexBasis: "30%"
+  imgContainer: {
+    flexBasis: "40%",
+    display: "flex",
+    justifyContent: "space-between"
   },
   textContainer: {
-    flexBasis: "60%"
+    flexBasis: "50%"
   },
-  paddingLeft: {
-    borderTop: "1px solid",
-    borderColor: theme.status.greyDk,
-    paddingTop: 45,
-    lineHeight: 2
+  img: {
+    height: "100%",
+    flexBasis: "45%"
   },
-  paddingRight: {
-    borderTop: "1px solid",
-    borderColor: theme.status.greyDk,
-    paddingTop: 45,
-    lineHeight: 2
+  textFirst: {
+    paddingBottom: 30,
+    lineHeight: 1.7,
+    fontWeight: 600
   },
-  heading: {
+  text: {
+    paddingBottom: 30,
+    lineHeight: 1.7
+  },
+  textLast: {
+    lineHeight: 1.7
+  },
+  subtitle1: {
     paddingTop: 15,
     paddingBottom: 15,
     letterSpacing: 3,
-    width: "100%"
+    width: "35%",
+    margin: "auto",
+    borderBottom: `1px solid ${theme.status.yellow}`
   }
 });
 
@@ -53,36 +61,33 @@ class Interests extends Component {
     return (
       <div className={classes.root}>
         <Typography
-          variant="subheading"
+          variant="subtitle1"
           color="primary"
           align="center"
-          className={classes.heading}
+          className={classes.subtitle1}
         >
-          Statistics, Web Development, Teaching.
+          Statistics, Web Development, Teaching
         </Typography>
         <div className={classes.container}>
-          <div className={classes.iconContainer}>
+          <div className={classes.imgContainer}>
             <Img fluid={img[0].node.fluid} alt="" className={classes.img} />
+            <Img fluid={img[1].node.fluid} alt="" className={classes.img} />
           </div>
           <div className={classes.textContainer}>
             <Typography
               variant="body1"
               color="primary"
-              className={classes.paddingLeft}
+              className={classes.textFirst}
             >
               I am a Data Scientist with a strong interest in Web Development. I
               am fascinated with the idea of being able to make data driven
               decision making something everyone can use and understand by
               building online and mobile tools, charts, and tutorials.
             </Typography>
-          </div>
-        </div>
-        <div className={classes.container}>
-          <div className={classes.textContainer}>
             <Typography
               variant="body1"
               color="primary"
-              className={classes.paddingRight}
+              className={classes.text}
             >
               I am a strong believer that data analysis shouldn't be hard to do
               or to understand. My blog aims to share what I have learned about
@@ -90,20 +95,10 @@ class Interests extends Component {
               technology available today, it has never been easier to turn data
               into something useful and accessible for everyone.
             </Typography>
-          </div>
-          <div className={classes.iconContainer}>
-            <Img fluid={img[1].node.fluid} alt="" className={classes.img} />
-          </div>
-        </div>
-        <div className={classes.container}>
-          <div className={classes.iconContainer}>
-            <Img fluid={img[2].node.fluid} alt="" className={classes.img} />
-          </div>
-          <div className={classes.textContainer}>
             <Typography
               variant="body1"
               color="primary"
-              className={classes.paddingLeft}
+              className={classes.textLast}
             >
               My background is in applied mathematics for biological research. I
               fell into front end web development a few years ago and I quickly

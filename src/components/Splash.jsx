@@ -43,9 +43,9 @@ const styles = theme => ({
     bottom: 15,
     [theme.breakpoints.up("md")]: {
       background: "none",
-      left: "none",
-      right: 200,
-      bottom: 60
+      left: "auto",
+      right: 100,
+      bottom: 50
     }
   },
   bold: {
@@ -56,14 +56,14 @@ const styles = theme => ({
     paddingTop: 15,
     color: theme.status.greyDk,
     [theme.breakpoints.up("md")]: {
-      fontSize: 36
+      fontSize: 40
     }
   },
   big: {
     fontSize: 30,
     color: theme.status.greyDk,
     [theme.breakpoints.up("md")]: {
-      fontSize: 48
+      fontSize: 50
     }
   },
   text: {
@@ -72,7 +72,7 @@ const styles = theme => ({
     letterSpacing: 3,
     color: theme.status.greyDk,
     [theme.breakpoints.up("md")]: {
-      fontSize: 20
+      fontSize: 28
     }
   },
   mobileText: {
@@ -112,15 +112,13 @@ class Splash extends Component {
         </Hidden>
         <Hidden xsDown>
           <div className={classes.container}>
-            <Typography variant="subheading" className={classes.text}>
-              Hello, I am
-            </Typography>
-            <Typography variant="display2" className={classes.bold}>
+            <Typography className={classes.text}>Hello, I am</Typography>
+            <Typography variant="h3" className={classes.bold}>
               <span className={classes.big}>A</span>
               LYSSA <span className={classes.big}>B</span>
               UTLER
             </Typography>
-            <Typography variant="subheading" className={classes.text}>
+            <Typography className={classes.text}>
               DATA SCIENTIST & FRONTEND DEVELOPER
             </Typography>
             <Divider className={classes.divider} />

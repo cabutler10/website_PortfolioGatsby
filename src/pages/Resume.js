@@ -61,7 +61,7 @@ class Resume extends Component {
         <div className={classes.root}>
           <div className={classes.col1}>
             <Typography
-              variant="subheading"
+              variant="subtitle1"
               color="primary"
               className={classes.title}
             >
@@ -84,7 +84,7 @@ class Resume extends Component {
               ]}
             />
             <Typography
-              variant="subheading"
+              variant="subtitle1"
               color="primary"
               className={classnames(classes.title, classes.paddingTop)}
             >
@@ -94,7 +94,7 @@ class Resume extends Component {
             <ResumeEntry title="German" date="Intermediate: B1.2" noPadding />
             <ResumeEntry title="French" date="Beginner: A2.1" noPadding />
             <Typography
-              variant="subheading"
+              variant="subtitle1"
               color="primary"
               className={classnames(classes.title, classes.paddingTop)}
             >
@@ -124,7 +124,7 @@ class Resume extends Component {
           </div>
           <div className={classes.col2}>
             <Typography
-              variant="subheading"
+              variant="subtitle1"
               color="primary"
               className={classes.title}
             >

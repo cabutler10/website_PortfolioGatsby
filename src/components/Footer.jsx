@@ -59,7 +59,7 @@ const styles = theme => ({
     borderTop: "1px solid",
     borderColor: theme.status.greyDk
   },
-  subheading: {
+  textHeading: {
     letterSpacing: 3,
     fontSize: 12,
     textTransform: "uppercase",
@@ -112,7 +112,8 @@ const styles = theme => ({
   buttonSend: {
     borderRadius: 0,
     boxShadow: "none",
-    marginTop: 15
+    marginTop: 15,
+    color: theme.status.black
   },
   inputContainer: {
     display: "flex",
@@ -144,11 +145,7 @@ class Footer extends Component {
       <div className={classes.root}>
         <div className={classes.container}>
           <div className={classes.flexItem}>
-            <Typography
-              variant="subheading"
-              align="center"
-              className={classes.subheading}
-            >
+            <Typography align="center" className={classes.subheading}>
               send me a message
             </Typography>
             <div className={classes.inputContainer}>
@@ -191,6 +188,7 @@ class Footer extends Component {
             />
             <Button
               variant="contained"
+              color="primary"
               className={classes.buttonSend}
               fullWidth
             >
@@ -199,10 +197,8 @@ class Footer extends Component {
           </div>
           <Hidden smDown>
             <div className={classes.flexItem}>
-              <Typography variant="subheading" className={classes.subheading}>
-                about me
-              </Typography>
-              <Typography variant="body1" className={classes.text}>
+              <Typography className={classes.textHeading}>about me</Typography>
+              <Typography className={classes.text}>
                 I am a Seattle native that is currently living in Munich,
                 Germany. My personal interests include traveling, hiking,
                 floating down rivers and pretending to be a photographer.
@@ -252,7 +248,7 @@ class Footer extends Component {
           </Hidden>
           <Hidden mdUp>
             <div className={classes.flexItem}>
-              <Typography variant="subheading" className={classes.subheading}>
+              <Typography variant="subtitle1" className={classes.subtitle1}>
                 about me
               </Typography>
               <div className={classes.flex}>

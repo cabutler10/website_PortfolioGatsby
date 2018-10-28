@@ -66,14 +66,10 @@ class SplashMobile extends Component {
 
     return (
       <Fragment>
-        <Typography variant="subheading" className={classes.mobileText}>
-          Developer
-        </Typography>
+        <Typography className={classes.mobileText}>Developer</Typography>
         <div className={classes.container}>
-          <Typography variant="subheading" className={classes.text}>
-            Hello, I am
-          </Typography>
-          <Typography variant="display2" className={classes.bold}>
+          <Typography className={classes.text}>Hello, I am</Typography>
+          <Typography variant="h3" className={classes.bold}>
             <span className={classes.big}>A</span>
             LYSSA <span className={classes.big}>B</span>
             UTLER

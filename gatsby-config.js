@@ -22,8 +22,8 @@ module.exports = {
         path: `${__dirname}/src/images/web`
       }
     },
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     // {
     //   resolve: `gatsby-plugin-google-analytics`,
     //   options: {
