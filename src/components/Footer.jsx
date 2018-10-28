@@ -56,8 +56,7 @@ const styles = theme => ({
     }
   },
   divider: {
-    borderTop: "1px solid",
-    borderColor: theme.status.greyDk
+    borderTop: `1px solid ${theme.status.greyDk}`
   },
   textHeading: {
     letterSpacing: 3,
@@ -113,7 +112,8 @@ const styles = theme => ({
     borderRadius: 0,
     boxShadow: "none",
     marginTop: 15,
-    color: theme.status.black
+    color: theme.status.black,
+    opacity: 0.8
   },
   inputContainer: {
     display: "flex",

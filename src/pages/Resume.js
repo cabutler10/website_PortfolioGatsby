@@ -102,23 +102,23 @@ class Resume extends Component {
             </Typography>
             <div className={classes.skills}>
               <ResumeEntry
-                company="Data Analysis"
-                listItems={["R", "Python"]}
+                company="Languages"
+                listItems={["Javascript", "R", "Python", "GraphQL"]}
               />
               <ResumeEntry
                 company="Development"
                 listItems={[
-                  "Javascript",
                   "React",
                   "Gatsby",
-                  "JSS",
-                  "Material UI",
-                  "Bootstrap"
+                  "Redux",
+                  "Material-UI",
+                  "Bootstrap",
+                  "Styled Components"
                 ]}
               />
               <ResumeEntry
                 company="Charting"
-                listItems={["Highcharts", "ggplot2", "Shiny"]}
+                listItems={["Highcharts", "ggplot2", "Shiny", "D3.js"]}
               />
             </div>
           </div>

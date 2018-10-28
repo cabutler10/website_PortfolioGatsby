@@ -45,12 +45,12 @@ const styles = theme => ({
     lineHeight: 1.7
   },
   subtitle1: {
-    paddingTop: 15,
-    paddingBottom: 15,
+    marginTop: 15,
+    marginBottom: 15,
     letterSpacing: 3,
     width: "35%",
     margin: "auto",
-    borderBottom: `1px solid ${theme.status.yellow}`
+    borderBottom: `1px solid ${theme.palette.primary.main}`
   }
 });
 

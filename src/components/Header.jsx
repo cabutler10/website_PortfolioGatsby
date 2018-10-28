@@ -19,8 +19,8 @@ const styles = theme => ({
     width: 60,
     zIndex: 1100,
     [theme.breakpoints.up("md")]: {
-      width: 130,
-      fontSize: 24
+      width: "auto",
+      fontSize: 20
     }
   },
   link: {

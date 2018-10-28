@@ -23,15 +23,12 @@ class Index extends Component {
     const interestsImg2 = data.allImageSharp.edges.find(x =>
       x.node.fluid.src.includes("interests2")
     );
-    const skillsImg = data.allImageSharp.edges.find(x =>
-      x.node.fluid.src.includes("skills")
-    );
 
     return (
       <Layout img={authorImg}>
         <Splash img={backgroundImg} />
         <Interests img={[interestsImg1, interestsImg2]} />
-        <Skills img={skillsImg} />
+        <Skills />
       </Layout>
     );
   }

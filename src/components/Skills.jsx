@@ -1,9 +1,17 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
-import Img from "gatsby-image";
 
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import LinearProgress from "@material-ui/core/LinearProgress";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import BulletIcon from "@material-ui/icons/Stop";
+import CodeIcon from "@material-ui/icons/Code";
+import ToolIcon from "@material-ui/icons/Palette";
+import ChartIcon from "@material-ui/icons/BarChart";
 
 const styles = theme => ({
   root: {
@@ -21,58 +29,163 @@ const styles = theme => ({
     paddingTop: 45
   },
   imgContainer: {
-    flexBasis: "40%",
+    flexBasis: "40%"
+  },
+  textContainer: {
+    flexBasis: "50%",
     display: "flex",
     justifyContent: "space-between"
   },
-  textContainer: {
-    flexBasis: "50%"
-  },
-  img: {
-    height: "100%",
-    flexBasis: "45%"
-  },
   textFirst: {
-    paddingBottom: 30,
-    lineHeight: 1.7,
-    fontWeight: 600
+    paddingBottom: 5
   },
   text: {
-    paddingBottom: 30,
-    lineHeight: 1.7
-  },
-  textLast: {
-    lineHeight: 1.7
+    paddingBottom: 5,
+    paddingTop: 15
   },
   subtitle1: {
-    paddingTop: 15,
-    paddingBottom: 15,
+    marginTop: 15,
+    marginBottom: 15,
     letterSpacing: 3,
     width: "35%",
     margin: "auto",
-    borderBottom: `1px solid ${theme.status.yellow}`
+    borderBottom: `1px solid ${theme.palette.primary.main}`
+  },
+  progress: {
+    backgroundColor: theme.status.grey
+  },
+  progressBar: {
+    opacity: 0.8
+  },
+  icon: {
+    verticalAlign: "middle",
+    marginRight: 15
+  },
+  flexItem: {
+    flexBasis: "30%"
+  },
+  listItem: {
+    paddingLeft: 30,
+    paddingBottom: 0
+  },
+  bullet: { color: theme.status.black, width: 10, height: 10 },
+  noPadding: {
+    padding: 0
+  },
+  secondary: {
+    color: theme.status.grey.black
   }
 });
 
 class Skills extends Component {
   render() {
-    let { img, classes } = this.props;
-
+    let { classes } = this.props;
+    let progress = [
+      { text: "statistics", value: 79 },
+      { text: "web engineering", value: 85 },
+      { text: "UX / accessibility", value: 55 },
+      { text: "lecturing", value: 62 },
+      { text: "management", value: 25 }
+    ];
+    const develop = [
+      "React",
+      "Gatsby",
+      "Redux",
+      "Material-UI",
+      "Bootstrap",
+      "Styled Components"
+    ];
+    const lang = ["Javascript", "R", "Python", "GraphQL"];
+    const chart = ["Highcharts", "ggplot2", "Shiny", "D3.js"];
     return (
       <div className={classes.root}>
+        <Typography
+          variant="subtitle1"
+          color="primary"
+          align="center"
+          className={classes.subtitle1}
+        >
+          expertise
+        </Typography>
         <div className={classes.container}>
           <div className={classes.textContainer}>
-            <Typography
-              variant="subtitle1"
-              color="primary"
-              align="center"
-              className={classes.subtitle1}
-            >
-              Skills
-            </Typography>
+            <div className={classes.flexItem}>
+              <Typography>
+                <CodeIcon className={classes.icon} />
+                Languages
+              </Typography>
+              <List>
+                {lang.map(elem => (
+                  <ListItem key={elem} dense className={classes.listItem}>
+                    <ListItemIcon>
+                      <BulletIcon className={classes.bullet} />
+                    </ListItemIcon>
+                    <ListItemText
+                      classes={{
+                        root: classes.noPadding
+                      }}
+                      primary={elem}
+                    />
+                  </ListItem>
+                ))}
+              </List>
+            </div>
+            <div className={classes.flexItem}>
+              <Typography>
+                <ToolIcon className={classes.icon} />
+                Development
+              </Typography>
+              {develop.map(elem => (
+                <ListItem key={elem} dense className={classes.listItem}>
+                  <ListItemIcon>
+                    <BulletIcon className={classes.bullet} />
+                  </ListItemIcon>
+                  <ListItemText
+                    classes={{
+                      root: classes.noPadding
+                    }}
+                    primary={elem}
+                  />
+                </ListItem>
+              ))}
+            </div>
+            <div className={classes.flexItem}>
+              <Typography>
+                <ChartIcon className={classes.icon} />
+                Charting
+              </Typography>
+              {chart.map(elem => (
+                <ListItem key={elem} dense className={classes.listItem}>
+                  <ListItemIcon>
+                    <BulletIcon className={classes.bullet} />
+                  </ListItemIcon>
+                  <ListItemText
+                    classes={{
+                      root: classes.noPadding
+                    }}
+                    primary={elem}
+                  />
+                </ListItem>
+              ))}
+            </div>
           </div>
           <div className={classes.imgContainer}>
-            <Img fluid={img.node.fluid} alt="" className={classes.img} />
+            {progress.map((elem, idx) => (
+              <Fragment>
+                <Typography
+                  className={idx === 0 ? classes.textFirst : classes.text}
+                >
+                  {elem.text}
+                </Typography>
+                <LinearProgress
+                  variant="determinate"
+                  className={classes.progress}
+                  color="primary"
+                  value={elem.value}
+                  classes={{ bar1Determinate: classes.progressBar }}
+                />
+              </Fragment>
+            ))}
           </div>
         </div>
       </div>

@@ -50,7 +50,6 @@ class ResumeEntry extends Component {
             secondary={company}
           />
         </ListItem>
-
         {listItems &&
           listItems.map(elem => (
             <ListItem key={elem} className={classes.noPadding}>
