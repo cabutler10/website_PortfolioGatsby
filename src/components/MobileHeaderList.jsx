@@ -23,7 +23,8 @@ const styles = theme => ({
     color: theme.status.greyDk
   },
   icon: {
-    color: theme.status.grey
+    color: theme.status.grey,
+    marginRight: 15
   }
 });
 
@@ -33,6 +34,16 @@ const MobileHeaderList = props => {
   return (
     <div className={classes.list}>
       <List component="nav">
+        <Link to="/" className={classes.link}>
+          <ListItem button divider dense>
+            <ListItemText
+              disableTypography
+              className={classes.text}
+              primary="home"
+            />
+            <ArrowIcon className={classes.icon} />
+          </ListItem>
+        </Link>
         {links.map((link, idx) => (
           <Link
             to={`/${link}/`}

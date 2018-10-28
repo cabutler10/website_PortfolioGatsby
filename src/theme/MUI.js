@@ -30,7 +30,7 @@ const status = {
   yellow: "#f7b64e",
   yellowDk: "#ee960b",
   yellowLt: "#fad497",
-  yellowBlue: "#4e8ff7" //complementary color to yellow?
+  yellowBlue: "#4e8ff7" //complementary color to yellow
 };
 
 const theme = createMuiTheme({

@@ -296,7 +296,7 @@ class Footer extends Component {
                   </Hidden>
                 </div>
                 <div className={classes.flexItemRight}>
-                  <Typography variant="body1" className={classes.text}>
+                  <Typography className={classes.text}>
                     I am a Seattle native that is currently living in Munich,
                     Germany. My personal interests include traveling, hiking,
                     floating down rivers and pretending to be a photographer.

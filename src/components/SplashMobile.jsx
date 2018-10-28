@@ -47,7 +47,7 @@ const styles = theme => ({
     zIndex: 1000,
     top: "37%",
     fontSize: 72,
-    color: theme.palette.secondary.main,
+    color: theme.palette.primary.main,
     fontFamily: "'Homemade Apple'"
   },
   button: {

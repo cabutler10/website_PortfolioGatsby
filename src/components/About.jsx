@@ -106,7 +106,7 @@ class About extends Component {
               About Me
             </Typography>
           </Hidden>
-          <Typography variant="body1" color="primary" className={classes.body}>
+          <Typography color="primary" className={classes.body}>
             I am a Data Scientist who currently spends all of my time doing
             Front End Web Development with React. I love the idea of being able
             to make statistics something everyone can use by building online

@@ -15,7 +15,6 @@ import MobileHeaderList from "./MobileHeaderList";
 
 const styles = theme => ({
   button: {
-    color: theme.status.greyDk,
     marginRight: 15,
     width: 60,
     zIndex: 1100,
@@ -23,6 +22,9 @@ const styles = theme => ({
       width: 130,
       fontSize: 24
     }
+  },
+  link: {
+    color: theme.status.greyDk
   },
   toolbarRoot: {
     minHeight: 48,
@@ -104,7 +106,9 @@ class Header extends Component {
         >
           <Hidden smUp>
             <Button className={classes.mobileButton}>
-              <Link to="/">A.B</Link>
+              <Link to="/" className={classes.link}>
+                A.B
+              </Link>
             </Button>
             <Button
               aria-label="menu"

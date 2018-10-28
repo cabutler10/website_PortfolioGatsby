@@ -74,32 +74,20 @@ class Interests extends Component {
             <Img fluid={img[1].node.fluid} alt="" className={classes.img} />
           </div>
           <div className={classes.textContainer}>
-            <Typography
-              variant="body1"
-              color="primary"
-              className={classes.textFirst}
-            >
+            <Typography color="primary" className={classes.textFirst}>
               I am a Data Scientist with a strong interest in Web Development. I
               am fascinated with the idea of being able to make data driven
               decision making something everyone can use and understand by
               building online and mobile tools, charts, and tutorials.
             </Typography>
-            <Typography
-              variant="body1"
-              color="primary"
-              className={classes.text}
-            >
+            <Typography color="primary" className={classes.text}>
               I am a strong believer that data analysis shouldn't be hard to do
               or to understand. My blog aims to share what I have learned about
               data analysis, web development, and online charting. With the
               technology available today, it has never been easier to turn data
               into something useful and accessible for everyone.
             </Typography>
-            <Typography
-              variant="body1"
-              color="primary"
-              className={classes.textLast}
-            >
+            <Typography color="primary" className={classes.textLast}>
               My background is in applied mathematics for biological research. I
               fell into front end web development a few years ago and I quickly
               realized how important embracing this technology could be. What
