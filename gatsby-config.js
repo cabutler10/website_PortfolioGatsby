@@ -37,10 +37,10 @@ module.exports = {
         name: config.siteTitle,
         short_name: config.siteTitleShort,
         start_url: "/src",
-        background_color: "#999999",
-        theme_color: "#FFE9E3",
+        background_color: "#f9f9f9",
+        theme_color: "#f7b64e",
         display: "minimal-ui",
-        icon: "./src/images/icon.png" // This path is relative to the root of the site.
+        icon: "./src/images/favicon/favicon.png" // This path is relative to the root of the site.
       }
     },
     `gatsby-plugin-offline`,

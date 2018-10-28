@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import favicon from "./images/favicon.ico";
 const config = require("../data/SiteConfig");
 
 export default class HTML extends React.Component {
@@ -16,8 +15,6 @@ export default class HTML extends React.Component {
           />
           <meta name="description" content={config.siteDescription} />
           <title>{config.siteTitle}</title>
-          <link rel="shortcut icon" href={favicon} type="image/x-icon" />
-          <link rel="icon" href={favicon} type="image/x-icon" />
           {this.props.headComponents}
         </head>
         <body {...this.props.bodyAttributes}>

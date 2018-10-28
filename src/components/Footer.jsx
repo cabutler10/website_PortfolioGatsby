@@ -145,7 +145,7 @@ class Footer extends Component {
       <div className={classes.root}>
         <div className={classes.container}>
           <div className={classes.flexItem}>
-            <Typography align="center" className={classes.subheading}>
+            <Typography className={classes.textHeading}>
               send me a message
             </Typography>
             <div className={classes.inputContainer}>
