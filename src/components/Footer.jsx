@@ -140,8 +140,8 @@ class Footer extends Component {
   };
 
   render() {
-    const { handleContactSend, img, classes } = this.props;
-    const { email, name, message } = this.state;
+    const { img, classes } = this.props;
+    // const { email, name, message } = this.state;
     return (
       <div className={classes.root}>
         <div className={classes.container}>
