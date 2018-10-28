@@ -12,6 +12,7 @@ import BulletIcon from "@material-ui/icons/Stop";
 import CodeIcon from "@material-ui/icons/Code";
 import ToolIcon from "@material-ui/icons/Palette";
 import ChartIcon from "@material-ui/icons/BarChart";
+import Hidden from "@material-ui/core/Hidden";
 
 const styles = theme => ({
   root: {
@@ -26,15 +27,24 @@ const styles = theme => ({
   container: {
     display: "flex",
     justifyContent: "space-between",
+    flexWrap: "wrap",
     paddingTop: 45
   },
   imgContainer: {
-    flexBasis: "40%"
+    flexBasis: "100%",
+    paddingBottom: 30,
+    [theme.breakpoints.up("md")]: {
+      flexBasis: "40%",
+      paddingBottom: 0
+    }
   },
   textContainer: {
-    flexBasis: "50%",
+    flexBasis: "100%",
     display: "flex",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    [theme.breakpoints.up("md")]: {
+      flexBasis: "50%"
+    }
   },
   textFirst: {
     paddingBottom: 5
@@ -108,14 +118,35 @@ class Skills extends Component {
           expertise
         </Typography>
         <div className={classes.container}>
-          <div className={classes.textContainer}>
-            <div className={classes.flexItem}>
-              <Typography>
-                <CodeIcon className={classes.icon} />
-                Languages
-              </Typography>
-              <List>
-                {lang.map(elem => (
+          <Hidden smDown>
+            <div className={classes.textContainer}>
+              <div className={classes.flexItem}>
+                <Typography>
+                  <CodeIcon className={classes.icon} />
+                  Languages
+                </Typography>
+                <List>
+                  {lang.map(elem => (
+                    <ListItem key={elem} dense className={classes.listItem}>
+                      <ListItemIcon>
+                        <BulletIcon className={classes.bullet} />
+                      </ListItemIcon>
+                      <ListItemText
+                        classes={{
+                          root: classes.noPadding
+                        }}
+                        primary={elem}
+                      />
+                    </ListItem>
+                  ))}
+                </List>
+              </div>
+              <div className={classes.flexItem}>
+                <Typography>
+                  <ToolIcon className={classes.icon} />
+                  Development
+                </Typography>
+                {develop.map(elem => (
                   <ListItem key={elem} dense className={classes.listItem}>
                     <ListItemIcon>
                       <BulletIcon className={classes.bullet} />
@@ -128,50 +159,31 @@ class Skills extends Component {
                     />
                   </ListItem>
                 ))}
-              </List>
+              </div>
+              <div className={classes.flexItem}>
+                <Typography>
+                  <ChartIcon className={classes.icon} />
+                  Charting
+                </Typography>
+                {chart.map(elem => (
+                  <ListItem key={elem} dense className={classes.listItem}>
+                    <ListItemIcon>
+                      <BulletIcon className={classes.bullet} />
+                    </ListItemIcon>
+                    <ListItemText
+                      classes={{
+                        root: classes.noPadding
+                      }}
+                      primary={elem}
+                    />
+                  </ListItem>
+                ))}
+              </div>
             </div>
-            <div className={classes.flexItem}>
-              <Typography>
-                <ToolIcon className={classes.icon} />
-                Development
-              </Typography>
-              {develop.map(elem => (
-                <ListItem key={elem} dense className={classes.listItem}>
-                  <ListItemIcon>
-                    <BulletIcon className={classes.bullet} />
-                  </ListItemIcon>
-                  <ListItemText
-                    classes={{
-                      root: classes.noPadding
-                    }}
-                    primary={elem}
-                  />
-                </ListItem>
-              ))}
-            </div>
-            <div className={classes.flexItem}>
-              <Typography>
-                <ChartIcon className={classes.icon} />
-                Charting
-              </Typography>
-              {chart.map(elem => (
-                <ListItem key={elem} dense className={classes.listItem}>
-                  <ListItemIcon>
-                    <BulletIcon className={classes.bullet} />
-                  </ListItemIcon>
-                  <ListItemText
-                    classes={{
-                      root: classes.noPadding
-                    }}
-                    primary={elem}
-                  />
-                </ListItem>
-              ))}
-            </div>
-          </div>
+          </Hidden>
           <div className={classes.imgContainer}>
             {progress.map((elem, idx) => (
-              <Fragment>
+              <Fragment key={idx}>
                 <Typography
                   className={idx === 0 ? classes.textFirst : classes.text}
                 >

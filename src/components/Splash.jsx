@@ -41,6 +41,12 @@ const styles = theme => ({
     padding: 0,
     left: 15,
     bottom: 15,
+    [theme.breakpoints.up("sm")]: {
+      background: "none",
+      left: "auto",
+      right: 80,
+      bottom: 0
+    },
     [theme.breakpoints.up("md")]: {
       background: "none",
       left: "auto",

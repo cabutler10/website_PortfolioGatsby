@@ -6,7 +6,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Hidden from "@material-ui/core/Hidden";
-import TextField from "@material-ui/core/TextField";
+// import TextField from "@material-ui/core/TextField";
 
 import { InstagramIcon, GithubIcon, LinkedinIcon } from "../images/icons/icons";
 
@@ -18,7 +18,7 @@ const styles = theme => ({
   container: {
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "space-between",
+    justifyContent: "space-around", //space-between with contact
     paddingLeft: "10%",
     paddingRight: "10%",
     paddingTop: 15,
@@ -38,7 +38,7 @@ const styles = theme => ({
     flexBasis: "100%",
     paddingTop: 15,
     [theme.breakpoints.up("md")]: {
-      flexBasis: "35%",
+      flexBasis: "45%", //35 with contact
       paddingTop: 0
     }
   },
@@ -99,7 +99,8 @@ const styles = theme => ({
     justifyContent: "space-between",
     paddingTop: 15,
     [theme.breakpoints.up("sm")]: {
-      justifyContent: "flex-end"
+      justifyContent: "flex-end",
+      marginTop: 100 //temp with removal of contact
     }
   },
   aboutContainer: {
@@ -139,12 +140,12 @@ class Footer extends Component {
   };
 
   render() {
-    const { img, classes } = this.props;
+    const { handleContactSend, img, classes } = this.props;
     const { email, name, message } = this.state;
     return (
       <div className={classes.root}>
         <div className={classes.container}>
-          <div className={classes.flexItem}>
+          {/* <div className={classes.flexItem}>
             <Typography className={classes.textHeading}>
               send me a message
             </Typography>
@@ -191,10 +192,11 @@ class Footer extends Component {
               color="primary"
               className={classes.buttonSend}
               fullWidth
+              onClick={handleContactSend}
             >
               Send
             </Button>
-          </div>
+          </div> */}
           <Hidden smDown>
             <div className={classes.flexItem}>
               <Typography className={classes.textHeading}>about me</Typography>

@@ -4,12 +4,12 @@ import Footer from "../components/Footer";
 import withRoot from "../withRoot";
 class Layout extends Component {
   render() {
-    const { img, children } = this.props;
+    const { img, handleContactSend, children } = this.props;
     return (
       <div>
         <Header />
         {children}
-        <Footer img={img} />
+        <Footer img={img} handleContactSend={handleContactSend} />
       </div>
     );
   }

@@ -6,11 +6,32 @@ import Interests from "../components/Interests";
 import Layout from "../layouts/layout";
 import Skills from "../components/Skills";
 
+import Snackbar from "@material-ui/core/Snackbar";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
+
 import "../utils/index";
 
 class Index extends Component {
+  state = {
+    isSnackbarOpen: false
+  };
+
+  handleContactSend = () => {
+    fetch("/api/form-submit-url", {
+      method: "POST",
+      body: this.state
+    });
+    this.setState({ isSnackbarOpen: true });
+  };
+
+  handleSnackbarClose = () => {
+    this.setState({ isSnackbarOpen: false });
+  };
+
   render() {
     const { data } = this.props;
+    const { isSnackbarOpen } = this.state;
     const backgroundImg = data.allImageSharp.edges.find(x =>
       x.node.fluid.src.includes("background")
     );
@@ -25,7 +46,30 @@ class Index extends Component {
     );
 
     return (
-      <Layout img={authorImg}>
+      <Layout img={authorImg} handleContactSend={this.handleContactSend}>
+        <Snackbar
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "left"
+          }}
+          open={isSnackbarOpen}
+          autoHideDuration={600}
+          onClose={this.handleSnackbarClose}
+          ContentProps={{
+            "aria-describedby": "message-id"
+          }}
+          message={<span id="message-id">Message Sent!</span>}
+          action={[
+            <IconButton
+              key="close"
+              aria-label="Close"
+              color="inherit"
+              onClick={this.handleSnackbarClose}
+            >
+              <CloseIcon />
+            </IconButton>
+          ]}
+        />
         <Splash img={backgroundImg} />
         <Interests img={[interestsImg1, interestsImg2]} />
         <Skills />

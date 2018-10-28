@@ -4,6 +4,7 @@ import Img from "gatsby-image";
 
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import Hidden from "@material-ui/core/Hidden";
 
 const styles = theme => ({
   root: {
@@ -17,20 +18,32 @@ const styles = theme => ({
   },
   container: {
     display: "flex",
+    flexWrap: "wrap",
     justifyContent: "space-between",
     paddingTop: 45
   },
   imgContainer: {
-    flexBasis: "40%",
+    flexBasis: "100%",
     display: "flex",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    paddingBottom: 30,
+    [theme.breakpoints.up("md")]: {
+      flexBasis: "40%",
+      paddingBottom: 0
+    }
   },
   textContainer: {
-    flexBasis: "50%"
+    flexBasis: "100%",
+    [theme.breakpoints.up("md")]: {
+      flexBasis: "50%"
+    }
   },
   img: {
     height: "100%",
-    flexBasis: "45%"
+    flexBasis: "100%",
+    [theme.breakpoints.up("md")]: {
+      flexBasis: "45%"
+    }
   },
   textFirst: {
     paddingBottom: 30,
@@ -48,9 +61,15 @@ const styles = theme => ({
     marginTop: 15,
     marginBottom: 15,
     letterSpacing: 3,
-    width: "35%",
+    width: "100%",
     margin: "auto",
-    borderBottom: `1px solid ${theme.palette.primary.main}`
+    borderBottom: `1px solid ${theme.palette.primary.main}`,
+    [theme.breakpoints.up("sm")]: {
+      width: "60%"
+    },
+    [theme.breakpoints.up("md")]: {
+      width: "35%"
+    }
   }
 });
 
@@ -70,7 +89,9 @@ class Interests extends Component {
         </Typography>
         <div className={classes.container}>
           <div className={classes.imgContainer}>
-            <Img fluid={img[0].node.fluid} alt="" className={classes.img} />
+            <Hidden mdDown>
+              <Img fluid={img[0].node.fluid} alt="" className={classes.img} />
+            </Hidden>
             <Img fluid={img[1].node.fluid} alt="" className={classes.img} />
           </div>
           <div className={classes.textContainer}>
