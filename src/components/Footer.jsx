@@ -6,7 +6,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Hidden from "@material-ui/core/Hidden";
-// import TextField from "@material-ui/core/TextField";
+import TextField from "@material-ui/core/TextField";
 
 import { InstagramIcon, GithubIcon, LinkedinIcon } from "../images/icons/icons";
 
@@ -18,7 +18,7 @@ const styles = theme => ({
   container: {
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "space-around", //space-between with contact
+    justifyContent: "space-between", //space-between with contact
     paddingLeft: "10%",
     paddingRight: "10%",
     paddingTop: 15,
@@ -38,7 +38,7 @@ const styles = theme => ({
     flexBasis: "100%",
     paddingTop: 15,
     [theme.breakpoints.up("md")]: {
-      flexBasis: "45%", //35 with contact
+      flexBasis: "35%", //35 with contact
       paddingTop: 0
     }
   },
@@ -99,8 +99,8 @@ const styles = theme => ({
     justifyContent: "space-between",
     paddingTop: 15,
     [theme.breakpoints.up("sm")]: {
-      justifyContent: "flex-end",
-      marginTop: 100 //temp with removal of contact
+      justifyContent: "flex-end"
+      // marginTop: 100 //temp with removal of contact
     }
   },
   aboutContainer: {
@@ -128,7 +128,7 @@ const styles = theme => ({
 
 class Footer extends Component {
   state = {
-    email: "",
+    emailAddress: "",
     name: "",
     message: ""
   };
@@ -141,62 +141,76 @@ class Footer extends Component {
 
   render() {
     const { img, classes } = this.props;
-    // const { email, name, message } = this.state;
+    const { emailAddress, name, message } = this.state;
     return (
       <div className={classes.root}>
         <div className={classes.container}>
-          {/* <div className={classes.flexItem}>
-            <Typography className={classes.textHeading}>
-              send me a message
-            </Typography>
-            <div className={classes.inputContainer}>
-              <TextField
-                id="name"
-                className={classes.textField}
-                InputProps={{
-                  className: classes.input,
-                  disableUnderline: true
-                }}
-                value={name}
-                placeholder="name"
-                onChange={this.handleChange("name")}
-                margin="normal"
-              />
-              <TextField
-                id="email"
-                className={classes.textField}
-                InputProps={{
-                  className: classes.input,
-                  disableUnderline: true
-                }}
-                value={email}
-                placeholder="email"
-                onChange={this.handleChange("email")}
-                margin="normal"
-              />
-            </div>
-            <TextField
-              id="message"
-              className={classes.textMessage}
-              InputProps={{ className: classes.input, disableUnderline: true }}
-              value={message}
-              placeholder="your message"
-              onChange={this.handleChange("message")}
-              margin="normal"
-              fullWidth
-              multiline
-              rows="4"
-            />
-            <Button
-              variant="contained"
-              color="primary"
-              className={classes.buttonSend}
-              fullWidth
-              onClick={handleContactSend}
+          <div className={classes.flexItem}>
+            <form
+              action="https://cabutler.prod.with-datafire.io/contact"
+              method="post"
             >
-              Send
-            </Button>
-          </div> */}
+              <Typography className={classes.textHeading}>
+                send me a message
+              </Typography>
+              <div className={classes.inputContainer}>
+                <TextField
+                  id="name"
+                  name="name"
+                  className={classes.textField}
+                  InputProps={{
+                    className: classes.input,
+                    disableUnderline: true
+                  }}
+                  value={name}
+                  placeholder="name"
+                  onChange={this.handleChange("name")}
+                  margin="normal"
+                />
+                <TextField
+                  id="emailAddress"
+                  name="emailAddress"
+                  type="email"
+                  className={classes.textField}
+                  InputProps={{
+                    className: classes.input,
+                    disableUnderline: true
+                  }}
+                  value={emailAddress}
+                  placeholder="email"
+                  onChange={this.handleChange("emailAddress")}
+                  margin="normal"
+                />
+              </div>
+              <TextField
+                id="message"
+                name="message"
+                className={classes.textMessage}
+                InputProps={{
+                  className: classes.input,
+                  disableUnderline: true
+                }}
+                value={message}
+                placeholder="your message"
+                onChange={this.handleChange("message")}
+                margin="normal"
+                fullWidth
+                multiline
+                rows="4"
+              />
+              <Button
+                variant="contained"
+                color="primary"
+                className={classes.buttonSend}
+                fullWidth
+                type="submit"
+                value="Send"
+                // onClick={handleContactSend}
+              >
+                Send
+              </Button>
+            </form>
+          </div>
           <Hidden smDown>
             <div className={classes.flexItem}>
               <Typography className={classes.textHeading}>about me</Typography>
