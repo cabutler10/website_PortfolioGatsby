@@ -12,8 +12,8 @@ const styles = theme => ({
     [theme.breakpoints.up("md")]: {
       paddingTop: 45,
       paddingBottom: 45,
-      paddingLeft: "10%",
-      paddingRight: "10%"
+      paddingLeft: 170,
+      paddingRight: 170
     }
   },
   container: {
@@ -42,8 +42,14 @@ const styles = theme => ({
     height: "100%",
     flexBasis: "100%",
     [theme.breakpoints.up("md")]: {
-      flexBasis: "45%"
+      flexBasis: "35%"
     }
+  },
+  colorBlock: {
+    height: "100%",
+    width: "100%",
+    flexBasis: "20%",
+    backgroundColor: theme.palette.primary.main
   },
   textFirst: {
     paddingBottom: 30,
@@ -61,15 +67,7 @@ const styles = theme => ({
     marginTop: 15,
     marginBottom: 15,
     letterSpacing: 3,
-    width: "100%",
-    margin: "auto",
-    borderBottom: `1px solid ${theme.palette.primary.main}`,
-    [theme.breakpoints.up("sm")]: {
-      width: "60%"
-    },
-    [theme.breakpoints.up("md")]: {
-      width: "35%"
-    }
+    width: "100%"
   }
 });
 
@@ -91,6 +89,7 @@ class Interests extends Component {
           <div className={classes.imgContainer}>
             <Hidden mdDown>
               <Img fluid={img[0].node.fluid} alt="" className={classes.img} />
+              <div className={classes.colorBlock} />
             </Hidden>
             <Img fluid={img[1].node.fluid} alt="" className={classes.img} />
           </div>

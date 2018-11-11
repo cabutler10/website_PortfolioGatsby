@@ -32,9 +32,10 @@ const styles = theme => ({
     paddingLeft: 0,
     alignItems: "stretch",
     [theme.breakpoints.up("md")]: {
-      paddingLeft: 40,
-      paddingRight: 40,
-      alignItems: "center"
+      paddingLeft: 170,
+      paddingRight: 170,
+      alignItems: "center",
+      justifyContent: "flex-end"
     }
   },
   appbar: {

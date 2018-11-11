@@ -26,17 +26,17 @@ workbox.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-eae3192730be7c74805c.js"
+    "url": "webpack-runtime-35841e3b13338d61f074.js"
   },
   {
-    "url": "app-2a195088fae4e0543306.js"
+    "url": "app-647bbc37b8a0e62ef676.js"
   },
   {
-    "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-537bc28baa39e0819614.js"
+    "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-85cb386c316ac0440da0.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "89412fea00c7730a629ebfd73c33f421"
+    "revision": "58bc9caffde38477fb3556bdb8a09e04"
   },
   {
     "url": "component---src-pages-404-js-d97817903ca3807caf05.js"
@@ -62,12 +62,12 @@ workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
 workbox.routing.registerNavigationRoute("/offline-plugin-app-shell-fallback/index.html", {
-  whitelist: [/^[^?]*([^.?]{5}|\.html)(\?.*)?$/],
+  whitelist: [/^([^.?]*|[^?]*\.([^.?]{5,}|html))(\?.*)?$/],
   blacklist: [/\?(.+&)?no-cache=1$/],
 });
 
 workbox.routing.registerRoute(/\.(?:png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/, workbox.strategies.staleWhileRevalidate(), 'GET');
-workbox.routing.registerRoute(/^https:/, workbox.strategies.networkFirst(), 'GET');
+workbox.routing.registerRoute(/^https?:/, workbox.strategies.networkFirst(), 'GET');
 "use strict";
 
 /* global workbox */
@@ -79,10 +79,19 @@ self.addEventListener("message", function (event) {
     var cacheName = workbox.core.cacheNames.runtime;
     event.waitUntil(caches.open(cacheName).then(function (cache) {
       return Promise.all(resources.map(function (resource) {
-        return cache.add(resource).catch(function (e) {
-          // ignore TypeErrors - these are usually due to
-          // external resources which don't allow CORS
-          if (!(e instanceof TypeError)) throw e;
+        var request; // Some external resources don't allow
+        // CORS so get an opaque response
+
+        if (resource.match(/^https?:/)) {
+          request = fetch(resource, {
+            mode: "no-cors"
+          });
+        } else {
+          request = fetch(resource);
+        }
+
+        return request.then(function (response) {
+          return cache.put(resource, response);
         });
       }));
     }));

@@ -16,12 +16,13 @@ import Hidden from "@material-ui/core/Hidden";
 
 const styles = theme => ({
   root: {
+    background: theme.status.trueWhite,
     padding: 15,
     [theme.breakpoints.up("md")]: {
       paddingTop: 45,
       paddingBottom: 45,
-      paddingLeft: "10%",
-      paddingRight: "10%"
+      paddingLeft: 170,
+      paddingRight: 170
     }
   },
   container: {
@@ -56,10 +57,7 @@ const styles = theme => ({
   subtitle1: {
     marginTop: 15,
     marginBottom: 15,
-    letterSpacing: 3,
-    width: "35%",
-    margin: "auto",
-    borderBottom: `1px solid ${theme.palette.primary.main}`
+    letterSpacing: 3
   },
   progress: {
     backgroundColor: theme.status.grey

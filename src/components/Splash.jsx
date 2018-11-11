@@ -22,7 +22,7 @@ const styles = theme => ({
       marginTop: -48
     },
     [theme.breakpoints.up("md")]: {
-      height: 600
+      height: 500
     }
   },
   img: {
@@ -31,7 +31,7 @@ const styles = theme => ({
       height: 300
     },
     [theme.breakpoints.up("md")]: {
-      height: 600
+      height: 500
     }
   },
   container: {
@@ -39,18 +39,18 @@ const styles = theme => ({
     zIndex: 2,
     background: "none",
     padding: 0,
-    left: 15,
+    right: 15,
     bottom: 15,
     [theme.breakpoints.up("sm")]: {
       background: "none",
-      left: "auto",
-      right: 80,
+      right: "auto",
+      left: 80,
       bottom: 0
     },
     [theme.breakpoints.up("md")]: {
       background: "none",
-      left: "auto",
-      right: 100,
+      right: "auto",
+      left: 170,
       bottom: 50
     }
   },
@@ -60,14 +60,14 @@ const styles = theme => ({
     fontSize: 24,
     paddingBottom: 15,
     paddingTop: 15,
-    color: theme.status.greyDk,
+    color: theme.palette.primary.main,
     [theme.breakpoints.up("md")]: {
       fontSize: 40
     }
   },
   big: {
     fontSize: 30,
-    color: theme.status.greyDk,
+    color: theme.palette.primary.main,
     [theme.breakpoints.up("md")]: {
       fontSize: 50
     }
@@ -99,7 +99,7 @@ const styles = theme => ({
   icon: {
     width: 24,
     height: 24,
-    fill: theme.status.black
+    fill: theme.status.greyDk
   },
   divider: {
     marginTop: 15
@@ -109,7 +109,6 @@ const styles = theme => ({
 class Splash extends Component {
   render() {
     let { img, classes } = this.props;
-
     return (
       <div className={classes.root}>
         <Img fluid={img.node.fluid} alt="" className={classes.img} />

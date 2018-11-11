@@ -1,1 +1,0 @@
-@material-ui/core@next @material-ui/icons@next babel-cli@next gatsby@next gatsby-plugin-feed@next gatsby-plugin-google-analytics@next gatsby-plugin-manifest@next gatsby-plugin-netlify@next gatsby-plugin-netlify-cache@next gatsby-plugin-offline@next gatsby-source-filesystem@next prop-types@next react@next react-dom@next react-jss@next typeface-open-sans@next

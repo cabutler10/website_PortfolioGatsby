@@ -7,7 +7,8 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Hidden from "@material-ui/core/Hidden";
 import TextField from "@material-ui/core/TextField";
-
+import Snackbar from "@material-ui/core/Snackbar";
+import Notification from "../UIcomponents/Snackbar";
 import { InstagramIcon, GithubIcon, LinkedinIcon } from "../images/icons/icons";
 
 const styles = theme => ({
@@ -18,9 +19,9 @@ const styles = theme => ({
   container: {
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "space-between", //space-between with contact
-    paddingLeft: "10%",
-    paddingRight: "10%",
+    justifyContent: "space-between",
+    paddingLeft: 170,
+    paddingRight: 170,
     paddingTop: 15,
     paddingBottom: 15,
     [theme.breakpoints.up("md")]: {
@@ -38,7 +39,7 @@ const styles = theme => ({
     flexBasis: "100%",
     paddingTop: 15,
     [theme.breakpoints.up("md")]: {
-      flexBasis: "35%", //35 with contact
+      flexBasis: "35%",
       paddingTop: 0
     }
   },
@@ -79,6 +80,11 @@ const styles = theme => ({
     border: "1px solid",
     paddingLeft: 20
   },
+  inputError: {
+    fontSize: 12,
+    border: `1px solid ${theme.palette.error.main}`,
+    paddingLeft: 20
+  },
   button: {
     borderColor: theme.status.black,
     borderRadius: 0,
@@ -100,7 +106,6 @@ const styles = theme => ({
     paddingTop: 15,
     [theme.breakpoints.up("sm")]: {
       justifyContent: "flex-end"
-      // marginTop: 100 //temp with removal of contact
     }
   },
   aboutContainer: {
@@ -123,6 +128,9 @@ const styles = theme => ({
   flex: {
     display: "flex",
     justifyContent: "space-between"
+  },
+  img: {
+    height: 250
   }
 });
 
@@ -130,26 +138,156 @@ class Footer extends Component {
   state = {
     emailAddress: "",
     name: "",
-    message: ""
+    message: "",
+    isEmailValid: true,
+    isNameValid: true,
+    isMessageValid: true,
+    isTouched: false,
+    isSnackbarOpen: false,
+    notification: "success"
   };
 
   handleChange = name => event => {
-    this.setState({
-      [name]: event.target.value
-    });
+    if (this.state.isTouched === false) {
+      this.setState({
+        isTouched: true
+      });
+    }
+    if (name === "emailAddress") {
+      const pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+      if (!pattern.test(event.target.value)) {
+        this.setState({
+          isEmailValid: false,
+          emailAddress: event.target.value
+        });
+      } else {
+        this.setState({
+          isEmailValid: true,
+          emailAddress: event.target.value
+        });
+      }
+    }
+    if (name === "name") {
+      if (event.target.value.length > 500) {
+        this.setState({
+          isNameValid: false
+        });
+      } else {
+        this.setState({
+          isNameValid: true,
+          name: event.target.value
+        });
+      }
+    }
+    if (name === "message") {
+      if (event.target.value.length > 5) {
+        this.setState({
+          isMessageValid: false
+        });
+      } else {
+        this.setState({
+          isMessageValid: true,
+          message: event.target.value
+        });
+      }
+    }
+  };
+
+  handleClick = () => {
+    this.setState({ isSnackbarOpen: true });
+  };
+
+  handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    this.setState({ isSnackbarOpen: false });
+  };
+
+  handleSubmit = () => {
+    if (
+      this.state.isEmailValid &&
+      this.state.isMessageValid &&
+      this.state.isNameValid &&
+      this.state.isTouched
+    ) {
+      fetch("https://cabutler10.dev.with-datafire.io/contact", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          message: this.state.message,
+          emailAddress: this.state.emailAddress,
+          name: this.state.name
+        })
+      })
+        .then(response => {
+          if (response.status === 200) {
+            this.setState({
+              isSnackbarOpen: true,
+              notification: "success"
+            });
+          } else {
+            this.setState({
+              isSnackbarOpen: true,
+              notification: "error"
+            });
+          }
+        })
+        .catch(err => {
+          this.setState({
+            isSnackbarOpen: true,
+            notification: "error"
+          });
+        });
+    } else {
+      this.setState({
+        isSnackbarOpen: true,
+        notification: "warning"
+      });
+    }
   };
 
   render() {
     const { img, classes } = this.props;
-    const { emailAddress, name, message } = this.state;
+    const {
+      emailAddress,
+      name,
+      message,
+      isNameValid,
+      isEmailValid,
+      isMessageValid,
+      isSnackbarOpen,
+      notification
+    } = this.state;
     return (
       <div className={classes.root}>
+        <Snackbar
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "left"
+          }}
+          open={isSnackbarOpen}
+          autoHideDuration={6000}
+          onClose={this.handleClose}
+        >
+          <Notification
+            onClose={this.handleClose}
+            variant={notification}
+            message={
+              notification === "success"
+                ? "Your email has been sent successfully"
+                : notification === "warning"
+                ? "Please check the form has been filled out correctly"
+                : "An error has occured."
+            }
+          />
+        </Snackbar>
         <div className={classes.container}>
           <div className={classes.flexItem}>
-            <form
-              action="https://cabutler.prod.with-datafire.io/contact"
-              method="post"
-            >
+            <form noValidate autoComplete="off">
               <Typography className={classes.textHeading}>
                 send me a message
               </Typography>
@@ -159,13 +297,14 @@ class Footer extends Component {
                   name="name"
                   className={classes.textField}
                   InputProps={{
-                    className: classes.input,
+                    className: isNameValid ? classes.input : classes.inputError,
                     disableUnderline: true
                   }}
                   value={name}
                   placeholder="name"
                   onChange={this.handleChange("name")}
                   margin="normal"
+                  required
                 />
                 <TextField
                   id="emailAddress"
@@ -173,13 +312,16 @@ class Footer extends Component {
                   type="email"
                   className={classes.textField}
                   InputProps={{
-                    className: classes.input,
+                    className: isEmailValid
+                      ? classes.input
+                      : classes.inputError,
                     disableUnderline: true
                   }}
                   value={emailAddress}
                   placeholder="email"
                   onChange={this.handleChange("emailAddress")}
                   margin="normal"
+                  required
                 />
               </div>
               <TextField
@@ -187,7 +329,9 @@ class Footer extends Component {
                 name="message"
                 className={classes.textMessage}
                 InputProps={{
-                  className: classes.input,
+                  className: isMessageValid
+                    ? classes.input
+                    : classes.inputError,
                   disableUnderline: true
                 }}
                 value={message}
@@ -197,15 +341,14 @@ class Footer extends Component {
                 fullWidth
                 multiline
                 rows="4"
+                required
               />
               <Button
                 variant="contained"
                 color="primary"
                 className={classes.buttonSend}
                 fullWidth
-                type="submit"
-                value="Send"
-                // onClick={handleContactSend}
+                onClick={this.handleSubmit}
               >
                 Send
               </Button>
