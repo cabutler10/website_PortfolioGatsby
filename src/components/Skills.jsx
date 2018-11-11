@@ -18,6 +18,9 @@ const styles = theme => ({
   root: {
     background: theme.status.trueWhite,
     padding: 15,
+    [theme.breakpoints.up("sm")]: {
+      padding: 45
+    },
     [theme.breakpoints.up("md")]: {
       paddingTop: 45,
       paddingBottom: 45,
@@ -119,7 +122,7 @@ class Skills extends Component {
           <Hidden smDown>
             <div className={classes.textContainer}>
               <div className={classes.flexItem}>
-                <Typography>
+                <Typography variant="subtitle1">
                   <CodeIcon className={classes.icon} />
                   Languages
                 </Typography>
@@ -140,7 +143,7 @@ class Skills extends Component {
                 </List>
               </div>
               <div className={classes.flexItem}>
-                <Typography>
+                <Typography variant="subtitle1">
                   <ToolIcon className={classes.icon} />
                   Development
                 </Typography>
@@ -159,7 +162,7 @@ class Skills extends Component {
                 ))}
               </div>
               <div className={classes.flexItem}>
-                <Typography>
+                <Typography variant="subtitle1">
                   <ChartIcon className={classes.icon} />
                   Charting
                 </Typography>

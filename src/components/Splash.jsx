@@ -44,8 +44,8 @@ const styles = theme => ({
     [theme.breakpoints.up("sm")]: {
       background: "none",
       right: "auto",
-      left: 80,
-      bottom: 0
+      left: 45,
+      bottom: 30
     },
     [theme.breakpoints.up("md")]: {
       background: "none",
@@ -76,7 +76,7 @@ const styles = theme => ({
     textTransform: "lowercase",
     fontSize: 12,
     letterSpacing: 3,
-    color: theme.status.greyDk,
+    color: theme.palette.primary.main,
     [theme.breakpoints.up("md")]: {
       fontSize: 28
     }
@@ -99,7 +99,7 @@ const styles = theme => ({
   icon: {
     width: 24,
     height: 24,
-    fill: theme.status.greyDk
+    fill: theme.palette.primary.main
   },
   divider: {
     marginTop: 15

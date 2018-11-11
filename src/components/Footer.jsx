@@ -20,13 +20,15 @@ const styles = theme => ({
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "space-between",
-    paddingLeft: 170,
-    paddingRight: 170,
-    paddingTop: 15,
-    paddingBottom: 15,
+    padding: 15,
+    [theme.breakpoints.up("sm")]: {
+      padding: 45
+    },
     [theme.breakpoints.up("md")]: {
       paddingTop: 45,
-      paddingBottom: 45
+      paddingBottom: 45,
+      paddingLeft: 170,
+      paddingRight: 170
     }
   },
   copyright: {
@@ -407,9 +409,7 @@ class Footer extends Component {
           </Hidden>
           <Hidden mdUp>
             <div className={classes.flexItem}>
-              <Typography variant="subtitle1" className={classes.subtitle1}>
-                about me
-              </Typography>
+              <Typography className={classes.textHeading}>about me</Typography>
               <div className={classes.flex}>
                 <div className={classes.flexItemRight}>
                   <Img fluid={img.node.fluid} alt="" className={classes.img} />
@@ -511,7 +511,7 @@ class Footer extends Component {
           align="center"
           className={classes.copyright}
         >
-          &copy; Alyssa Butler | last updated may 2018 | imprint
+          &copy; Alyssa Butler | 2018 | imprint
         </Typography>
       </div>
     );

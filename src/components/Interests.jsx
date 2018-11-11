@@ -9,6 +9,9 @@ import Hidden from "@material-ui/core/Hidden";
 const styles = theme => ({
   root: {
     padding: 15,
+    [theme.breakpoints.up("sm")]: {
+      padding: 45
+    },
     [theme.breakpoints.up("md")]: {
       paddingTop: 45,
       paddingBottom: 45,
@@ -27,14 +30,14 @@ const styles = theme => ({
     display: "flex",
     justifyContent: "space-between",
     paddingBottom: 30,
-    [theme.breakpoints.up("md")]: {
+    [theme.breakpoints.up("sm")]: {
       flexBasis: "40%",
       paddingBottom: 0
     }
   },
   textContainer: {
     flexBasis: "100%",
-    [theme.breakpoints.up("md")]: {
+    [theme.breakpoints.up("sm")]: {
       flexBasis: "50%"
     }
   },
@@ -42,14 +45,8 @@ const styles = theme => ({
     height: "100%",
     flexBasis: "100%",
     [theme.breakpoints.up("md")]: {
-      flexBasis: "35%"
+      flexBasis: "45%"
     }
-  },
-  colorBlock: {
-    height: "100%",
-    width: "100%",
-    flexBasis: "20%",
-    backgroundColor: theme.palette.primary.main
   },
   textFirst: {
     paddingBottom: 30,
@@ -89,7 +86,6 @@ class Interests extends Component {
           <div className={classes.imgContainer}>
             <Hidden mdDown>
               <Img fluid={img[0].node.fluid} alt="" className={classes.img} />
-              <div className={classes.colorBlock} />
             </Hidden>
             <Img fluid={img[1].node.fluid} alt="" className={classes.img} />
           </div>

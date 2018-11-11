@@ -31,11 +31,16 @@ const styles = theme => ({
     paddingRight: 0,
     paddingLeft: 0,
     alignItems: "stretch",
+    [theme.breakpoints.up("sm")]: {
+      paddingLeft: 45,
+      paddingRight: 45,
+      alignItems: "center",
+      justifyContent: "flex-end"
+    },
     [theme.breakpoints.up("md")]: {
       paddingLeft: 170,
       paddingRight: 170,
-      alignItems: "center",
-      justifyContent: "flex-end"
+      alignItems: "center"
     }
   },
   appbar: {
@@ -53,7 +58,7 @@ const styles = theme => ({
   },
   mobileIconButton: {
     flexBasis: "50%",
-    backgroundColor: theme.status.black,
+    backgroundColor: theme.palette.primary.main,
     borderRadius: 0
   },
   icon: {

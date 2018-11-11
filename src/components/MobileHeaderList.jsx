@@ -7,6 +7,8 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ArrowIcon from "@material-ui/icons/KeyboardArrowRight";
+import Button from "@material-ui/core/Button";
+import { InstagramIcon, GithubIcon, LinkedinIcon } from "../images/icons/icons";
 
 const styles = theme => ({
   list: {
@@ -25,6 +27,15 @@ const styles = theme => ({
   icon: {
     color: theme.status.grey,
     marginRight: 15
+  },
+  button: {
+    width: "100%",
+    padding: 0
+  },
+  iconSocial: {
+    width: 18,
+    height: 18,
+    fill: theme.status.black
   }
 });
 
@@ -60,6 +71,63 @@ const MobileHeaderList = props => {
             </ListItem>
           </Link>
         ))}
+        <Button
+          aria-label="linkedin"
+          className={classes.button}
+          href="https://www.linkedin.com/in/alyssa-butler-b77054ab/"
+          target="_blank"
+          rel="noopener"
+          disableFocusRipple
+          disableRipple
+        >
+          <ListItem button divider dense>
+            <ListItemText
+              disableTypography
+              className={classes.text}
+              primary={<LinkedinIcon className={classes.iconSocial} />}
+            />
+
+            <ArrowIcon className={classes.icon} />
+          </ListItem>
+        </Button>
+        <Button
+          aria-label="github"
+          className={classes.button}
+          href="https://github.com/cabutler10"
+          target="_blank"
+          rel="noopener"
+          disableFocusRipple
+          disableRipple
+        >
+          <ListItem button divider dense>
+            <ListItemText
+              disableTypography
+              className={classes.text}
+              primary={<GithubIcon className={classes.iconSocial} />}
+            />
+
+            <ArrowIcon className={classes.icon} />
+          </ListItem>
+        </Button>
+        <Button
+          aria-label="instagram"
+          className={classes.button}
+          href="https://www.instagram.com/cabutler10/"
+          target="_blank"
+          rel="noopener"
+          disableFocusRipple
+          disableRipple
+        >
+          <ListItem button divider dense>
+            <ListItemText
+              disableTypography
+              className={classes.text}
+              primary={<InstagramIcon className={classes.iconSocial} />}
+            />
+
+            <ArrowIcon className={classes.icon} />
+          </ListItem>
+        </Button>
       </List>
     </div>
   );

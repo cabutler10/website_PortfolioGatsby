@@ -10,10 +10,9 @@ const status = {
   greyDk: "#333333",
   grey: "#e0e0e0",
   greyLt: "#f9f9f9",
-  blue: "#0b00b3",
-  blueDk: "#060067",
-  blueLt: "#0b00b3",
-  blue2: "#0283bc",
+  blue: "#004D9A",
+  blueDk: "#00274e",
+  blueLt: "#0073e7",
   teal: "#99ffff",
   tealDk: "#4dffff",
   tealLt: "#e6ffff",
@@ -30,7 +29,7 @@ const theme = createMuiTheme({
     },
     secondary: {
       light: status.tealLt,
-      main: status.teal,
+      main: status.grey,
       dark: status.tealDk
     },
     error: { main: status.red }

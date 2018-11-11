@@ -3,13 +3,11 @@ import PropTypes from "prop-types";
 
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import { InstagramIcon, GithubIcon, LinkedinIcon } from "../images/icons/icons";
 
 const styles = theme => ({
   container: {
     position: "absolute",
-    background: theme.status.black,
+    background: theme.palette.primary.main,
     left: 0,
     bottom: 40,
     right: 0,
@@ -47,7 +45,7 @@ const styles = theme => ({
     zIndex: 1000,
     top: "37%",
     fontSize: 72,
-    color: theme.palette.primary.main,
+    color: theme.palette.secondary.main,
     fontFamily: "'Homemade Apple'"
   },
   button: {
@@ -74,41 +72,6 @@ class SplashMobile extends Component {
             LYSSA <span className={classes.big}>B</span>
             UTLER
           </Typography>
-        </div>
-        <div className={classes.buttonContainer}>
-          <Button
-            aria-label="linkedin"
-            className={classes.button}
-            href="https://www.linkedin.com/in/alyssa-butler-b77054ab/"
-            target="_blank"
-            rel="noopener"
-            disableFocusRipple
-            disableRipple
-          >
-            <LinkedinIcon className={classes.icon} />
-          </Button>
-          <Button
-            aria-label="github"
-            className={classes.button}
-            href="https://github.com/cabutler10"
-            target="_blank"
-            rel="noopener"
-            disableFocusRipple
-            disableRipple
-          >
-            <GithubIcon className={classes.icon} />
-          </Button>
-          <Button
-            aria-label="instagram"
-            className={classes.button}
-            href="https://www.instagram.com/cabutler10/"
-            target="_blank"
-            rel="noopener"
-            disableFocusRipple
-            disableRipple
-          >
-            <InstagramIcon className={classes.icon} />
-          </Button>
         </div>
       </Fragment>
     );
