@@ -44,7 +44,7 @@ const styles = theme => ({
     left: 0,
     zIndex: 1000,
     top: "37%",
-    fontSize: 72,
+    fontSize: 69,
     color: theme.palette.secondary.main,
     fontFamily: "'Homemade Apple'"
   },
