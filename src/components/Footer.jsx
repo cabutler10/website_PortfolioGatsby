@@ -120,7 +120,8 @@ const styles = theme => ({
     borderRadius: 0,
     boxShadow: "none",
     marginTop: 15,
-    color: theme.status.black,
+    backgroundColor: theme.palette.primary.dark,
+    color: theme.status.white,
     opacity: 0.8
   },
   inputContainer: {
@@ -347,7 +348,6 @@ class Footer extends Component {
               />
               <Button
                 variant="contained"
-                color="primary"
                 className={classes.buttonSend}
                 fullWidth
                 onClick={this.handleSubmit}
