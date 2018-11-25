@@ -214,7 +214,7 @@ class Footer extends Component {
       this.state.isNameValid &&
       this.state.isTouched
     ) {
-      fetch("https://cabutler10.dev.with-datafire.io/contact", {
+      fetch("https://cabutler10.prod.with-datafire.io/contact", {
         method: "POST",
         headers: {
           Accept: "application/json",
