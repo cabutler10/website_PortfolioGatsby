@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
+
+import withRoot from "../withRoot";
 import { withStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -74,4 +76,4 @@ ResumeEntry.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(ResumeEntry);
+export default withRoot(withStyles(styles)(ResumeEntry));

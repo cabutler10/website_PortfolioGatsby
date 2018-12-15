@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 
 import { withStyles } from "@material-ui/core/styles";
+import withRoot from "../withRoot";
 import Typography from "@material-ui/core/Typography";
 
 const styles = theme => ({
@@ -82,4 +83,4 @@ SplashMobile.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(SplashMobile);
+export default withRoot(withStyles(styles)(SplashMobile));

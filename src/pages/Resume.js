@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 
 import classnames from "classnames";
+import withRoot from "../withRoot";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
@@ -212,7 +213,7 @@ Resume.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Resume);
+export default withRoot(withStyles(styles)(Resume));
 
 export const pageQuery = graphql`
   query {

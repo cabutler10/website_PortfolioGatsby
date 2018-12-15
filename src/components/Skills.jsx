@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 
+import withRoot from "../withRoot";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import LinearProgress from "@material-ui/core/LinearProgress";
@@ -210,4 +211,4 @@ Skills.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Skills);
+export default withRoot(withStyles(styles)(Skills));
