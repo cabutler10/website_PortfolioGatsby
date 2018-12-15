@@ -26,20 +26,20 @@ workbox.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-ac2cff9fbd867e4c342e.js"
+    "url": "webpack-runtime-6bc302ae385b2aaa1c62.js"
   },
   {
-    "url": "app-48ef5686cb8242ec041e.js"
+    "url": "app-8db442137b2495988871.js"
   },
   {
-    "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-22aaa75040151f6993a3.js"
+    "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-80c18745888061a32dfe.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "6e2cf0b41264e7ae4d676f689536b3dd"
+    "revision": "25de986046e0cc764ab4f72df98e71f7"
   },
   {
-    "url": "component---src-pages-404-js-5f7690733505952e5f86.js"
+    "url": "component---src-pages-404-js-43ad9139fd550b298ef5.js"
   },
   {
     "url": "static/d/164/path---404-html-516-62a-NZuapzHg3X9TaN1iIixfv1W23E.json",
@@ -86,6 +86,24 @@ var navigationRoute = new workbox.routing.NavigationRoute(function (_ref) {
       var cacheName = workbox.core.cacheNames.precache;
       return caches.match(offlineShell, {
         cacheName: cacheName
+      }).then(function (cachedResponse) {
+        if (!cachedResponse) {
+          return fetch(offlineShell).then(function (response) {
+            if (response.ok) {
+              return caches.open(cacheName).then(function (cache) {
+                return (// Clone is needed because put() consumes the response body.
+                  cache.put(offlineShell, response.clone()).then(function () {
+                    return response;
+                  })
+                );
+              });
+            } else {
+              return fetch(event.request);
+            }
+          });
+        }
+
+        return cachedResponse;
       });
     }
 

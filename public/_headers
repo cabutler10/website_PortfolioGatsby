@@ -9,20 +9,20 @@
 /sw.js
   Cache-Control: no-cache
 /offline-plugin-app-shell-fallback/
-  Link: </webpack-runtime-ac2cff9fbd867e4c342e.js>; rel=preload; as=script
-  Link: </component---node-modules-gatsby-plugin-offline-app-shell-js-22aaa75040151f6993a3.js>; rel=preload; as=script
+  Link: </webpack-runtime-6bc302ae385b2aaa1c62.js>; rel=preload; as=script
+  Link: </component---node-modules-gatsby-plugin-offline-app-shell-js-80c18745888061a32dfe.js>; rel=preload; as=script
 /404/
-  Link: </webpack-runtime-ac2cff9fbd867e4c342e.js>; rel=preload; as=script
-  Link: </component---src-pages-404-js-5f7690733505952e5f86.js>; rel=preload; as=script
+  Link: </webpack-runtime-6bc302ae385b2aaa1c62.js>; rel=preload; as=script
+  Link: </component---src-pages-404-js-43ad9139fd550b298ef5.js>; rel=preload; as=script
 /Blog/
-  Link: </webpack-runtime-ac2cff9fbd867e4c342e.js>; rel=preload; as=script
-  Link: </0.79d417aca563179ca64d.css>; rel=preload; as=script
+  Link: </webpack-runtime-6bc302ae385b2aaa1c62.js>; rel=preload; as=script
+  Link: </0.916c2f09a814d292b62d.css>; rel=preload; as=script
 /
-  Link: </webpack-runtime-ac2cff9fbd867e4c342e.js>; rel=preload; as=script
-  Link: </0.79d417aca563179ca64d.css>; rel=preload; as=script
+  Link: </webpack-runtime-6bc302ae385b2aaa1c62.js>; rel=preload; as=script
+  Link: </0.916c2f09a814d292b62d.css>; rel=preload; as=script
 /Resume/
-  Link: </webpack-runtime-ac2cff9fbd867e4c342e.js>; rel=preload; as=script
-  Link: </0.79d417aca563179ca64d.css>; rel=preload; as=script
+  Link: </webpack-runtime-6bc302ae385b2aaa1c62.js>; rel=preload; as=script
+  Link: </0.916c2f09a814d292b62d.css>; rel=preload; as=script
 /404.html
-  Link: </webpack-runtime-ac2cff9fbd867e4c342e.js>; rel=preload; as=script
-  Link: </component---src-pages-404-js-5f7690733505952e5f86.js>; rel=preload; as=script
+  Link: </webpack-runtime-6bc302ae385b2aaa1c62.js>; rel=preload; as=script
+  Link: </component---src-pages-404-js-43ad9139fd550b298ef5.js>; rel=preload; as=script
