@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import { makeStyles } from "@material-ui/styles";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import ErrorIcon from "@material-ui/icons/Error";
 import InfoIcon from "@material-ui/icons/Info";
@@ -10,7 +11,6 @@ import amber from "@material-ui/core/colors/amber";
 import IconButton from "@material-ui/core/IconButton";
 import SnackbarContent from "@material-ui/core/SnackbarContent";
 import WarningIcon from "@material-ui/icons/Warning";
-import { withStyles } from "@material-ui/core/styles";
 
 const variantIcon = {
   success: CheckCircleIcon,
@@ -19,7 +19,7 @@ const variantIcon = {
   info: InfoIcon
 };
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   success: {
     backgroundColor: green[600]
   },
@@ -43,10 +43,11 @@ const styles = theme => ({
     display: "flex",
     alignItems: "center"
   }
-});
+}));
 
 function Notification(props) {
-  const { classes, className, message, onClose, variant, ...other } = props;
+  const classes = useStyles();
+  const { className, message, onClose, variant, ...other } = props;
   const Icon = variantIcon[variant];
 
   return (
@@ -76,11 +77,11 @@ function Notification(props) {
 }
 
 Notification.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object,
   className: PropTypes.string,
   message: PropTypes.node,
   onClose: PropTypes.func,
   variant: PropTypes.oneOf(["success", "warning", "error", "info"]).isRequired
 };
 
-export default withStyles(styles)(Notification);
+export default Notification;

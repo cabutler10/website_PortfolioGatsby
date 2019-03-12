@@ -1,18 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
-
-import withRoot from "../withRoot";
-import { withStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/styles";
 import Typography from "@material-ui/core/Typography";
 import Hidden from "@material-ui/core/Hidden";
 import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
 import { InstagramIcon, GithubIcon, LinkedinIcon } from "../images/icons/icons";
-
 import SplashMobile from "./SplashMobile";
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   root: {
     height: 300,
     position: "relative",
@@ -105,71 +102,71 @@ const styles = theme => ({
   divider: {
     marginTop: 15
   }
-});
+}));
 
-class Splash extends Component {
-  render() {
-    let { img, classes } = this.props;
-    return (
-      <div className={classes.root}>
-        <Img fluid={img.node.fluid} alt="" className={classes.img} />
-        <Hidden smUp>
-          <SplashMobile />
-        </Hidden>
-        <Hidden xsDown>
-          <div className={classes.container}>
-            <Typography className={classes.text}>Hello, I am</Typography>
-            <Typography variant="h3" className={classes.bold}>
-              <span className={classes.big}>A</span>
-              LYSSA <span className={classes.big}>B</span>
-              UTLER
-            </Typography>
-            <Typography className={classes.text}>
-              DATA SCIENTIST & FRONTEND DEVELOPER
-            </Typography>
-            <Divider className={classes.divider} />
-            <Button
-              aria-label="linkedin"
-              className={classes.button}
-              href="https://www.linkedin.com/in/alyssa-butler-b77054ab/"
-              target="_blank"
-              rel="noopener"
-              disableFocusRipple
-              disableRipple
-            >
-              <LinkedinIcon className={classes.icon} />
-            </Button>
-            <Button
-              aria-label="github"
-              className={classes.button}
-              href="https://github.com/cabutler10"
-              target="_blank"
-              rel="noopener"
-              disableFocusRipple
-              disableRipple
-            >
-              <GithubIcon className={classes.icon} />
-            </Button>
-            <Button
-              aria-label="instagram"
-              className={classes.button}
-              href="https://www.instagram.com/cabutler10/"
-              target="_blank"
-              rel="noopener"
-              disableFocusRipple
-              disableRipple
-            >
-              <InstagramIcon className={classes.icon} />
-            </Button>
-          </div>
-        </Hidden>
-      </div>
-    );
-  }
+function Splash({ img }) {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.root}>
+      <Img fluid={img.node.fluid} alt="" className={classes.img} />
+      <Hidden smUp>
+        <SplashMobile />
+      </Hidden>
+      <Hidden xsDown>
+        <div className={classes.container}>
+          <Typography className={classes.text}>Hello, I am</Typography>
+          <Typography variant="h3" className={classes.bold}>
+            <span className={classes.big}>A</span>
+            LYSSA <span className={classes.big}>B</span>
+            UTLER
+          </Typography>
+          <Typography className={classes.text}>
+            DATA SCIENTIST & FRONTEND DEVELOPER
+          </Typography>
+          <Divider className={classes.divider} />
+          <Button
+            aria-label="linkedin"
+            className={classes.button}
+            href="https://www.linkedin.com/in/alyssa-butler-b77054ab/"
+            target="_blank"
+            rel="noopener"
+            disableFocusRipple
+            disableRipple
+          >
+            <LinkedinIcon className={classes.icon} />
+          </Button>
+          <Button
+            aria-label="github"
+            className={classes.button}
+            href="https://github.com/cabutler10"
+            target="_blank"
+            rel="noopener"
+            disableFocusRipple
+            disableRipple
+          >
+            <GithubIcon className={classes.icon} />
+          </Button>
+          <Button
+            aria-label="instagram"
+            className={classes.button}
+            href="https://www.instagram.com/cabutler10/"
+            target="_blank"
+            rel="noopener"
+            disableFocusRipple
+            disableRipple
+          >
+            <InstagramIcon className={classes.icon} />
+          </Button>
+        </div>
+      </Hidden>
+    </div>
+  );
 }
 
 Splash.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object,
+  img: PropTypes.object
 };
 
-export default withRoot(withStyles(styles)(Splash));
+export default Splash;

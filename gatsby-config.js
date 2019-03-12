@@ -32,6 +32,12 @@ module.exports = {
     // },
     // `gatsby-plugin-feed`,
     {
+      resolve: "gatsby-plugin-material-ui",
+      options: {
+        pathToTheme: `${__dirname}/src/theme/MUI`
+      }
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: config.siteTitle,
@@ -43,8 +49,7 @@ module.exports = {
         icon: "./src/images/favicon/favicon.png" // This path is relative to the root of the site.
       }
     },
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-netlify`,
-    `gatsby-plugin-netlify-cache`
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-offline`
   ]
 };

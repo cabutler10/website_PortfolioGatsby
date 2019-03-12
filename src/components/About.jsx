@@ -1,16 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-
-import withRoot from "../withRoot";
-import { withStyles } from "@material-ui/core/styles";
+import Img from "gatsby-image";
+import { makeStyles } from "@material-ui/styles";
 import Typography from "@material-ui/core/Typography";
 import Hidden from "@material-ui/core/Hidden";
 import Button from "@material-ui/core/Button";
 import { InstagramIcon, GithubIcon, LinkedinIcon } from "../images/icons/icons";
 
-import Img from "gatsby-image";
-
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   root: {
     padding: 15,
     display: "flex",
@@ -83,87 +80,85 @@ const styles = theme => ({
       width: "35%"
     }
   }
-});
+}));
+function About({ img }) {
+  const classes = useStyles();
 
-class About extends Component {
-  render() {
-    let { img, classes } = this.props;
-    return (
-      <div className={classes.root}>
-        <Hidden mdUp>
-          <Typography
-            variant="h6"
-            color="primary"
-            className={classes.textHeading}
-          >
-            About
+  return (
+    <div className={classes.root}>
+      <Hidden mdUp>
+        <Typography
+          variant="h6"
+          color="primary"
+          className={classes.textHeading}
+        >
+          About
+        </Typography>
+      </Hidden>
+      <Img fluid={img.node.fluid} className={classes.img} alt="" />
+
+      <div className={classes.col}>
+        <Hidden smDown>
+          <Typography variant="h6" color="primary" className={classes.title}>
+            About Me
           </Typography>
         </Hidden>
-        <Img fluid={img.node.fluid} className={classes.img} alt="" />
-
-        <div className={classes.col}>
-          <Hidden smDown>
-            <Typography variant="h6" color="primary" className={classes.title}>
-              About Me
-            </Typography>
-          </Hidden>
-          <Typography color="primary" className={classes.body}>
-            I am a Data Scientist who currently spends all of my time doing
-            Front End Web Development with React. I love the idea of being able
-            to make statistics something everyone can use by building online
-            tools and tutorials. <br /> <br /> My personal interests include
-            hiking, floating down rivers, and pretending to be a wildlife
-            photographer.
-          </Typography>
-          <span className={classes.buttonContainer}>
-            <Button
-              color="secondary"
-              variant="raised"
-              aria-label="linkedin"
-              className={classes.button}
-              href="https://www.linkedin.com/in/alyssa-butler-b77054ab/"
-              target="_blank"
-              rel="noopener"
-              disableFocusRipple
-              disableRipple
-            >
-              <LinkedinIcon className={classes.icon} color="secondary" />
-            </Button>
-            <Button
-              color="secondary"
-              variant="raised"
-              aria-label="github"
-              className={classes.button}
-              href="https://github.com/cabutler10"
-              target="_blank"
-              rel="noopener"
-              disableFocusRipple
-              disableRipple
-            >
-              <GithubIcon className={classes.icon} color="secondary" />
-            </Button>
-            <Button
-              color="secondary"
-              variant="raised"
-              aria-label="instagram"
-              className={classes.button}
-              href="https://www.instagram.com/cabutler10/"
-              target="_blank"
-              rel="noopener"
-              disableFocusRipple
-              disableRipple
-            >
-              <InstagramIcon className={classes.icon} color="secondary" />
-            </Button>
-          </span>
-        </div>
+        <Typography color="primary" className={classes.body}>
+          I am a Data Scientist who currently spends all of my time doing Front
+          End Web Development with React. I love the idea of being able to make
+          statistics something everyone can use by building online tools and
+          tutorials. <br /> <br /> My personal interests include hiking,
+          floating down rivers, and pretending to be a wildlife photographer.
+        </Typography>
+        <span className={classes.buttonContainer}>
+          <Button
+            color="secondary"
+            variant="raised"
+            aria-label="linkedin"
+            className={classes.button}
+            href="https://www.linkedin.com/in/alyssa-butler-b77054ab/"
+            target="_blank"
+            rel="noopener"
+            disableFocusRipple
+            disableRipple
+          >
+            <LinkedinIcon className={classes.icon} color="secondary" />
+          </Button>
+          <Button
+            color="secondary"
+            variant="raised"
+            aria-label="github"
+            className={classes.button}
+            href="https://github.com/cabutler10"
+            target="_blank"
+            rel="noopener"
+            disableFocusRipple
+            disableRipple
+          >
+            <GithubIcon className={classes.icon} color="secondary" />
+          </Button>
+          <Button
+            color="secondary"
+            variant="raised"
+            aria-label="instagram"
+            className={classes.button}
+            href="https://www.instagram.com/cabutler10/"
+            target="_blank"
+            rel="noopener"
+            disableFocusRipple
+            disableRipple
+          >
+            <InstagramIcon className={classes.icon} color="secondary" />
+          </Button>
+        </span>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 About.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object,
+  img: PropTypes.object
 };
 
-export default withRoot(withStyles(styles)(About));
+export default About;

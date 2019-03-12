@@ -1,13 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
-
-import { withStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/styles";
 import Typography from "@material-ui/core/Typography";
-
 import Layout from "../layouts/layout";
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
     justifyContent: "center",
@@ -16,29 +14,28 @@ const styles = theme => ({
       padding: 60
     }
   }
-});
+}));
 
-class Blog extends Component {
-  render() {
-    let { data, classes } = this.props;
-    const authorImg = data.allImageSharp.edges.find(x =>
-      x.node.fluid.src.includes("author")
-    );
-    return (
-      <Layout img={authorImg}>
-        <div className={classes.root}>
-          <Typography>Blog</Typography>
-        </div>
-      </Layout>
-    );
-  }
+function Blog({ data }) {
+  const classes = useStyles();
+
+  const authorImg = data.allImageSharp.edges.find(x =>
+    x.node.fluid.src.includes("author")
+  );
+  return (
+    <Layout img={authorImg}>
+      <div className={classes.root}>
+        <Typography>Blog</Typography>
+      </div>
+    </Layout>
+  );
 }
 
 Blog.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object
 };
 
-export default withStyles(styles)(Blog);
+export default Blog;
 
 export const pageQuery = graphql`
   query {

@@ -1,9 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "gatsby";
-
-import withRoot from "../withRoot";
-import { withStyles } from "@material-ui/core/styles";
+import Link from "../UIcomponents/Link";
+import { makeStyles } from "@material-ui/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -11,7 +9,7 @@ import ArrowIcon from "@material-ui/icons/KeyboardArrowRight";
 import Button from "@material-ui/core/Button";
 import { InstagramIcon, GithubIcon, LinkedinIcon } from "../images/icons/icons";
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   list: {
     width: 200
   },
@@ -38,10 +36,10 @@ const styles = theme => ({
     height: 18,
     fill: theme.status.black
   }
-});
+}));
 
-const MobileHeaderList = props => {
-  const { links, linkLabels, classes } = props;
+function MobileHeaderList({ links, linkLabels }) {
+  const classes = useStyles();
 
   return (
     <div className={classes.list}>
@@ -132,10 +130,12 @@ const MobileHeaderList = props => {
       </List>
     </div>
   );
-};
+}
 
 MobileHeaderList.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object,
+  linkLabels: PropTypes.array.isRequired,
+  links: PropTypes.array.isRequired
 };
 
-export default withRoot(withStyles(styles)(MobileHeaderList));
+export default MobileHeaderList;

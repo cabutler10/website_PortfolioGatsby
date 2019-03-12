@@ -1,8 +1,6 @@
-import React, { Component, Fragment } from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-
-import withRoot from "../withRoot";
-import { withStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/styles";
 import Typography from "@material-ui/core/Typography";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import List from "@material-ui/core/List";
@@ -15,7 +13,7 @@ import ToolIcon from "@material-ui/icons/Palette";
 import ChartIcon from "@material-ui/icons/BarChart";
 import Hidden from "@material-ui/core/Hidden";
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   root: {
     background: theme.status.trueWhite,
     padding: 15,
@@ -87,68 +85,48 @@ const styles = theme => ({
   secondary: {
     color: theme.status.grey.black
   }
-});
+}));
 
-class Skills extends Component {
-  render() {
-    let { classes } = this.props;
-    let progress = [
-      { text: "statistics", value: 79 },
-      { text: "web engineering", value: 85 },
-      { text: "UX / accessibility", value: 55 },
-      { text: "lecturing", value: 62 },
-      { text: "management", value: 25 }
-    ];
-    const develop = [
-      "React",
-      "Gatsby",
-      "Redux",
-      "Material-UI",
-      "Bootstrap",
-      "Styled Components"
-    ];
-    const lang = ["Javascript", "R", "Python", "GraphQL"];
-    const chart = ["Highcharts", "ggplot2", "Shiny", "D3.js"];
-    return (
-      <div className={classes.root}>
-        <Typography
-          variant="subtitle1"
-          color="primary"
-          align="center"
-          className={classes.subtitle1}
-        >
-          expertise
-        </Typography>
-        <div className={classes.container}>
-          <Hidden smDown>
-            <div className={classes.textContainer}>
-              <div className={classes.flexItem}>
-                <Typography variant="subtitle1">
-                  <CodeIcon className={classes.icon} />
-                  Languages
-                </Typography>
-                <List>
-                  {lang.map(elem => (
-                    <ListItem key={elem} dense className={classes.listItem}>
-                      <ListItemIcon>
-                        <BulletIcon className={classes.bullet} />
-                      </ListItemIcon>
-                      <ListItemText
-                        classes={{
-                          root: classes.noPadding
-                        }}
-                        primary={elem}
-                      />
-                    </ListItem>
-                  ))}
-                </List>
-              </div>
-              <div className={classes.flexItem}>
-                <Typography variant="subtitle1">
-                  <ToolIcon className={classes.icon} />
-                  Development
-                </Typography>
-                {develop.map(elem => (
+function Skills() {
+  const classes = useStyles();
+
+  let progress = [
+    { text: "statistics", value: 79 },
+    { text: "web engineering", value: 85 },
+    { text: "UX / accessibility", value: 55 },
+    { text: "lecturing", value: 62 },
+    { text: "management", value: 25 }
+  ];
+  const develop = [
+    "React",
+    "Gatsby",
+    "Redux",
+    "Material-UI",
+    "Bootstrap",
+    "Styled Components"
+  ];
+  const lang = ["Javascript", "R", "Python", "GraphQL"];
+  const chart = ["Highcharts", "ggplot2", "Shiny", "D3.js"];
+  return (
+    <div className={classes.root}>
+      <Typography
+        variant="subtitle1"
+        color="primary"
+        align="center"
+        className={classes.subtitle1}
+      >
+        expertise
+      </Typography>
+      <div className={classes.container}>
+        <Hidden smDown>
+          <div className={classes.textContainer}>
+            <div className={classes.flexItem}>
+              <Typography variant="subtitle1">
+                <CodeIcon className={classes.icon} />
+                Languages
+              </Typography>
+              <List>
+                {lang.map(elem => (
                   <ListItem key={elem} dense className={classes.listItem}>
                     <ListItemIcon>
                       <BulletIcon className={classes.bullet} />
@@ -161,54 +139,73 @@ class Skills extends Component {
                     />
                   </ListItem>
                 ))}
-              </div>
-              <div className={classes.flexItem}>
-                <Typography variant="subtitle1">
-                  <ChartIcon className={classes.icon} />
-                  Charting
-                </Typography>
-                {chart.map(elem => (
-                  <ListItem key={elem} dense className={classes.listItem}>
-                    <ListItemIcon>
-                      <BulletIcon className={classes.bullet} />
-                    </ListItemIcon>
-                    <ListItemText
-                      classes={{
-                        root: classes.noPadding
-                      }}
-                      primary={elem}
-                    />
-                  </ListItem>
-                ))}
-              </div>
+              </List>
             </div>
-          </Hidden>
-          <div className={classes.imgContainer}>
-            {progress.map((elem, idx) => (
-              <Fragment key={idx}>
-                <Typography
-                  className={idx === 0 ? classes.textFirst : classes.text}
-                >
-                  {elem.text}
-                </Typography>
-                <LinearProgress
-                  variant="determinate"
-                  className={classes.progress}
-                  color="primary"
-                  value={elem.value}
-                  classes={{ bar1Determinate: classes.progressBar }}
-                />
-              </Fragment>
-            ))}
+            <div className={classes.flexItem}>
+              <Typography variant="subtitle1">
+                <ToolIcon className={classes.icon} />
+                Development
+              </Typography>
+              {develop.map(elem => (
+                <ListItem key={elem} dense className={classes.listItem}>
+                  <ListItemIcon>
+                    <BulletIcon className={classes.bullet} />
+                  </ListItemIcon>
+                  <ListItemText
+                    classes={{
+                      root: classes.noPadding
+                    }}
+                    primary={elem}
+                  />
+                </ListItem>
+              ))}
+            </div>
+            <div className={classes.flexItem}>
+              <Typography variant="subtitle1">
+                <ChartIcon className={classes.icon} />
+                Charting
+              </Typography>
+              {chart.map(elem => (
+                <ListItem key={elem} dense className={classes.listItem}>
+                  <ListItemIcon>
+                    <BulletIcon className={classes.bullet} />
+                  </ListItemIcon>
+                  <ListItemText
+                    classes={{
+                      root: classes.noPadding
+                    }}
+                    primary={elem}
+                  />
+                </ListItem>
+              ))}
+            </div>
           </div>
+        </Hidden>
+        <div className={classes.imgContainer}>
+          {progress.map((elem, idx) => (
+            <Fragment key={idx}>
+              <Typography
+                className={idx === 0 ? classes.textFirst : classes.text}
+              >
+                {elem.text}
+              </Typography>
+              <LinearProgress
+                variant="determinate"
+                className={classes.progress}
+                color="primary"
+                value={elem.value}
+                classes={{ bar1Determinate: classes.progressBar }}
+              />
+            </Fragment>
+          ))}
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 Skills.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object
 };
 
-export default withRoot(withStyles(styles)(Skills));
+export default Skills;

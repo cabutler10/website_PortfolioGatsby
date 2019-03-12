@@ -1,11 +1,9 @@
-import React, { Component, Fragment } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-
-import { withStyles } from "@material-ui/core/styles";
-import withRoot from "../withRoot";
+import { makeStyles } from "@material-ui/styles";
 import Typography from "@material-ui/core/Typography";
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   container: {
     position: "absolute",
     background: theme.palette.primary.main,
@@ -57,30 +55,28 @@ const styles = theme => ({
     height: 18,
     fill: theme.status.black
   }
-});
+}));
 
-class SplashMobile extends Component {
-  render() {
-    let { classes } = this.props;
+function SplashMobile() {
+  const classes = useStyles();
 
-    return (
-      <Fragment>
-        <Typography className={classes.mobileText}>Developer</Typography>
-        <div className={classes.container}>
-          <Typography className={classes.text}>Hello, I am</Typography>
-          <Typography variant="h3" className={classes.bold}>
-            <span className={classes.big}>A</span>
-            LYSSA <span className={classes.big}>B</span>
-            UTLER
-          </Typography>
-        </div>
-      </Fragment>
-    );
-  }
+  return (
+    <>
+      <Typography className={classes.mobileText}>Developer</Typography>
+      <div className={classes.container}>
+        <Typography className={classes.text}>Hello, I am</Typography>
+        <Typography variant="h3" className={classes.bold}>
+          <span className={classes.big}>A</span>
+          LYSSA <span className={classes.big}>B</span>
+          UTLER
+        </Typography>
+      </div>
+    </>
+  );
 }
 
 SplashMobile.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object
 };
 
-export default withRoot(withStyles(styles)(SplashMobile));
+export default SplashMobile;

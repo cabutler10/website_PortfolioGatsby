@@ -3,32 +3,6 @@
   "description": "Alyssa Butler Portfolio",
   "version": "1.0.0",
   "author": "Alyssa Butler",
-  "private": true,
-  "dependencies": {
-    "@babel/runtime": "^7.2.0",
-    "@material-ui/core": "^3.6.2",
-    "@material-ui/icons": "^3.0.1",
-    "babel-cli": "^7.0.0-beta.3",
-    "classnames": "^2.2.6",
-    "gatsby": "^2.0.67",
-    "gatsby-image": "^2.0.25",
-    "gatsby-plugin-feed": "^2.0.11",
-    "gatsby-plugin-google-analytics": "^2.0.8",
-    "gatsby-plugin-manifest": "^2.0.12",
-    "gatsby-plugin-netlify": "^2.0.6",
-    "gatsby-plugin-netlify-cache": "^0.1.0",
-    "gatsby-plugin-offline": "^2.0.19",
-    "gatsby-plugin-sharp": "^2.0.15",
-    "gatsby-source-filesystem": "^2.0.12",
-    "gatsby-transformer-sharp": "^2.1.9",
-    "prop-types": "^15.6.2",
-    "react": "^16.7.0-alpha.0",
-    "react-dom": "^16.7.0-alpha.0",
-    "react-jss": "^8.6.1",
-    "typeface-homemade-apple": "0.0.54",
-    "typeface-open-sans": "0.0.54"
-  },
-  "peerDependencies": {},
   "homepage": "https://github.com/cabutler10",
   "keywords": [
     "alyssa butler"
@@ -42,5 +16,32 @@
   "scripts": {
     "develop": "gatsby develop",
     "build": "gatsby build"
+  },
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^3.9.2",
+    "@material-ui/icons": "^3.0.2",
+    "@material-ui/styles": "^3.0.0-alpha.10",
+    "classnames": "^2.2.6",
+    "gatsby": "^2.1.30",
+    "gatsby-image": "^2.0.32",
+    "gatsby-plugin-feed": "^2.0.15",
+    "gatsby-plugin-google-analytics": "^2.0.17",
+    "gatsby-plugin-manifest": "^2.0.23",
+    "gatsby-plugin-offline": "^2.0.25",
+    "gatsby-plugin-sharp": "^2.0.27",
+    "gatsby-plugin-sitemap": "^2.0.8",
+    "gatsby-source-filesystem": "^2.0.24",
+    "gatsby-transformer-sharp": "^2.1.16",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-jss": "^8.6.1",
+    "typeface-homemade-apple": "^0.0.72",
+    "typeface-open-sans": "^0.0.54"
+  },
+  "devDependencies": {
+    "@babel/runtime": "^7.3.4",
+    "babel-cli": "^6.26.0"
   }
 }
