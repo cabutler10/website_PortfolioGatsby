@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Link from "../UIcomponents/Link";
-import classnames from "classnames";
+import clsx from "clsx";
 import { makeStyles } from "@material-ui/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -82,14 +82,14 @@ function Header() {
   return (
     <AppBar
       position="static"
-      className={classnames(
+      className={clsx(
         classes.appbar,
         location.pathname === "/" ? classes.appbarIndex : classes.appbarPages
       )}
     >
       <Toolbar
         classes={{
-          root: classnames(
+          root: clsx(
             classes.toolbarRoot,
             location.pathname === "/" ? null : classes.toolbarPages
           ),

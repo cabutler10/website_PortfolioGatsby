@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
-import classnames from "classnames";
+import clsx from "clsx";
 import { makeStyles } from "@material-ui/styles";
 import Typography from "@material-ui/core/Typography";
 import ResumeEntry from "../components/ResumeEntry";
@@ -81,7 +81,7 @@ function Resume({ data }) {
           <Typography
             variant="subtitle1"
             color="primary"
-            className={classnames(classes.title, classes.paddingTop)}
+            className={clsx(classes.title, classes.paddingTop)}
           >
             languages
           </Typography>
@@ -91,7 +91,7 @@ function Resume({ data }) {
           <Typography
             variant="subtitle1"
             color="primary"
-            className={classnames(classes.title, classes.paddingTop)}
+            className={clsx(classes.title, classes.paddingTop)}
           >
             skills
           </Typography>
