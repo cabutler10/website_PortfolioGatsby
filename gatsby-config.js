@@ -46,6 +46,7 @@ module.exports = {
     "gatsby-plugin-top-layout",
     "gatsby-plugin-material-ui",
     `gatsby-plugin-sitemap`,
-    `gatsby-plugin-offline`
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-react-helmet`
   ]
 };

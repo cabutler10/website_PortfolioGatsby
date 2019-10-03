@@ -259,6 +259,7 @@ function Footer({ img }) {
               <TextField
                 id="name"
                 name="name"
+                label="name"
                 className={classes.textField}
                 InputProps={{
                   className: isNameValid ? classes.input : classes.inputError,
@@ -272,6 +273,7 @@ function Footer({ img }) {
               />
               <TextField
                 id="email"
+                label="email"
                 name="email"
                 type="email"
                 className={classes.textField}
@@ -289,6 +291,7 @@ function Footer({ img }) {
             <TextField
               id="message"
               name="message"
+              label="message"
               className={classes.textMessage}
               InputProps={{
                 className: isMessageValid ? classes.input : classes.inputError,

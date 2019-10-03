@@ -1,7 +1,8 @@
 module.exports = {
-  siteTitle: "Portfolio", // Site title.
+  siteTitle: "Portfolio", // Site title."
   author: "Alyssa Butler",
   siteTitleShort: "ABportfolio", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
+  description: "A personal website for Alyssa Butler",
   siteTitleAlt: "Alyssa Butler Portfolio", // Alternative site title for SEO.
   siteLogo: "/images/favicon/favicon.png", // Logo used for SEO and manifest.
   siteUrl: "https://butlerstudies.com", // Domain of your website without pathPrefix.
