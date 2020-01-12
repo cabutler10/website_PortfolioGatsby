@@ -27,26 +27,26 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-c78903f9e61ec3c4725f.js"
+    "url": "webpack-runtime-78436b8c8b7353c0636e.js"
   },
   {
-    "url": "commons-e0cb7f3663c80554ea28.js"
+    "url": "styles.7b988dea6abb55e7efe6.css"
   },
   {
-    "url": "styles.e30956a6097b0fa4afea.css"
+    "url": "styles-9436bd308525b37d885b.js"
   },
   {
-    "url": "styles-99c5fad5695f123b61c6.js"
+    "url": "commons-126d7c91c8898aa4d9dd.js"
   },
   {
-    "url": "app-988c688b032049528460.js"
+    "url": "app-2d38b5ba3e6d7fb92b19.js"
   },
   {
-    "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-8dc58e04fbe6c66ac307.js"
+    "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-1b50a5dd91764337265a.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "e1e2a1aa7452c386052050ca6813a590"
+    "revision": "39a85eb30e8528e3fddd1ce53c06212d"
   },
   {
     "url": "manifest.json",
@@ -54,13 +54,13 @@ self.__precacheManifest = [
   },
   {
     "url": "manifest.webmanifest",
-    "revision": "e1d05f6e5f4e0b942a35c651a7e31efc"
+    "revision": "2bf90bdb1d232b9cdad4fd08beccf2cf"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
 workbox.routing.registerRoute(/(\.js$|\.css$|static\/)/, new workbox.strategies.CacheFirst(), 'GET');
-workbox.routing.registerRoute(/^https?:.*\page-data\/.*\/page-data\.json/, new workbox.strategies.NetworkFirst(), 'GET');
+workbox.routing.registerRoute(/^https?:.*\page-data\/.*\/page-data\.json/, new workbox.strategies.StaleWhileRevalidate(), 'GET');
 workbox.routing.registerRoute(/^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/, new workbox.strategies.StaleWhileRevalidate(), 'GET');
 workbox.routing.registerRoute(/^https?:\/\/fonts\.googleapis\.com\/css/, new workbox.strategies.StaleWhileRevalidate(), 'GET');
 
@@ -69,38 +69,9 @@ workbox.routing.registerRoute(/^https?:\/\/fonts\.googleapis\.com\/css/, new wor
 importScripts(`idb-keyval-iife.min.js`)
 
 const { NavigationRoute } = workbox.routing
+
+let lastNavigationRequest = null
 let offlineShellEnabled = true
-
-const navigationRoute = new NavigationRoute(async ({ event }) => {
-  if (!offlineShellEnabled) {
-    return await fetch(event.request)
-  }
-
-  let { pathname } = new URL(event.request.url)
-  pathname = pathname.replace(new RegExp(`^`), ``)
-
-  // Check for resources + the app bundle
-  // The latter may not exist if the SW is updating to a new version
-  const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/app-988c688b032049528460.js`))) {
-    return await fetch(event.request)
-  }
-
-  for (const resource of resources) {
-    // As soon as we detect a failed resource, fetch the entire page from
-    // network - that way we won't risk being in an inconsistent state with
-    // some parts of the page failing.
-    if (!(await caches.match(resource))) {
-      return await fetch(event.request)
-    }
-  }
-
-  const offlineShell = `/offline-plugin-app-shell-fallback/index.html`
-  const offlineShellWithKey = workbox.precaching.getCacheKeyForURL(offlineShell)
-  return await caches.match(offlineShellWithKey)
-})
-
-workbox.routing.registerRoute(navigationRoute)
 
 // prefer standard object syntax to support more browsers
 const MessageAPI = {
@@ -126,11 +97,75 @@ self.addEventListener(`message`, event => {
   if (api) MessageAPI[api](event, event.data)
 })
 
-workbox.routing.registerRoute(/\/.gatsby-plugin-offline:.+/, ({ event }) => {
+function handleAPIRequest({ event }) {
   const { pathname } = new URL(event.request.url)
 
-  const api = pathname.match(/:(.+)/)[1]
-  MessageAPI[api]()
+  const params = pathname.match(/:(.+)/)[1]
+  const data = {}
 
-  return new Response()
+  if (params.includes(`=`)) {
+    params.split(`&`).forEach(param => {
+      const [key, val] = param.split(`=`)
+      data[key] = val
+    })
+  } else {
+    data.api = params
+  }
+
+  if (MessageAPI[data.api] !== undefined) {
+    MessageAPI[data.api]()
+  }
+
+  if (!data.redirect) {
+    return new Response()
+  }
+
+  return new Response(null, {
+    status: 302,
+    headers: {
+      Location: lastNavigationRequest,
+    },
+  })
+}
+
+const navigationRoute = new NavigationRoute(async ({ event }) => {
+  // handle API requests separately to normal navigation requests, so do this
+  // check first
+  if (event.request.url.match(/\/.gatsby-plugin-offline:.+/)) {
+    return handleAPIRequest({ event })
+  }
+
+  if (!offlineShellEnabled) {
+    return await fetch(event.request)
+  }
+
+  lastNavigationRequest = event.request.url
+
+  let { pathname } = new URL(event.request.url)
+  pathname = pathname.replace(new RegExp(`^`), ``)
+
+  // Check for resources + the app bundle
+  // The latter may not exist if the SW is updating to a new version
+  const resources = await idbKeyval.get(`resources:${pathname}`)
+  if (!resources || !(await caches.match(`/app-2d38b5ba3e6d7fb92b19.js`))) {
+    return await fetch(event.request)
+  }
+
+  for (const resource of resources) {
+    // As soon as we detect a failed resource, fetch the entire page from
+    // network - that way we won't risk being in an inconsistent state with
+    // some parts of the page failing.
+    if (!(await caches.match(resource))) {
+      return await fetch(event.request)
+    }
+  }
+
+  const offlineShell = `/offline-plugin-app-shell-fallback/index.html`
+  const offlineShellWithKey = workbox.precaching.getCacheKeyForURL(offlineShell)
+  return await caches.match(offlineShellWithKey)
 })
+
+workbox.routing.registerRoute(navigationRoute)
+
+// this route is used when performing a non-navigation request (e.g. fetch)
+workbox.routing.registerRoute(/\/.gatsby-plugin-offline:.+/, handleAPIRequest)

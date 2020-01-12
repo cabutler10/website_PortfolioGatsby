@@ -5,10 +5,10 @@ import { makeStyles } from "@material-ui/styles";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Hidden from "@material-ui/core/Hidden";
-import TextField from "@material-ui/core/TextField";
-import Snackbar from "@material-ui/core/Snackbar";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import Notification from "../UIcomponents/Snackbar";
+// import TextField from "@material-ui/core/TextField";
+// import Snackbar from "@material-ui/core/Snackbar";
+// import CircularProgress from "@material-ui/core/CircularProgress";
+// import Notification from "../UIcomponents/Snackbar";
 import { InstagramIcon, GithubIcon, LinkedinIcon } from "../images/icons/icons";
 
 const useStyles = makeStyles(theme => ({
@@ -139,96 +139,96 @@ const useStyles = makeStyles(theme => ({
 
 function Footer({ img }) {
   const classes = useStyles();
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [message, setMessage] = useState("");
-  const [isEmailValid, setEmailValid] = useState(true);
-  const [isNameValid, setNameValid] = useState(true);
-  const [isMessageValid, setMessageValid] = useState(true);
-  const [isTouched, setTouched] = useState(false);
-  const [isSnackbarOpen, setSnackbar] = useState(false);
-  const [notification, setNotification] = useState("success");
-  const [isLoading, setLoading] = useState(false);
+  // const [email, setEmail] = useState("");
+  // const [name, setName] = useState("");
+  // const [message, setMessage] = useState("");
+  // const [isEmailValid, setEmailValid] = useState(true);
+  // const [isNameValid, setNameValid] = useState(true);
+  // const [isMessageValid, setMessageValid] = useState(true);
+  // const [isTouched, setTouched] = useState(false);
+  // const [isSnackbarOpen, setSnackbar] = useState(false);
+  // const [notification, setNotification] = useState("success");
+  // const [isLoading, setLoading] = useState(false);
 
-  const handleChange = name => event => {
-    if (!isTouched) {
-      setTouched(true);
-    }
-    if (name === "email") {
-      const pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
-      if (!pattern.test(event.target.value)) {
-        setEmailValid(false);
-        setEmail(event.target.value);
-      } else {
-        setEmailValid(true);
-        setEmail(event.target.value);
-      }
-    }
-    if (name === "name") {
-      if (event.target.value.length > 500) {
-        setNameValid(false);
-      } else {
-        setNameValid(true);
-        setName(event.target.value);
-      }
-    }
-    if (name === "message") {
-      if (event.target.value.length > 1000) {
-        setMessageValid(false);
-      } else {
-        setMessageValid(true);
-        setMessage(event.target.value);
-      }
-    }
-  };
+  // const handleChange = name => event => {
+  //   if (!isTouched) {
+  //     setTouched(true);
+  //   }
+  //   if (name === "email") {
+  //     const pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+  //     if (!pattern.test(event.target.value)) {
+  //       setEmailValid(false);
+  //       setEmail(event.target.value);
+  //     } else {
+  //       setEmailValid(true);
+  //       setEmail(event.target.value);
+  //     }
+  //   }
+  //   if (name === "name") {
+  //     if (event.target.value.length > 500) {
+  //       setNameValid(false);
+  //     } else {
+  //       setNameValid(true);
+  //       setName(event.target.value);
+  //     }
+  //   }
+  //   if (name === "message") {
+  //     if (event.target.value.length > 1000) {
+  //       setMessageValid(false);
+  //     } else {
+  //       setMessageValid(true);
+  //       setMessage(event.target.value);
+  //     }
+  //   }
+  // };
 
-  const handleSubmit = () => {
-    setLoading(true);
-    if (
-      isEmailValid &&
-      isMessageValid &&
-      message.length > 0 &&
-      isNameValid &&
-      isTouched
-    ) {
-      fetch("https://cabutler10.prod.with-datafire.io/contact", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          message: message,
-          emailAddress: email,
-          name: name
-        })
-      })
-        .then(response => {
-          if (response.status === 200) {
-            setSnackbar(true);
-            setNotification("success");
-            setLoading(false);
-          } else {
-            setSnackbar(true);
-            setNotification("error");
-            setLoading(false);
-          }
-        })
-        .catch(err => {
-          setSnackbar(true);
-          setNotification("error");
-          setLoading(false);
-        });
-    } else {
-      setSnackbar(true);
-      setNotification("warning");
-      setLoading(false);
-    }
-  };
+  // const handleSubmit = () => {
+  //   setLoading(true);
+  //   if (
+  //     isEmailValid &&
+  //     isMessageValid &&
+  //     message.length > 0 &&
+  //     isNameValid &&
+  //     isTouched
+  //   ) {
+  //     fetch("https://cabutler10.prod.with-datafire.io/contact", {
+  //       method: "POST",
+  //       headers: {
+  //         Accept: "application/json",
+  //         "Content-Type": "application/json"
+  //       },
+  //       body: JSON.stringify({
+  //         message: message,
+  //         emailAddress: email,
+  //         name: name
+  //       })
+  //     })
+  //       .then(response => {
+  //         if (response.status === 200) {
+  //           setSnackbar(true);
+  //           setNotification("success");
+  //           setLoading(false);
+  //         } else {
+  //           setSnackbar(true);
+  //           setNotification("error");
+  //           setLoading(false);
+  //         }
+  //       })
+  //       .catch(err => {
+  //         setSnackbar(true);
+  //         setNotification("error");
+  //         setLoading(false);
+  //       });
+  //   } else {
+  //     setSnackbar(true);
+  //     setNotification("warning");
+  //     setLoading(false);
+  //   }
+  // };
 
   return (
     <div className={classes.root}>
-      <Snackbar
+      {/* <Snackbar
         anchorOrigin={{
           vertical: "bottom",
           horizontal: "left"
@@ -248,9 +248,9 @@ function Footer({ img }) {
               : "An error has occurred."
           }
         />
-      </Snackbar>
+      </Snackbar> */}
       <div className={classes.container}>
-        <div className={classes.flexItem}>
+        {/* <div className={classes.flexItem}>
           <form noValidate autoComplete="off">
             <Typography className={classes.textHeading}>
               send me a message
@@ -319,7 +319,7 @@ function Footer({ img }) {
               )}
             </Button>
           </form>
-        </div>
+        </div> */}
         <Hidden smDown>
           <div className={classes.flexItem}>
             <Typography className={classes.textHeading}>about me</Typography>
