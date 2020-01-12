@@ -3,9 +3,12 @@ const config = require("./data/SiteConfig");
 module.exports = {
   siteMetadata: {
     title: config.siteTitle,
-    author: config.author,
+    titleTemplate: "",
     description: config.siteDescription,
-    siteUrl: config.siteUrl
+    url: config.siteUrl, // No trailing slash allowed!
+    siteUrl: config.siteUrl,
+    image: "/src/images/favicon/favicon.png", // Path to your image you placed in the 'static' folder
+    twitterUsername: "@f64c362be9384b6"
   },
   plugins: [
     {
