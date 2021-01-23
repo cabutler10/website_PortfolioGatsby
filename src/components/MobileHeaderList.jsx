@@ -1,44 +1,44 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Link from "../UIcomponents/Link";
+import { Link } from "gatsby-theme-material-ui";
 import { makeStyles } from "@material-ui/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ArrowIcon from "@material-ui/icons/KeyboardArrowRight";
 import Button from "@material-ui/core/Button";
-import { InstagramIcon, GithubIcon, LinkedinIcon } from "../images/icons/icons";
+import { InstagramIcon, GithubIcon, LinkedinIcon } from "../assets/icons/icons";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   list: {
-    width: 200
+    width: 200,
   },
   text: {
     textTransform: "uppercase",
     paddingTop: 15,
     paddingBottom: 15,
     paddingLeft: 30,
-    paddingRight: 30
+    paddingRight: 30,
   },
   link: {
-    color: theme.status.greyDk
+    color: theme.status.grayDk,
   },
   icon: {
-    color: theme.status.grey,
-    marginRight: 15
+    color: theme.status.gray,
+    marginRight: 15,
   },
   button: {
     width: "100%",
-    padding: 0
+    padding: 0,
   },
   iconSocial: {
     width: 18,
     height: 18,
-    fill: theme.status.black
-  }
+    fill: theme.status.black,
+  },
 }));
 
-function MobileHeaderList({ links, linkLabels }) {
+function MobileHeaderList({ links }) {
   const classes = useStyles();
 
   return (
@@ -64,7 +64,7 @@ function MobileHeaderList({ links, linkLabels }) {
               <ListItemText
                 disableTypography
                 className={classes.text}
-                primary={linkLabels[idx]}
+                primary={link}
               />
               <ArrowIcon className={classes.icon} />
             </ListItem>
@@ -75,7 +75,7 @@ function MobileHeaderList({ links, linkLabels }) {
           className={classes.button}
           href="https://www.linkedin.com/in/alyssa-butler-b77054ab/"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           disableFocusRipple
           disableRipple
         >
@@ -94,7 +94,7 @@ function MobileHeaderList({ links, linkLabels }) {
           className={classes.button}
           href="https://github.com/cabutler10"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           disableFocusRipple
           disableRipple
         >
@@ -113,7 +113,7 @@ function MobileHeaderList({ links, linkLabels }) {
           className={classes.button}
           href="https://www.instagram.com/cabutler10/"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           disableFocusRipple
           disableRipple
         >
@@ -134,8 +134,7 @@ function MobileHeaderList({ links, linkLabels }) {
 
 MobileHeaderList.propTypes = {
   classes: PropTypes.object,
-  linkLabels: PropTypes.array.isRequired,
-  links: PropTypes.array.isRequired
+  links: PropTypes.array.isRequired,
 };
 
 export default MobileHeaderList;

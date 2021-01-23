@@ -1,144 +1,102 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import Link from "../UIcomponents/Link";
-import clsx from "clsx";
+import { Link } from "gatsby-theme-material-ui";
 import { makeStyles } from "@material-ui/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
+import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
+import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import Hidden from "@material-ui/core/Hidden";
-import Drawer from "@material-ui/core/Drawer";
 import MenuIcon from "@material-ui/icons/Menu";
 import MobileHeaderList from "./MobileHeaderList";
+import Container from "./ui/Container";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   button: {
     marginRight: 15,
     width: 60,
     zIndex: 1100,
     [theme.breakpoints.up("md")]: {
       width: "auto",
-      fontSize: 20
-    }
-  },
-  link: {
-    color: theme.status.greyDk
-  },
-  toolbarRoot: {
-    minHeight: 48,
-    paddingRight: 0,
-    paddingLeft: 0,
-    alignItems: "stretch",
-    [theme.breakpoints.up("sm")]: {
-      paddingLeft: 45,
-      paddingRight: 45,
-      alignItems: "center",
-      justifyContent: "flex-end"
+      fontSize: 20,
     },
-    [theme.breakpoints.up("md")]: {
-      paddingLeft: 170,
-      paddingRight: 170,
-      alignItems: "center"
-    }
   },
-  appbar: {
-    boxShadow: "none"
-  },
-  appbarPages: {
-    backgroundColor: theme.status.greyLt
-  },
-  appbarIndex: {
-    backgroundColor: "transparent"
-  },
-  mobileButton: {
-    flexBasis: "50%",
-    borderRadius: 0
-  },
-  mobileIconButton: {
-    flexBasis: "50%",
-    backgroundColor: theme.palette.primary.main,
-    borderRadius: 0
+  toolbar: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "space-between",
   },
   icon: {
-    fill: theme.status.white
-  }
+    fill: theme.status.blue,
+  },
 }));
 
 function Header() {
   const classes = useStyles();
-  const [isOpen, setDrawer] = useState(false);
-  const [windowGlobal, setWindowGlobal] = useState(undefined);
+  const [drawer, setDrawer] = useState(false);
 
-  useEffect(() => {
-    const windowGlobal = typeof window !== "undefined" && window;
-    setWindowGlobal(windowGlobal);
-  });
+  const toggleDrawer = (open) => (event) => {
+    if (
+      event &&
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+    setDrawer(open);
+  };
 
-  const links = ["/Resume/"]; ///Blog/", porfolio","photo","contact"
-  const linkLabels = ["resume"];
-  const location = windowGlobal
-    ? windowGlobal.location
-    : { pathname: "/", hash: "" };
+  const links = ["resume"];
+
   return (
     <AppBar
       position="static"
-      className={clsx(
-        classes.appbar,
-        location.pathname === "/" ? classes.appbarIndex : classes.appbarPages
-      )}
+      style={{ boxShadow: "none", borderBottom: "1px solid" }}
     >
-      <Toolbar
-        classes={{
-          root: clsx(
-            classes.toolbarRoot,
-            location.pathname === "/" ? null : classes.toolbarPages
-          ),
-          gutters: classes.toolbarGutters
-        }}
-      >
-        <Hidden smUp>
-          <Button className={classes.mobileButton}>
+      <Container padding="none">
+        <Toolbar className={classes.toolbar}>
+          <Hidden mdUp>
             <Link to="/" className={classes.link}>
-              A.B
+              <Button szie="large">A.B</Button>
             </Link>
-          </Button>
-          <Button
-            aria-label="menu"
-            className={classes.mobileIconButton}
-            onClick={() => setDrawer(isOpen ? false : true)}
-          >
-            <MenuIcon className={classes.icon} />
-          </Button>
-          <Drawer anchor="right" open={isOpen} onClose={() => setDrawer(false)}>
-            <div
-              tabIndex={0}
-              role="button"
-              onClick={() => setDrawer(isOpen ? false : true)}
-              onKeyDown={() => setDrawer(isOpen ? false : true)}
+
+            <IconButton
+              aria-label="menu"
+              className={classes.mobileIconButton}
+              onClick={toggleDrawer(true)}
             >
-              <MobileHeaderList links={links} linkLabels={linkLabels} />
-            </div>
-          </Drawer>
-        </Hidden>
-        <Hidden xsDown>
-          <Link to="/">
-            <Button className={classes.button}>A.B</Button>
-          </Link>
-          <span>
-            {links.map((link, idx) => (
-              <Link to={link} key={`link_${link}`}>
-                <Button className={classes.button}>{linkLabels[idx]}</Button>
-              </Link>
-            ))}
-          </span>
-        </Hidden>
-      </Toolbar>
+              <MenuIcon className={classes.icon} />
+            </IconButton>
+            <SwipeableDrawer
+              anchor="right"
+              open={drawer}
+              onClose={toggleDrawer(false)}
+              onOpen={toggleDrawer(true)}
+            >
+              <MobileHeaderList links={links} />
+            </SwipeableDrawer>
+          </Hidden>
+          <Hidden mdDown>
+            <Link to="/">
+              <Button className={classes.button}>A.B</Button>
+            </Link>
+            <span>
+              {links.map((elem) => (
+                <Link to={elem} key={`link_${elem}`}>
+                  <Button className={classes.button}>{elem}</Button>
+                </Link>
+              ))}
+            </span>
+          </Hidden>
+        </Toolbar>
+      </Container>
     </AppBar>
   );
 }
 
 Header.propTypes = {
-  classes: PropTypes.object
+  classes: PropTypes.object,
 };
 
 export default Header;

@@ -7,24 +7,25 @@ module.exports = {
     description: config.siteDescription,
     url: config.siteUrl, // No trailing slash allowed!
     siteUrl: config.siteUrl,
-    image: "/src/images/favicon/favicon.png", // Path to your image you placed in the 'static' folder
-    twitterUsername: "@f64c362be9384b6"
+    image: "/src/assets/favicon/favicon.png", // Path to your image you placed in the 'static' folder
+    twitterUsername: "@f64c362be9384b6",
   },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `src`,
-        path: `${__dirname}/src/pages`
-      }
+        name: `content`,
+        path: `${__dirname}/src/content`,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `img`,
-        path: `${__dirname}/src/images/web`
-      }
+        path: `${__dirname}/src/assets`,
+      },
     },
+    `gatsby-plugin-mdx`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     // {
@@ -43,13 +44,27 @@ module.exports = {
         background_color: "#f9f9f9",
         theme_color: "#f7b64e",
         display: "minimal-ui",
-        icon: "./src/images/favicon/favicon.png" // This path is relative to the root of the site.
-      }
+        icon: `${__dirname}/images/favicon/favicon.png`, // This path is relative to the root of the site.
+      },
     },
-    "gatsby-plugin-top-layout",
-    "gatsby-plugin-material-ui",
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`
-  ]
+    `gatsby-plugin-react-helmet`,
+    "gatsby-plugin-emotion",
+    {
+      resolve: `gatsby-theme-material-ui`,
+      options: {
+        webFontsConfig: {
+          fonts: {
+            google: [
+              {
+                family: "Open Sans",
+                variants: [`400`, `700`],
+              },
+            ],
+          },
+        },
+      },
+    },
+  ],
 };
