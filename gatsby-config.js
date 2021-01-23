@@ -7,7 +7,7 @@ module.exports = {
     description: config.siteDescription,
     url: config.siteUrl, // No trailing slash allowed!
     siteUrl: config.siteUrl,
-    image: "/src/assets/favicon/favicon.png", // Path to your image you placed in the 'static' folder
+    image: "${__dirname}/src/assets/favicon/favicon.png", // Path to your image you placed in the 'static' folder
     twitterUsername: "@f64c362be9384b6",
   },
   plugins: [
@@ -44,7 +44,7 @@ module.exports = {
         background_color: "#f9f9f9",
         theme_color: "#f7b64e",
         display: "minimal-ui",
-        icon: `${__dirname}/images/favicon/favicon.png`, // This path is relative to the root of the site.
+        icon: `${__dirname}/src/assets/favicon/favicon.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-sitemap`,

@@ -4,7 +4,7 @@ module.exports = {
   siteTitleShort: "ABportfolio", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
   description: "A personal website for Alyssa Butler",
   siteTitleAlt: "Alyssa Butler Portfolio", // Alternative site title for SEO.
-  siteLogo: "/images/favicon/favicon.png", // Logo used for SEO and manifest.
+  siteLogo: "src/assets/favicon/favicon.png", // Logo used for SEO and manifest.
   siteUrl: "https://butlerstudies.com", // Domain of your website without pathPrefix.
   pathPrefix: "/abportfolio", // Prefixes all links. For cases when deployed to example.github.io/gatsby-material-starter/.
   siteDescription: "A personal website of my work.", // Website description used for RSS feeds/meta description tag.
@@ -17,23 +17,23 @@ module.exports = {
     {
       label: "GitHub",
       url: "https://github.com/cabutler10",
-      iconClassName: "github"
+      iconClassName: "github",
     },
     {
       label: "Instagram",
       url: "https://www.instagram.com/cabutler10/",
-      iconClassName: "instagram"
+      iconClassName: "instagram",
     },
     {
       label: "LinkedIn",
       url: "https://www.linkedin.com/in/alyssa-butler-b77054ab/",
-      iconClassName: "linkedin"
+      iconClassName: "linkedin",
     },
     {
       label: "Email",
       url: "mailto:ca.butler10@gmail.com",
-      iconClassName: "envelope"
-    }
+      iconClassName: "envelope",
+    },
   ],
-  copyright: "Copyright © 2018 Alyssa Butler" // Copyright string for the footer of the website and RSS feed.
+  copyright: "© Alyssa Butler", // Copyright string for the footer of the website and RSS feed.
 };
