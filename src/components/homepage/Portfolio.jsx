@@ -1,6 +1,7 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
+import clsx from "clsx";
 import { makeStyles } from "@material-ui/styles";
 import Typography from "@material-ui/core/Typography";
 import Hidden from "@material-ui/core/Hidden";
@@ -24,9 +25,17 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     paddingBottom: 30,
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up("md")]: {
       flexBasis: "40%",
       paddingBottom: 0,
+    },
+  },
+  reverse: {
+    flexDirection: "column-reverse",
+    flexWrap: "nowrap",
+    [theme.breakpoints.up("md")]: {
+      flexDirection: "row",
+      flexWrap: "wrap",
     },
   },
   skills: {
@@ -35,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
   },
   textContainer: {
     flexBasis: "100%",
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up("md")]: {
       flexBasis: "50%",
     },
   },
@@ -76,6 +85,9 @@ const useStyles = makeStyles((theme) => ({
     padding: 0,
     margin: 0,
     color: "#000",
+  },
+  linkImg: {
+    width: "100%",
   },
 }));
 
@@ -137,7 +149,7 @@ export default function Interests() {
       <div className={classes.container}>
         <div className={classes.imgContainer}>
           <a
-            className={classes.link}
+            className={classes.linkImg}
             href="https://eisbach-riders.com/"
             target="_blank"
             rel="noopener noreferrer"
@@ -210,7 +222,7 @@ export default function Interests() {
           </div>
         </div>
       </div>
-      <div className={classes.container}>
+      <div className={clsx(classes.container, classes.reverse)}>
         <div className={classes.textContainer}>
           <a
             className={classes.link}
@@ -271,7 +283,7 @@ export default function Interests() {
         </div>
         <div className={classes.imgContainer}>
           <a
-            className={classes.link}
+            className={classes.linkImg}
             href="https://secondwavesurfing.com/"
             target="_blank"
             rel="noopener noreferrer"
@@ -287,7 +299,7 @@ export default function Interests() {
       <div className={classes.container}>
         <div className={classes.imgContainer}>
           <a
-            className={classes.link}
+            className={classes.linkImg}
             href="https://houseafloat.com/"
             target="_blank"
             rel="noopener noreferrer"

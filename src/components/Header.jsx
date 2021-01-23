@@ -13,15 +13,6 @@ import MobileHeaderList from "./MobileHeaderList";
 import Container from "./ui/Container";
 
 const useStyles = makeStyles((theme) => ({
-  button: {
-    marginRight: 15,
-    width: 60,
-    zIndex: 1100,
-    [theme.breakpoints.up("md")]: {
-      width: "auto",
-      fontSize: 20,
-    },
-  },
   toolbar: {
     width: "100%",
     display: "flex",

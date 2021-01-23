@@ -40,11 +40,12 @@ module.exports = {
       options: {
         name: config.siteTitle,
         short_name: config.siteTitleShort,
-        start_url: "/src",
+        start_url: "/",
         background_color: "#f9f9f9",
         theme_color: "#f7b64e",
-        display: "minimal-ui",
-        icon: `${__dirname}/src/assets/favicon/favicon.png`, // This path is relative to the root of the site.
+        display: "standalone",
+        icon: "src/assets/favicon/favicon.png", // This path is relative to the root of the site.
+        crossOrigin: `use-credentials`,
       },
     },
     `gatsby-plugin-offline`,
