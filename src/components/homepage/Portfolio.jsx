@@ -136,11 +136,18 @@ export default function Interests() {
       </Typography>
       <div className={classes.container}>
         <div className={classes.imgContainer}>
-          <Img
-            fluid={data.img1.childImageSharp.fluid}
-            alt="eisbach riders website"
-            className={classes.img}
-          />
+          <a
+            className={classes.link}
+            href="https://eisbach-riders.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Img
+              fluid={data.img1.childImageSharp.fluid}
+              alt="eisbach riders website"
+              className={classes.img}
+            />
+          </a>
         </div>
         <div className={classes.textContainer}>
           <a
@@ -156,7 +163,7 @@ export default function Interests() {
             >
               Eisbach Riders
             </Typography>
-            <p className={classes.subtitle}>Surf Equipment from Munich</p>
+            <p className={classes.subtitle}>Brands Page</p>
           </a>
           <div className={classes.skills}>
             <div className={classes.flexItem}>
@@ -168,7 +175,7 @@ export default function Interests() {
               </Typography>
               <List>
                 <PortfolioListItem title="Gatsby" />
-                <PortfolioListItem title="WordPress" />
+                <PortfolioListItem title="WordPress CMS" />
               </List>
             </div>
             <div className={classes.flexItem}>
@@ -180,6 +187,7 @@ export default function Interests() {
               </Typography>
               <List>
                 <PortfolioListItem title="Material-UI" />
+                <PortfolioListItem title="GraphQL" />
                 <PortfolioListItem title="MDX Markdown" />
                 <PortfolioListItem title="google-map-react" />
                 <PortfolioListItem title="i18next" />
@@ -217,7 +225,7 @@ export default function Interests() {
             >
               Second Wave Surfing
             </Typography>
-            <p className={classes.subtitle}>Sustainable Surf Equipment</p>
+            <p className={classes.subtitle}>E-Commerce Shop</p>
           </a>
           <div className={classes.skills}>
             <div className={classes.flexItem}>
@@ -262,20 +270,34 @@ export default function Interests() {
           </div>
         </div>
         <div className={classes.imgContainer}>
-          <Img
-            fluid={data.img2.childImageSharp.fluid}
-            alt="second wave surfing website"
-            className={classes.img}
-          />
+          <a
+            className={classes.link}
+            href="https://secondwavesurfing.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Img
+              fluid={data.img2.childImageSharp.fluid}
+              alt="second wave surfing website"
+              className={classes.img}
+            />
+          </a>
         </div>
       </div>
       <div className={classes.container}>
         <div className={classes.imgContainer}>
-          <Img
-            fluid={data.img3.childImageSharp.fluid}
-            alt="house afloat website"
-            className={classes.img}
-          />
+          <a
+            className={classes.link}
+            href="https://houseafloat.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Img
+              fluid={data.img3.childImageSharp.fluid}
+              alt="house afloat website"
+              className={classes.img}
+            />
+          </a>
         </div>
         <div className={classes.textContainer}>
           <a
@@ -291,9 +313,7 @@ export default function Interests() {
             >
               House Afloat
             </Typography>
-            <p className={classes.subtitle}>
-              Your Place for All Things Houseboat
-            </p>
+            <p className={classes.subtitle}>Lifestyle Blog</p>
           </a>
 
           <div className={classes.skills}>

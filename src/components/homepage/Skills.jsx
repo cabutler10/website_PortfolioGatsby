@@ -86,10 +86,10 @@ function Skills() {
 
   let progress = [
     { text: "statistics", value: 79 },
-    { text: "web engineering", value: 85 },
+    { text: "web engineering", value: 95 },
     { text: "UX / accessibility", value: 55 },
     { text: "lecturing", value: 62 },
-    { text: "management", value: 25 },
+    { text: "management", value: 85 },
   ];
   const develop = [
     "React",

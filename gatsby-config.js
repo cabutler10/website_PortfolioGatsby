@@ -47,9 +47,9 @@ module.exports = {
         icon: `${__dirname}/src/assets/favicon/favicon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-sitemap`,
     `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-feed-mdx`,
+    `gatsby-plugin-sitemap`,
     "gatsby-plugin-emotion",
     {
       resolve: `gatsby-theme-material-ui`,
