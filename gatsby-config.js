@@ -2,11 +2,12 @@ const config = require("./data/SiteConfig");
 
 module.exports = {
   siteMetadata: {
+    themeColor: `#d83a68`,
+    basePath: `/`,
     title: config.siteTitle,
-    titleTemplate: "",
+    titleTemplate: "%s",
     description: config.siteDescription,
-    url: config.siteUrl, // No trailing slash allowed!
-    siteUrl: config.siteUrl,
+    siteUrl: config.siteUrl, // No trailing slash allowed!
     image: "${__dirname}/src/assets/favicon/favicon.png", // Path to your image you placed in the 'static' folder
     twitterUsername: "@f64c362be9384b6",
   },
@@ -26,8 +27,9 @@ module.exports = {
       },
     },
     `gatsby-plugin-mdx`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
     // {
     //   resolve: `gatsby-plugin-google-analytics`,
     //   options: {
@@ -51,21 +53,10 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-feed-mdx`,
     `gatsby-plugin-sitemap`,
+    "gatsby-plugin-robots-txt",
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-emotion",
-    {
-      resolve: `gatsby-theme-material-ui`,
-      options: {
-        webFontsConfig: {
-          fonts: {
-            google: [
-              {
-                family: "Open Sans",
-                variants: [`400`, `700`],
-              },
-            ],
-          },
-        },
-      },
-    },
+    "gatsby-plugin-top-layout",
   ],
 };

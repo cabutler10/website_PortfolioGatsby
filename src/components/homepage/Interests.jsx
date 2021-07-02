@@ -1,6 +1,5 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
+import { StaticImage } from "gatsby-plugin-image";
 import { makeStyles } from "@material-ui/styles";
 import Typography from "@material-ui/core/Typography";
 import Hidden from "@material-ui/core/Hidden";
@@ -58,24 +57,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Interests() {
   const classes = useStyles();
-  const data = useStaticQuery(graphql`
-    query {
-      img1: file(relativePath: { eq: "interests1.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 2000) {
-            ...GatsbyImageSharpFluid_tracedSVG
-          }
-        }
-      }
-      img2: file(relativePath: { eq: "interests2.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 2000) {
-            ...GatsbyImageSharpFluid_tracedSVG
-          }
-        }
-      }
-    }
-  `);
 
   return (
     <Container background="gray">
@@ -90,16 +71,19 @@ export default function Interests() {
       <div className={classes.container}>
         <div className={classes.imgContainer}>
           <Hidden mdDown>
-            <Img
-              fluid={data.img1.childImageSharp.fluid}
+            <StaticImage
+              src="../../assets/interests2.jpg"
               alt="drawing of chart"
-              className={classes.img}
+              placeholder="blurred"
+              quality={100}
             />
           </Hidden>
-          <Img
-            fluid={data.img2.childImageSharp.fluid}
+
+          <StaticImage
+            src="../../assets/interests1.jpg"
             alt="keyboard"
-            className={classes.img}
+            placeholder="blurred"
+            quality={100}
           />
         </div>
         <div className={classes.textContainer}>

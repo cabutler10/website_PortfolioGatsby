@@ -1,8 +1,8 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
+import { StaticImage } from "gatsby-plugin-image";
 import { makeStyles } from "@material-ui/styles";
 import Hidden from "@material-ui/core/Hidden";
+import Box from "@material-ui/core/Box";
 import IconButton from "@material-ui/core/IconButton";
 import Divider from "@material-ui/core/Divider";
 import {
@@ -16,24 +16,9 @@ import Container from "../ui/Container";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
-    height: 300,
+    height: "90vH",
     position: "relative",
     zIndex: 1,
-    [theme.breakpoints.up("sm")]: {
-      height: 300,
-    },
-    [theme.breakpoints.up("md")]: {
-      height: 500,
-    },
-  },
-  img: {
-    height: 200,
-    [theme.breakpoints.up("sm")]: {
-      height: 300,
-    },
-    [theme.breakpoints.up("md")]: {
-      height: 500,
-    },
   },
   container: {
     position: "absolute",
@@ -46,19 +31,19 @@ const useStyles = makeStyles((theme) => ({
       background: "none",
       right: "auto",
       left: 45,
-      bottom: 60,
+      bottom: "40%",
     },
     [theme.breakpoints.up("md")]: {
       background: "none",
       right: "auto",
       left: 100,
-      bottom: 120,
+      bottom: "40%",
     },
     [theme.breakpoints.up("lg")]: {
       background: "none",
       right: "auto",
       left: 170,
-      bottom: 100,
+      bottom: "40%",
     },
   },
   bold: {
@@ -117,26 +102,18 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Splash() {
   const classes = useStyles();
-  const data = useStaticQuery(graphql`
-    query {
-      img: file(relativePath: { eq: "background.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 2000) {
-            ...GatsbyImageSharpFluid_tracedSVG
-          }
-        }
-      }
-    }
-  `);
 
   return (
     <Container padding="none" background="white">
       <div className={classes.root}>
-        <Img
-          fluid={data.img.childImageSharp.fluid}
-          alt="bird flying"
-          className={classes.img}
-        />
+        <Box sx={{ height: { xs: 200, sm: 300, md: 500 } }}>
+          <StaticImage
+            src="../../assets/background.jpg"
+            alt="bird flying"
+            placeholder="blurred"
+            quality={100}
+          />
+        </Box>
         <Hidden smUp>
           <SplashMobile />
         </Hidden>

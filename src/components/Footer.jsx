@@ -1,7 +1,6 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
-import { Link } from "gatsby-theme-material-ui";
+import { StaticImage } from "gatsby-plugin-image";
+import Link from "./ui/Link";
 import { makeStyles } from "@material-ui/styles";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
@@ -108,17 +107,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Footer() {
   const classes = useStyles();
-  const data = useStaticQuery(graphql`
-    query {
-      img: file(relativePath: { eq: "author.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 2000) {
-            ...GatsbyImageSharpFluid_tracedSVG
-          }
-        }
-      }
-    }
-  `);
 
   return (
     <>
@@ -169,10 +157,11 @@ export default function Footer() {
               </div>
             </div>
             <div className={classes.flexItemRight}>
-              <Img
-                fluid={data.img.childImageSharp.fluid}
+              <StaticImage
+                src="../assets/author.jpg"
                 alt="profile"
-                className={classes.img}
+                placeholder="blurred"
+                quality={100}
               />
             </div>
           </Hidden>
@@ -181,11 +170,13 @@ export default function Footer() {
               <Typography className={classes.textHeading}>about me</Typography>
               <div className={classes.flex}>
                 <div className={classes.flexItemRight}>
-                  <Img
-                    fluid={data.img.childImageSharp.fluid}
+                  <StaticImage
+                    src="../assets/author.jpg"
                     alt="profile"
-                    className={classes.img}
+                    placeholder="blurred"
+                    quality={100}
                   />
+
                   <Hidden smUp>
                     <div className={classes.iconContainer}>
                       <IconButton

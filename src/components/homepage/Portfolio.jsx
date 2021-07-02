@@ -1,6 +1,5 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
+import { StaticImage } from "gatsby-plugin-image";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/styles";
 import Typography from "@material-ui/core/Typography";
@@ -93,31 +92,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Interests() {
   const classes = useStyles();
-  const data = useStaticQuery(graphql`
-    query {
-      img1: file(relativePath: { eq: "eisbachRiders.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 2000) {
-            ...GatsbyImageSharpFluid_tracedSVG
-          }
-        }
-      }
-      img2: file(relativePath: { eq: "sws.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 2000) {
-            ...GatsbyImageSharpFluid_tracedSVG
-          }
-        }
-      }
-      img3: file(relativePath: { eq: "houseAfloat.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 2000) {
-            ...GatsbyImageSharpFluid_tracedSVG
-          }
-        }
-      }
-    }
-  `);
 
   return (
     <Container background="gray">
@@ -154,10 +128,11 @@ export default function Interests() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Img
-              fluid={data.img1.childImageSharp.fluid}
+            <StaticImage
+              src="../../assets/eisbachRiders.png"
               alt="eisbach riders website"
-              className={classes.img}
+              placeholder="blurred"
+              quality={100}
             />
           </a>
         </div>
@@ -288,10 +263,11 @@ export default function Interests() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Img
-              fluid={data.img2.childImageSharp.fluid}
+            <StaticImage
+              src="../../assets/sws.png"
               alt="second wave surfing website"
-              className={classes.img}
+              placeholder="blurred"
+              quality={100}
             />
           </a>
         </div>
@@ -304,10 +280,11 @@ export default function Interests() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Img
-              fluid={data.img3.childImageSharp.fluid}
+            <StaticImage
+              src="../../assets/houseAfloat.png"
               alt="house afloat website"
-              className={classes.img}
+              placeholder="blurred"
+              quality={100}
             />
           </a>
         </div>

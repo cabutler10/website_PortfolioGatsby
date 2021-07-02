@@ -1,29 +1,25 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import Box from "@material-ui/core/Box";
 import Header from "./Header";
 import Footer from "./Footer";
-import SEO from "./seo";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    flexDirection: "column",
-    background: theme.status.white,
-    minHeight: "100%",
-  },
-  main: {
-    flexGrow: 1,
-  },
-}));
+import SeoComponent from "./SeoComponent";
 
 export default function Layout({ children }) {
-  const classes = useStyles();
   return (
-    <div className={classes.root}>
-      <SEO />
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        background: (theme) => theme.status.white,
+        minHeight: "100%",
+      }}
+    >
+      <SeoComponent />
       <Header />
-      <main className={classes.main}>{children}</main>
+      <Box component="main" sx={{ flexGrow: 1 }}>
+        {children}
+      </Box>
       <Footer />
-    </div>
+    </Box>
   );
 }
