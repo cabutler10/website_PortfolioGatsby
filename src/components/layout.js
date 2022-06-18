@@ -7,45 +7,35 @@
 
 import * as React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import { Box, Typography } from "@mui/material"
 
 import Header from "./header"
-import "./layout.css"
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: `var(--size-content)`,
-          padding: `var(--size-gutter)`,
+    <Box sx={{ minHeight: "100vH", display: "flex", flexDirection: "column" }}>
+      <Header />
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
         }}
       >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `var(--space-5)`,
-            fontSize: `var(--font-sm)`,
-          }}
-        >
-          © {new Date().getFullYear()} &middot; Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
-    </>
+        {children}
+      </Box>
+      <Box
+        component="footer"
+        sx={{
+          background: theme => theme.palette.secondary.main,
+          p: 2,
+          textAlign: "center",
+        }}
+      >
+        <Typography sx={{ fontSize: 12 }}>
+          © {new Date().getFullYear()} &middot; Butler Web Development
+        </Typography>
+      </Box>
+    </Box>
   )
 }
 
