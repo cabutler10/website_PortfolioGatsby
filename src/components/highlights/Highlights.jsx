@@ -8,10 +8,12 @@ function Highlights() {
     {
       image: img1,
       link: "https://eisbach-riders.com/",
+      alt: "Eisbach Riders website",
     },
     {
       image: img2,
       link: "https://www.eveema.live/",
+      alt: "Eveema website",
     },
   ]
   return (
@@ -55,10 +57,12 @@ function Highlights() {
               target="_blank"
               rel="noopener noreferrer"
               sx={{ width: "100%", height: "100%" }}
+              ariaLabel={elem.alt}
             >
               <Box
                 component="img"
                 src={elem.image}
+                alt={elm.alt}
                 sx={{ width: "100%", height: "100%" }}
               />
             </ButtonBase>
