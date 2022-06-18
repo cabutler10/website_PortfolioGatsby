@@ -1,79 +1,66 @@
-import { createTheme } from "@material-ui/core/styles";
-import "./app.css";
+import { createTheme } from "@mui/material/styles"
+import "./app.css"
 
 const status = {
-  white: "#f9f9f9",
-  offWhite: "#F7F5F5",
-  trueWhite: "#ffffff",
-  grayDk: "#333333",
+  grayDk: "#c7c7c7",
   gray: "#e0e0e0",
-  grayLt: "#f9f9f9",
-  blue: "#004D9A",
-  blueDk: "#00274e",
-  blueLt: "#0073e7",
-  teal: "#99ffff",
-  tealDk: "#4dffff",
-  tealLt: "#e6ffff",
+  grayLt: "#ededed",
+  blue: "#00274e",
   red: "#bc2c02",
-};
+}
 
 const theme = createTheme({
   palette: {
     type: "light",
     primary: {
-      light: status.blueLt,
+      light: status.blue,
       main: status.blue,
-      dark: status.blueDk,
+      dark: status.blue,
     },
     secondary: {
-      light: status.tealLt,
+      light: status.grayLt,
       main: status.gray,
-      dark: status.tealDk,
+      dark: status.grayDk,
     },
     error: { main: status.red },
   },
   status,
   typography: {
-    fontFamily: "'Open Sans', sans-serif",
-    h1: {
+    fontFamily: "'Raleway', sans-serif",
+    subtitle1: {
+      fontSize: 24,
       letterSpacing: 2,
-    },
-    h2: {
-      letterSpacing: 2,
-    },
-    h3: {
-      letterSpacing: 2,
-    },
-    h4: {
-      letterSpacing: 2,
-    },
-    h5: {
-      letterSpacing: 2,
-    },
-    body1: {
-      letterSpacing: 1.5,
-      fontSize: 14,
-    },
-    body2: {
-      letterSpacing: 1.5,
-      fontSize: 12,
-    },
-    button: {
-      fontFamily: "'Raleway', sans-serif",
-      letterSpacing: 3,
     },
   },
-  overrides: {
+  components: {
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+      },
+    },
     MuiButton: {
-      root: {
-        padding: "9px 27px",
-        borderRadius: 0,
-      },
-      contained: {
-        boxShadow: "none",
+      styleOverrides: {
+        root: {
+          textTransform: "none",
+          boxShadow: "none",
+          borderRadius: "4px",
+          fontWeight: 700,
+          letterSpacing: 2,
+          color: "#fff",
+          transition: "all .2s ease-in-out",
+          "&:hover": {
+            boxShadow: "none",
+            transform: "scale(1.1)",
+          },
+        },
+        outlined: {
+          "&:hover": {
+            background: "rgba(255, 255, 255, 0)",
+          },
+        },
       },
     },
   },
-});
+})
 
-export default theme;
+export default theme
